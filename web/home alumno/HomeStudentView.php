@@ -1,4 +1,4 @@
-<?php 
+"<?php 
 //creamos clase de view
 	class LoginView{
 

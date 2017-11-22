@@ -17,15 +17,12 @@
 		*/
 		public function showCurrentInfo(){
 
-			// Creamos un objeto de la clase MysqlDBImplementation
-			$mysqli = new MysqlDBImplementation();
-
-			// Llamamos al método constructor para abrir conexión con base de datos
+			// Creamos un objeto de la clase MysqlDBImplementation y abrimos conexión con base de datos
 			// Parámetros: host, puerto, nombre de base de datos, usuario, contraseña
-			$mysqli->__construct("localhost", "8888", "DBLEARN", "root", "learn");
+			$mysqli = new MysqlDBImplementation("localhost", "8888", "DBLEARN", "root", "learn");
 
 			// Definimos la query
-			$consult = "SELECT ID_PRO FROM PROFESORES WHERE ID_ALUMN = '{$_SESSION ["id"]}'";
+			$consult = "SELECT * FROM ALUMN WHERE ID_ALUMN = '{$_SESSION ["id"]}'";
 
 			//Ejecución de query en la base de datos mediante el objeto mysqli.
 			//almacenamos en $result los resultados de la query "$consult" ejecutando el método query()  
