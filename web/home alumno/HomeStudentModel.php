@@ -21,7 +21,8 @@
 			$mysqli = new MysqlDBImplementation();
 
 			// Llamamos al método constructor para abrir conexión con base de datos
-			$mysqli->__construct($DBhost, "8888", "DBLEARN", "root", "learn");
+			// Parámetros: host, puerto, nombre de base de datos, usuario, contraseña
+			$mysqli->__construct("localhost", "8888", "DBLEARN", "root", "learn");
 
 			// Definimos la query
 			$consult = "SELECT ID_PRO FROM PROFESORES WHERE ID_ALUMN = '{$_SESSION ["id"]}'";
