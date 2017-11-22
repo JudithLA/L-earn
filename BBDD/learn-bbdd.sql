@@ -255,3 +255,146 @@ CREATE TABLE IF NOT EXISTS RESPU_FINAL (
 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
+INSERT INTO CENTR (NOMBRE_CENTR, COMUNIDAD_CENTR, MUNICIPIO_CENTR, CP_CENTR) VALUES
+('I.E.S. Mariano Quintanilla', 'Comunidad de Madrid', 'Madrid', 28015);
+
+INSERT INTO CURSO (NIVEL_CURSO, ID_CENTR) VALUES
+('1º E. S. O.', 1);
+
+INSERT INTO GRUPO (LETRA_GRUPO, ID_CURSO) VALUES
+('A', 1);
+
+INSERT INTO ALUMN (NOMBRE_ALUMN, APELLIDO_ALUMN, EMAIL_ALUMN, CONTRASENA_ALUMN, EXPERIENCIA_ALUMN, PUNTOS_ALUMN, IMG_ALUMN, ID_GRUPO) VALUES
+('Lola', 'Flores', 'lolaflores@email.com', '12345678', 250, 1230, 'web/img/lolaflores.jpg', 1);
+
+INSERT INTO PROFE (NOMBRE_PROFE, APELLIDO_PROFE, EMAIL_PROFE, CONTRASENA_PROFE, IMG_PROFE, ID_CENTR) VALUES
+('Lola', 'Flores', 'lolaflores@email.com','12345678', 'web/img/lolaflores.jpg', 1);
+
+INSERT INTO ASIGN (NOMBRE_ASIGN, ID_PROFE) VALUES
+('Lengua y literatura', 1);
+
+INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
+('La novela contemporánea', 1, 1);
+
+INSERT INTO REL_GRUPO_ASIGN (ID_GRUPO, ID_ASIGN) VALUES
+(1, 1);
+
+INSERT INTO REL_ALUMN_ENTRE (FECHA_REL_ALUMN_ENTRE, ID_ALUMN, ID_ENTRE) VALUES
+(DATE('2017-11-01'), 1, 1);
+
+INSERT INTO REL_ALUMN_FINAL (PUNTOS_REL_ALUMN_FINAL, ID_ALUMN, ID_FINAL) VALUES
+(430, 1, 1);
+
+INSERT INTO ENTRE (NOMBRE_ENTRE, DESCR_ENTRE, ID_TEMAS) VALUES
+('Título de test de entrenamiento', 'Descripción de test de entrenamiento', 1);
+
+INSERT INTO FINAL (NOMBRE_FINAL, DESCR_FINAL, ID_TEMAS) VALUES
+('Título de test de final', 'Descripción de test de final', 1);
+
+INSERT INTO PREGU_ENTRE (ENUNCIADO_PREGU_ENTRE, ID_ENTRE) VALUES
+('¿Qué escritor no pertenece a la Generación del 27?', 1),
+('¿Qué es la Generación del 27?', 1),
+('¿Quién escribió «La Colmena»?', 1),
+('¿Qué escritora no es española?', 1),
+('¿Qué libro no es del siglo XX?', 1),
+('¿Cuál de estos libros no escribió Benito Pérez Galdós?', 1),
+('¿Qué poema escribió Federico García Lorca?', 1),
+('¿Qué escritora es la máxima representante del nturalismo en España?', 1),
+('¿Cómo se llamaba la compañía teatral de Federico García Lorca?', 1),
+('¿Quién escribió «Nada»?', 1);
+
+INSERT INTO PREGU_FINAL (ENUNCIADO_PREGU_FINAL, ID_FINAL) VALUES
+('FINAL ¿Qué escritor no pertenece a la Generación del 27?', 1),
+('FINAL ¿Qué es la Generación del 27?', 1),
+('FINAL ¿Quién escribió «La Colmena»?', 1),
+('FINAL ¿Qué escritora no es española?', 1),
+('FINAL ¿Qué libro no es del siglo XX?', 1),
+('FINAL ¿Cuál de estos libros no escribió Benito Pérez Galdós?', 1),
+('FINAL ¿Qué poema escribió Federico García Lorca?', 1),
+('FINAL ¿Qué escritora es la máxima representante del nturalismo en España?', 1),
+('FINAL ¿Cómo se llamaba la compañía teatral de Federico García Lorca?', 1),
+('FINAL ¿Quién escribió «Nada»?', 1);
+
+INSERT INTO RESPU_ENTRE (TEXTO_RESPU_ENTRE, PESO_RESPU_ENTRE, CORRECTA_RESPUE_ENTRE, ID_PREGU_ENTRE) VALUES
+('Respuesta 1', 1, 0, 1),
+('Respuesta 2', 2, 0, 1),
+('Respuesta 3', 3, 0, 1),
+('Respuesta 4', 4, 1, 1),
+('Respuesta 1', 1, 0, 2),
+('Respuesta 2', 2, 0, 2),
+('Respuesta 3', 3, 0, 2),
+('Respuesta 4', 4, 1, 2),
+('Respuesta 1', 1, 0, 3),
+('Respuesta 2', 2, 0, 3),
+('Respuesta 3', 3, 0, 3),
+('Respuesta 4', 4, 1, 3),
+('Respuesta 1', 1, 0, 4),
+('Respuesta 2', 2, 0, 4),
+('Respuesta 3', 3, 0, 4),
+('Respuesta 4', 4, 1, 4),
+('Respuesta 1', 1, 0, 5),
+('Respuesta 2', 2, 0, 5),
+('Respuesta 3', 3, 0, 5),
+('Respuesta 4', 4, 1, 5),
+('Respuesta 1', 1, 0, 6),
+('Respuesta 2', 2, 0, 6),
+('Respuesta 3', 3, 0, 6),
+('Respuesta 4', 4, 1, 6),
+('Respuesta 1', 1, 0, 7),
+('Respuesta 2', 2, 0, 7),
+('Respuesta 3', 3, 0, 7),
+('Respuesta 4', 4, 1, 7),
+('Respuesta 1', 1, 0, 8),
+('Respuesta 2', 2, 0, 8),
+('Respuesta 3', 3, 0, 8),
+('Respuesta 4', 4, 1, 8),
+('Respuesta 1', 1, 0, 9),
+('Respuesta 2', 2, 0, 9),
+('Respuesta 3', 3, 0, 9),
+('Respuesta 4', 4, 1, 9),
+('Respuesta 1', 1, 0, 10),
+('Respuesta 2', 2, 0, 10),
+('Respuesta 3', 3, 0, 10),
+('Respuesta 4', 4, 1, 10);
+
+INSERT INTO RESPU_FINAL (TEXTO_RESPU_FINAL, PESO_RESPU_FINAL, CORRECTA_RESPUE_FINAL, ID_PREGU_FINAL) VALUES
+('Respuesta 1', 1, 0, 1),
+('Respuesta 2', 2, 0, 1),
+('Respuesta 3', 3, 0, 1),
+('Respuesta 4', 4, 1, 1),
+('Respuesta 1', 1, 0, 2),
+('Respuesta 2', 2, 0, 2),
+('Respuesta 3', 3, 0, 2),
+('Respuesta 4', 4, 1, 2),
+('Respuesta 1', 1, 0, 3),
+('Respuesta 2', 2, 0, 3),
+('Respuesta 3', 3, 0, 3),
+('Respuesta 4', 4, 1, 3),
+('Respuesta 1', 1, 0, 4),
+('Respuesta 2', 2, 0, 4),
+('Respuesta 3', 3, 0, 4),
+('Respuesta 4', 4, 1, 4),
+('Respuesta 1', 1, 0, 5),
+('Respuesta 2', 2, 0, 5),
+('Respuesta 3', 3, 0, 5),
+('Respuesta 4', 4, 1, 5),
+('Respuesta 1', 1, 0, 6),
+('Respuesta 2', 2, 0, 6),
+('Respuesta 3', 3, 0, 6),
+('Respuesta 4', 4, 1, 6),
+('Respuesta 1', 1, 0, 7),
+('Respuesta 2', 2, 0, 7),
+('Respuesta 3', 3, 0, 7),
+('Respuesta 4', 4, 1, 7),
+('Respuesta 1', 1, 0, 8),
+('Respuesta 2', 2, 0, 8),
+('Respuesta 3', 3, 0, 8),
+('Respuesta 4', 4, 1, 8),
+('Respuesta 1', 1, 0, 9),
+('Respuesta 2', 2, 0, 9),
+('Respuesta 3', 3, 0, 9),
+('Respuesta 4', 4, 1, 9),
+('Respuesta 1', 1, 0, 10),
+('Respuesta 2', 2, 0, 10),
+('Respuesta 3', 3, 0, 10),
+('Respuesta 4', 4, 1, 10);

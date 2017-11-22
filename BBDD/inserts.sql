@@ -16,12 +16,12 @@ INSERT INTO GRUPO (LETRA_GRUPO, ID_CURSO) VALUES
 
 
 -- Datos de los alumnos:
--- Nombre del alumno, apellido del alumno, email del alumno, contraseña del alumno, puntos de experiencia, puntos finales, imagen del alumno, ID de grupo existente
+-- Nombre del alumno, apellido del alumno, email del alumno, contraseña del alumno (máximo 8 caracteres), puntos de experiencia, puntos finales, imagen del alumno, ID de grupo existente
 INSERT INTO ALUMN (NOMBRE_ALUMN, APELLIDO_ALUMN, EMAIL_ALUMN, CONTRASENA_ALUMN, EXPERIENCIA_ALUMN, PUNTOS_ALUMN, IMG_ALUMN, ID_GRUPO) VALUES
 ('', '', '', '', 0, 0, 'web/img/nombredelaimagen.jpg', 0);
 
 -- Datos de los profesores:
--- Nombre del profesor, apellido del profesor, email del profesor, contraseña del profesor, imagen del profesor, ID de centro existente
+-- Nombre del profesor, apellido del profesor, email del profesor, contraseña del profesor (máximo 8 caracteres), imagen del profesor, ID de centro existente
 INSERT INTO ALUMN (NOMBRE_PROFE, APELLIDO_PROFE, EMAIL_PROFE, CONTRASENA_PROFE, IMG_PROFE, ID_CENTR) VALUES
 ('', '', '', '', 'web/img/nombredelaimagen.jpg', 0);
 
