@@ -39,7 +39,7 @@ INSERT INTO ALUMN (NOMBRE_ALUMN, APELLIDO_ALUMN, EMAIL_ALUMN, CONTRASENA_ALUMN, 
 
 -- Datos de los profesores:
 -- Nombre del profesor, apellido del profesor, email del profesor, contraseña del profesor, imagen del profesor, ID de centro existente
-INSERT INTO ALUMN (NOMBRE_PROFE, APELLIDO_PROFE, EMAIL_PROFE, CONTRASENA_PROFE, IMG_PROFE, ID_CENTR) VALUES
+INSERT INTO PROFE (NOMBRE_PROFE, APELLIDO_PROFE, EMAIL_PROFE, CONTRASENA_PROFE, IMG_PROFE, ID_CENTR) VALUES
 ('Alfonso', 'Muñoz', 'alfonsomuñoz@gmail.com', 'alfMUÑOZ21', 'web/img/profe1.jpeg', 1);
 ('Emilia', 'Hernandez', 'E.Hernandez@gmail.com', 'eHERNANDEZ12', 'web/img/profe2.jpeg', 1);
 ('Gabriel', 'Márquez', 'GabrielMarquez@gmail.com', 'GABImarquez', 'web/img/profe3.jpeg', 1);
