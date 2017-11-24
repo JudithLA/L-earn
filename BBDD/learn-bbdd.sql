@@ -269,7 +269,37 @@ INSERT INTO CENTR (NOMBRE_CENTR, COMUNIDAD_CENTR, MUNICIPIO_CENTR, CP_CENTR) VAL
 ('I.E.S. Ciudad de los Poetas', 'Comunidad de Madrid', 'Madrid', 28039),
 ('I.E.S. Conde Orgaz', 'Comunidad de Madrid', 'Madrid', 28043),
 ('I.E.S. Fortuny', 'Comunidad de Madrid', 'Madrid', 28010),
-('I.E.S. Francisco de Goya', 'Comunidad de Madrid', 'Madrid', 28017);
+('I.E.S. Francisco de Goya', 'Comunidad de Madrid', 'Madrid', 28017),
+('I.E.S. Francisco de Quevedo', 'Madrid', 'Madrid', 28037),
+('I.E.S. Gabriel García Márquez', 'Madrid', 'Madrid', 28033),
+('I.E.S. García Morato', 'Madrid', 'Madrid', 28044),
+('I.E.S. Gran Capitán', 'Madrid', 'Madrid', 28005),
+('I.E.S. Gomez Moreno', 'Madrid', 'Madrid', 28037),
+('I.E.S. Isaac Newton', 'Madrid', 'Madrid', 28035),
+('I.E.S. Joaquín Rodrigo', 'Madrid', 'Madrid', 28032),
+('I.E.S. Joaquín Turina', 'Madrid', 'Madrid', 28003),
+('I.E.S. Juan de la Cierva', 'Madrid', 'Madrid', 28005),
+('I.E.S. Juan de Castilla', 'Madrid', 'Madrid', 28030),
+('I.E.S. La Estrella', 'Madrid', 'Madrid', 28007),
+('I.E.S. Lope de Vega', 'Madrid', 'Madrid', 28015),
+('I.E.S. Manuel Fraga Iribarne', 'Madrid', 'Madrid', 28050),
+('I.E.S. Mariano José de Larra', 'Madrid', 'Madrid', 28047),
+('I.E.S. María Rodrigo', 'Madrid', 'Madrid', 28051),
+('I.E.S. Mirasierra', 'Madrid', 'Madrid', 28034),
+('I.E.S. Nuestra Señora de la Almudena', 'Madrid', 'Madrid', 28039),
+('I.E.S. Pedro Salines', 'Madrid', 'Madrid', 28026),
+('I.E.S. Príncipe Felipe', 'Madrid', 'Madrid', 28029),
+('I.E.S. Ramiro de Maeztu', 'Madrid', 'Madrid', 28006),
+('I.E.S. Ramón y Cajal', 'Madrid', 'Madrid', 28050),
+('I.E.S. Rey Pastor', 'Madrid', 'Madrid', 28030),
+('I.E.S. San Cristobal de los Ángeles', 'Madrid', 'Madrid', 28021),
+('I.E.S. San Isidro', 'Madrid', 'Madrid', 28005),
+('I.E.S. San Juan Bautista', 'Madrid', 'Madrid', 28043),
+('I.E.S. Santamarta', 'Madrid', 'Madrid', 28016),
+('I.E.S. Tirso de Molina', 'Madrid', 'Madrid', 28038),
+('I.E.S. Valdebernardo', 'Madrid', 'Madrid', 28032),
+('I.E.S. Villa de Vallecas', 'Madrid', 'Madrid', 28031),
+('I.E.S. Villablanca', 'Madrid', 'Madrid', 28032);
 
 
 INSERT INTO CURSO (NIVEL_CURSO, ID_CENTR) VALUES
@@ -357,17 +387,16 @@ INSERT INTO GRUPO (LETRA_GRUPO, ID_CURSO) VALUES
 
 
 INSERT INTO ALUMN (NOMBRE_ALUMN, APELLIDO_ALUMN, EMAIL_ALUMN, CONTRASENA_ALUMN, EXPERIENCIA_ALUMN, PUNTOS_ALUMN, IMG_ALUMN, ID_GRUPO) VALUES
-('Lola', 'Pérez', 'lolaperez@gmail.com', 'cont5678', 55, 1200, 'web/img/alumno1.jpg', 1),
-('Raúl', 'González', 'raulitog@gmail.com', 'cont5678', 61, 1520, 'web/img/alumno2.jpg', 1),
-('Elena', 'Rodríguez', 'e.rodriguez@gmail.com', 'cont5678', 40, 800, 'web/img/alumno3.jpg', 1),
-('María', 'Alonso', 'maria.alonso@gmail.com', 'cont5678', 82, 1654, 'web/img/alumno4.jpg', 1),
-('Roberto', 'García', 'robertoG@gmail.com', 'cont5678', 95, 1935, 'web/img/alumno5.jpg', 1),
+('Lola', 'Pérez', 'lolaperez@gmail.com', 'cont5678', 4, 1200, 'web/img/alumno1.jpg', 1),
+('Raúl', 'González', 'raulitog@gmail.com', 'cont5678', 6, 1520, 'web/img/alumno2.jpg', 1),
+('Elena', 'Rodríguez', 'e.rodriguez@gmail.com', 'cont5678', 7, 800, 'web/img/alumno3.jpg', 1),
+('María', 'Alonso', 'maria.alonso@gmail.com', 'cont5678', 3, 1654, 'web/img/alumno4.jpg', 1),
+('Roberto', 'García', 'robertoG@gmail.com', 'cont5678', 8, 1935, 'web/img/alumno5.jpg', 1),
 
-('Lola', 'Pérez', 'lolaperez@gmail.com', 'cont5678', 255, 1200, 'web/img/alumno1.jpg', 2),
-('Raúl', 'González', 'raulitog@gmail.com', 'cont5678', 61, 1520, 'web/img/alumno2.jpg', 2),
-('Elena', 'Rodríguez', 'e.rodriguez@gmail.com', 'cont5678', 40, 800, 'web/img/alumno3.jpg', 2),
-('María', 'Alonso', 'maria.alonso@gmail.com', 'cont5678', 82, 1654, 'web/img/alumno4.jpg', 2),
-('Roberto', 'García', 'robertoG@gmail.com', 'cont5678', 95, 1935, 'web/img/alumno5.jpg', 2),
+('Álvaro', 'Sánchez', 'a.sanchez1@gmail.com', 'cont5678', 8, 1735, 'web/img/alumno6.jpg', 2),
+('Sofia', 'Santos', 'sofiasantos@gmail.com', 'cont5678', 6, 1408, 'web/img/alumno7.jpg', 2),
+('Adrian', 'Martinez', 'a.martinez@gmail.com', 'cont5678', 4, 1735, 'web/img/alumno8.jpg', 2),
+('Mario', 'Pascual', 'marioPascual@gmail.com', 'cont5678', 5, 1103, 'web/img/alumno9.jpg', 2),
 
 ('Lola', 'Pérez', 'lolaperez@gmail.com', 'cont5678', 255, 1200, 'web/img/alumno1.jpg', 3),
 ('Raúl', 'González', 'raulitog@gmail.com', 'cont5678', 61, 1520, 'web/img/alumno2.jpg', 3),
@@ -436,18 +465,28 @@ INSERT INTO PROFE (NOMBRE_PROFE, APELLIDO_PROFE, EMAIL_PROFE, CONTRASENA_PROFE, 
 
 
 INSERT INTO ASIGN (NOMBRE_ASIGN, ID_PROFE) VALUES
-('Lengua Castellana y Literatura', 1),
+('Lengua castellana y literatura', 1),
+('Inglés', 1),
 ('Matemáticas', 2),
-('Biología y Geología', 3),
-('Geografía e Historia', 4),
-('Lengua Castellana y Literatura', 5),
+('Biología y Geología', 2),
+('Física y Química', 2),
+('Ciencias Sociales', 3),
+('Música', 3),
+('Matemáticas', 4),
+('Biología y Geología', 4),
+('Lengua castellana y literatura', 5),
+('Valores Éticos', 5),
 ('Matemáticas', 6),
+('Tecnología', 6),
+('Educación Física', 7),
 ('Biología y Geología', 7),
-('Geografía e Historia', 8),
+('Educación plástica y audiovisual', 8),
 ('Lengua Castellana y Literatura', 9),
+('Latín', 9),
+('Economía', 10),
 ('Matemáticas', 10),
 ('Biología y Geología', 11),
-('Geografía e Historia', 12);
+('Ciencias Sociales', 12);
 
 
 INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
@@ -464,11 +503,14 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('El lenguaje literario', 1, 9),
 ('La narración, el lenguaje oral/ escrito, primitivas, derivadas y géneros literarios', 1, 9),
 ('Género nominal, sustantivos. Escribir carta y épica castellana', 1, 9),
-('Descripción. Adjetivos, forma y uso', 1, 9);
+('Descripción. Adjetivos, forma y uso', 1, 9),
+
+('Los números primos', 1, 2);
 
 
 INSERT INTO ENTRE (NOMBRE_ENTRE, DESCR_ENTRE, ID_TEMAS) VALUES
-('Título de test de entrenamiento', 'Descripción de test de entrenamiento', 1);
+('Título de test de entrenamiento 1', 'Descripción de test de entrenamiento 1', 1),
+('Título de test de entrenamiento 2', 'Descripción de test de entrenamiento 2', 13);
 
 INSERT INTO FINAL (NOMBRE_FINAL, DESCR_FINAL, ID_TEMAS) VALUES
 ('Título de test de final', 'Descripción de test de final', 1);
@@ -483,7 +525,17 @@ INSERT INTO PREGU_ENTRE (ENUNCIADO_PREGU_ENTRE, ID_ENTRE) VALUES
 ('¿Qué poema escribió Federico García Lorca?', 1),
 ('¿Qué escritora es la máxima representante del nturalismo en España?', 1),
 ('¿Cómo se llamaba la compañía teatral de Federico García Lorca?', 1),
-('¿Quién escribió «Nada»?', 1);
+('¿Quién escribió «Nada»?', 1),
+('2 ¿Qué escritor no pertenece a la Generación del 27?', 2),
+('2 ¿Qué es la Generación del 27?', 2),
+('2 ¿Quién escribió «La Colmena»?', 2),
+('2 ¿Qué escritora no es española?', 2),
+('2 ¿Qué libro no es del siglo XX?', 2),
+('2 ¿Cuál de estos libros no escribió Benito Pérez Galdós?', 2),
+('2 ¿Qué poema escribió Federico García Lorca?', 2),
+('2 ¿Qué escritora es la máxima representante del nturalismo en España?', 2),
+('2 ¿Cómo se llamaba la compañía teatral de Federico García Lorca?', 2),
+('2 ¿Quién escribió «Nada»?', 2);
 
 INSERT INTO PREGU_FINAL (ENUNCIADO_PREGU_FINAL, ID_FINAL) VALUES
 ('FINAL ¿Qué escritor no pertenece a la Generación del 27?', 1),
@@ -537,7 +589,47 @@ INSERT INTO RESPU_ENTRE (TEXTO_RESPU_ENTRE, PESO_RESPU_ENTRE, CORRECTA_RESPUE_EN
 ('Respuesta 1', 1, 0, 10),
 ('Respuesta 2', 2, 0, 10),
 ('Respuesta 3', 3, 0, 10),
-('Respuesta 4', 4, 1, 10);
+('Respuesta 4', 4, 1, 10),
+('Respuesta 1', 1, 0, 11),
+('Respuesta 2', 2, 0, 11),
+('Respuesta 3', 3, 0, 11),
+('Respuesta 4', 4, 1, 11),
+('Respuesta 1', 1, 0, 12),
+('Respuesta 2', 2, 0, 12),
+('Respuesta 3', 3, 0, 12),
+('Respuesta 4', 4, 1, 12),
+('Respuesta 1', 1, 0, 13),
+('Respuesta 2', 2, 0, 13),
+('Respuesta 3', 3, 0, 13),
+('Respuesta 4', 4, 1, 13),
+('Respuesta 1', 1, 0, 14),
+('Respuesta 2', 2, 0, 14),
+('Respuesta 3', 3, 0, 14),
+('Respuesta 4', 4, 1, 14),
+('Respuesta 1', 1, 0, 15),
+('Respuesta 2', 2, 0, 15),
+('Respuesta 3', 3, 0, 15),
+('Respuesta 4', 4, 1, 15),
+('Respuesta 1', 1, 0, 16),
+('Respuesta 2', 2, 0, 16),
+('Respuesta 3', 3, 0, 16),
+('Respuesta 4', 4, 1, 16),
+('Respuesta 1', 1, 0, 17),
+('Respuesta 2', 2, 0, 17),
+('Respuesta 3', 3, 0, 17),
+('Respuesta 4', 4, 1, 17),
+('Respuesta 1', 1, 0, 18),
+('Respuesta 2', 2, 0, 18),
+('Respuesta 3', 3, 0, 18),
+('Respuesta 4', 4, 1, 18),
+('Respuesta 1', 1, 0, 19),
+('Respuesta 2', 2, 0, 19),
+('Respuesta 3', 3, 0, 19),
+('Respuesta 4', 4, 1, 19),
+('Respuesta 1', 1, 0, 20),
+('Respuesta 2', 2, 0, 20),
+('Respuesta 3', 3, 0, 20),
+('Respuesta 4', 4, 1, 20);
 
 INSERT INTO RESPU_FINAL (TEXTO_RESPU_FINAL, PESO_RESPU_FINAL, CORRECTA_RESPUE_FINAL, ID_PREGU_FINAL) VALUES
 ('Respuesta 1', 1, 0, 1),
