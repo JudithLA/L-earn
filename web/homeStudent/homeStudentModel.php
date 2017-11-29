@@ -1,6 +1,6 @@
 <?php 
 	// Incluimos el archivo con la conexión a base de datos
-	require_once "MysqlDBImplementation.php";
+	require_once __DIR__ . "../ConnectSupport/Implementation/MysqlDBImplementation.php";
 
 	//creamos clase 
 	class HomeStudentModel{

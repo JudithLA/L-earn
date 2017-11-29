@@ -1,6 +1,6 @@
 <?php  
-require_once "loginModel.php";
-require_once "loginView.php";
+require_once __DIR__ . "/homeStudentModel.php";
+require_once __DIR__ . "/homeStudentView.php";
 
 //Clase que gestiona las llamadas con la pantalla de login
 class HomeStudentController{
