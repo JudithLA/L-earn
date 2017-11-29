@@ -1,13 +1,10 @@
 <?php 
+	// Incluimos el archivo del Controlador
+	require_once __DIR__ . "/homeStudentController.php";
 
-
-//solicitamos el archivo de Controlador
-require_once __DIR__ . "/homeStudentController.php";
-
-	//instancias/creas un objeto de clase LoginController
-	$view = new homeStudentController();
-	//llamas al método del objeto: devuelves el HTML generado en la vista
+	// Instanciamos un objeto de la clase HomeStudentController
+	$view = new HomeStudentController();
+	// Devolvemos y mostramos el HTML
 	echo $view->viewInfo();
-
 
  ?>

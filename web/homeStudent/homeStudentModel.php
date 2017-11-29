@@ -1,107 +1,85 @@
 <?php 
-	// Incluimos el archivo con la conexión a base de datos
+	// Incluimos el archivo con la conexión a BBDD
 	require_once __DIR__ . "../ConnectSupport/Implementation/MysqlDBImplementation.php";
 
-	//creamos clase 
+	// Clase del Modelo
 	class HomeStudentModel{
 
-		//Constructor (crea la clase)
-		public function __construct(){}
+		// Creamos un atributo
+		private $mysqli;
 
-		//Destructor (Destruye la clase)
+		// Constructor (crea la clase)
+		public function __construct(){
+
+			// Creamos un objeto de la clase MysqlDBImplementation, se lo pasamos al atributo $mysqli y abrimos conexión con base de datos
+			// Parámetros: host, puerto, nombre de base de datos, usuario, contraseña
+			$this->mysqli = new MysqlDBImplementation("127.0.0.0", "8889", "DBLEARN", "root", "learn");
+
+		}
+
+		//Destructor (destruye la clase)
 		public function __destruct(){}		
 
 		// Método consultar la BBDD y obtener el último test final realizado por el alumno
+		// Habrá que pasar el ID_ALUMN por parámetro: public function nextTest($idAlumno){WHERE ALUMN.ID_ALUMN = '{$idAlumno}'}
 		public function nextTest(){
-
-			// Creamos un objeto de la clase MysqlDBImplementation y abrimos conexión con base de datos
-			// Parámetros: host, puerto, nombre de base de datos, usuario, contraseña
-			$mysqli = new MysqlDBImplementation("localhost", "8889", "DBLEARN", "root", "learn");
-
-			// Definimos la query
-			$consult = "SELECT 
-
-			 WHERE ID_ALUMN = '{$_SESSION ["id"]}'";
-
-			//Ejecución de query en la base de datos mediante el objeto mysqli.
-			//almacenamos en $result los resultados de la query "$consult" ejecutando el método query()  
-			$result = $mysqli -> query($consult);
-
-			//inicialiamos id =0, porque si no hay resultados no nos devolvería 0 al controlador sino "vacío" y daría fallo
-			// $id = 0;
 			
-			//recorremos toda las filas de la tabla con el metodo mysqli_fecth_assoc()
-			//le pasamos al método nuestra query ($result)
-			while($row = mysqli_fetch_assoc($result)){
-				
-				//almacenamos en $id el resultado de la query &consult (valor del campo ID_PRO)
-				//será cero si no encuantra ningúna fila con NOM_PRO=name y CON_PRO=password
-				// $id = $row["ID_PRO"];
+			// Definimos la query
+			
+			$consult = "SELECT FINAL.ID_FINAL AS FinalTest, REL_ALUMN_FINAL.ID_FINAL AS IdLastTestDone, REL_ALUMN_FINAL.FECHA_REL_ALUMN_FINAL AS DateLastTestDone, TEMAS.ICON_TEMAS AS ImgTema, ASIGN.NOMBRE_ASIGN AS NombreAsign FROM ALUMN
+						INNER JOIN REL_ALUMN_FINAL ON ALUMN.ID_ALUMN = REL_ALUMN_FINAL.ID_ALUMN
+						INNER JOIN FINAL ON REL_ALUMN_FINAL.ID_FINAL = FINAL.ID_FINAL
+						INNER JOIN TEMAS ON FINAL.ID_TEMAS = TEMAS.ID_TEMAS
+						INNER JOIN ASIGN ON TEMAS.ID_ASIGN = ASIGN.ID_ASIGN
+						WHERE ALUMN.ID_ALUMN = 1 AND ASIGN.ID_ASIGN = 1 ORDER BY REL_ALUMN_FINAL.FECHA_REL_ALUMN_FINAL DESC LIMIT 1";
 
-			}
+			// Llamada al método executeQuery() mediante el acceso al atributo $mysqli para ejecutar la query en la BBDD
+			// Almacenamos en $result los resultados de la query "$consult"
+			$result = $this->mysqli -> executeQuery($consult);
+			
+			// Almacenamos el resultado de la query
+			$lastTestDone = $result[0];
 
-			// return $id;
+			return $lastTestDone;
 		}
 
 		// Método consultar la BBDD y obtener el porcentaje de los puntos de experiencia total del alumno entre todas sus asignaturas
 		public function percentageStudentExpPoints(){
 
-			// Creamos un objeto de la clase MysqlDBImplementation y abrimos conexión con base de datos
-			// Parámetros: host, puerto, nombre de base de datos, usuario, contraseña
-			$mysqli = new MysqlDBImplementation("localhost", "8889", "DBLEARN", "root", "learn");
-
 			// Definimos la query
+			// Habrá que modificar el ID_ALUMN por '{$_SESSION ["id"]}'
 			$consult = "SELECT (ALUMN.EXPERIENCIA_ALUMN*100)/(SELECT COUNT(ENTRE.ID_ENTRE)*4 AS TotalExperiencia FROM ENTRE
         				INNER JOIN TEMAS ON ENTRE.ID_TEMAS = TEMAS.ID_TEMAS
-        				INNER JOIN ASIGN ON TEMAS.ID_ASIGN = ASIGN.ID_ASIGN)
-						FROM ALUMN WHERE ALUMN.ID_ALUMN = '{$_SESSION ["id"]}'";
+        				INNER JOIN ASIGN ON TEMAS.ID_ASIGN = ASIGN.ID_ASIGN) AS Porcentaje
+						FROM ALUMN WHERE ALUMN.ID_ALUMN = 1";
 
-			//Ejecución de query en la base de datos mediante el objeto mysqli.
-			//almacenamos en $result los resultados de la query "$consult" ejecutando el método query()  
-			$result = $mysqli -> query($consult);
-			
-			//recorremos toda las filas de la tabla con el metodo mysqli_fecth_assoc()
-			//le pasamos al método nuestra query ($result)
-			while($row = mysqli_fetch_assoc($result)){
-				
-				//almacenamos en $id el resultado de la query &consult (valor del campo ID_PRO)
-				//será cero si no encuantra ningúna fila con NOM_PRO=name y CON_PRO=password
-				// $id = $row["ID_PRO"];
+			// Llamada al método executeQuery() mediante el acceso al atributo $mysqli para ejecutar la query en la BBDD
+			// Almacenamos en $result los resultados de la query "$consult"
+			$result = $this->mysqli -> executeQuery($consult);
 
-			}
+			// Almacenamos el resultado de la query (valor del resultado de la operación Porcentaje)
+			$percentage = $result[0];
 
-			// return $id;
+			return $percentage;
 		}
 
 		// Método consultar la BBDD y obtener los puntos finales totales del alumno
 		public function studentFinPoints(){
 
-			// Creamos un objeto de la clase MysqlDBImplementation y abrimos conexión con base de datos
-			// Parámetros: host, puerto, nombre de base de datos, usuario, contraseña
-			$mysqli = new MysqlDBImplementation("localhost", "8889", "DBLEARN", "root", "learn");
-
 			// Definimos la query
-			$consult = "SELECT PUNTOS_ALUMN FROM ALUMN WHERE ID_ALUMN = '{$_SESSION ["id"]}'";
+			// Habrá que modificar el ID_ALUMN por '{$_SESSION ["id"]}'
+			$consult = "SELECT PUNTOS_ALUMN FROM ALUMN WHERE ID_ALUMN = 1";
 
-			//Ejecución de query en la base de datos mediante el objeto mysqli.
-			//almacenamos en $result los resultados de la query "$consult" ejecutando el método query()  
-			$result = $mysqli -> query($consult);
-			
-			//recorremos toda las filas de la tabla con el metodo mysqli_fecth_assoc()
-			//le pasamos al método nuestra query ($result)
-			while($row = mysqli_fetch_assoc($result)){
+			// Llamada al método executeQuery() mediante el acceso al atributo $mysqli para ejecutar la query en la BBDD
+			// Almacenamos en $result los resultados de la query "$consult"
+			$result = $this->mysqli -> executeQuery($consult);
 				
-				//almacenamos en $id el resultado de la query &consult (valor del campo ID_PRO)
-				//será cero si no encuantra ningúna fila con NOM_PRO=name y CON_PRO=password
-				// $id = $row["ID_PRO"];
+			// Almacenamos el resultado de la query (valor del campo PUNTOS_ALUMN)
+			$finalPoints = $result[0];
 
-			}
-
-			// return $id;
+			return $finalPoints;
 		}
 
 	}
-	
-
 
  ?>
