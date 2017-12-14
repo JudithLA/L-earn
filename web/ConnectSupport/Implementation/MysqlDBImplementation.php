@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-require_once '../Interface/DBInterface.php';
+require_once __DIR__.'/../Interface/DBInterface.php';
 
 class MysqlDBImplementation implements DBInterface {
     
