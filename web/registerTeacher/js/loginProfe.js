@@ -7,7 +7,7 @@ window.onload=function(){
 
 
 Login.fn.AddUser = function (user, email, pass) {
-    var url = "http://localhost:8888/registerTeacher/RegisterReceived.php";
+    var url = "http://localhost:8888/L-earn/web/registerTeacher/RegisterReceived.php";
     var data = {
         user: $('#name').val(),
         email: $('#email').val(),
@@ -30,7 +30,9 @@ Login.fn.AddUser = function (user, email, pass) {
             
             resultArray = JSON.parse(result);
             if(resultArray['status'] == 'OK'){
-              window.location.href = resultArray['url'];
+            //   window.location.href = resultArray['url'];
+                $('#paso1').removeClass('on');
+                $('#paso2').addClass('on');
             } else {
                 $('.msgError').html(resultArray['msg']);
             }

@@ -54,7 +54,8 @@ class loginController {
 			//creamos primer campo de array asociativo -> status = 0;
 			$failLogin ["status"] = 0;
 
-			$failLogin["msgError"] = "<a href='#'>¿Eres nuevo?</a>";
+			
+			$failLogin["msgError"] = "<a href='../registerTeacher/RegisterTeacher.html'>¿Eres nuevo?</a>";
 			$failLogin["emailError"] = "Comprueba que has introducido un email correcto";
 			$failLogin["passError"] = "Comprueba tu contraseña";
 			return $failLogin;
