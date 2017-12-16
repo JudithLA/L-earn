@@ -34,7 +34,9 @@ class RegisterTeacherController {
 		$pickPass = $_POST ["password"];
 
 	
-		//para utilizar un método, 1º debemos instanciar un objeto de su clase (clase=estructura / objeto=instanciar) [$model = new LoginModel();]. 2º) Debemos llamar a ese método señalándolo con el objeto que hemos instanciado y dándole los parámetros que hemos definido previamente ($model->checkPass($pickName,$pickPass);)
+		//para utilizar un método, 
+			//1º debemos instanciar un objeto de su clase (clase=estructura / objeto=instanciar) [$model = new LoginModel();]. 
+			//2º) Debemos llamar a ese método señalándolo con el objeto que hemos instanciado y dándole los parámetros que hemos definido previamente ($model->checkPass($pickName,$pickPass);)
 		//instanciamos objeto de la clase LoginModel
 
 		$model = new RegisterTeacherModel();
