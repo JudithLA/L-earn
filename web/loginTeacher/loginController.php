@@ -37,7 +37,7 @@ class loginController {
         
 
 		
-		if($idUser){
+		if($idUser>=1){
 
 			
 			session_start();
@@ -54,8 +54,9 @@ class loginController {
 			//creamos primer campo de array asociativo -> status = 0;
 			$failLogin ["status"] = 0;
 
-			//creamos segundo campo de array asociativo -> message = "la has cagado amigo";
-			$failLogin["message"] = "Error, no existe usuario/contraseña";
+			$failLogin["msgError"] = "<a href='#'>¿Eres nuevo?</a>";
+			$failLogin["emailError"] = "Comprueba que has introducido un email correcto";
+			$failLogin["passError"] = "Comprueba tu contraseña";
 			return $failLogin;
 		}
 	}

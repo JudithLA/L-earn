@@ -7,7 +7,7 @@ window.onload=function(){
 
 
 Login.fn.LogUser = function (email, pass) {
-    var url = "http://localhost:8888/loginTeacher/loginReceived.php";
+    var url = "http://localhost:8888/L-earn/web/loginTeacher/loginReceived.php";
     var data = {
         email: $('#email').val(),
         pass: $('#password').val()
@@ -28,7 +28,9 @@ Login.fn.LogUser = function (email, pass) {
             if(resultArray['status'] == 'OK'){
               window.location.href = resultArray['url'];
             } else {
-                $('.msgError').html(resultArray['msg']);
+                $('#email').val(resultArray['emailError']);
+                $('#password').val(resultArray['passwordError']);
+                $('.msgError').html(resultArray['msgError']);
             }
         },
 

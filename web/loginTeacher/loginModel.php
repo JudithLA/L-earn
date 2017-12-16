@@ -28,7 +28,8 @@ require_once __DIR__ . "/Implementation/MysqlDBImplementation.php";
                 $id = $result[0]['ID_PROFE'];
             }
             else{
-                // Si la uqery anterior 
+				// Si la uqery anterior no da resultados
+				$id = 0;
                 
             }
 			return $id;
