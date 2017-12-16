@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__ . "/RegisterTeacherModel.php";
-require_once __DIR__ . "/RegisterTeacherView.php";
+require_once __DIR__ . "/loginModel.php";
+require_once __DIR__ . "/loginView.php";
 
 //clase que gestiona las llamadas con la pantalla de login
-class RegisterTeacherController {
+class loginController {
 
 	//Constructor (crea la clase)
 	/*function __construct(){
@@ -16,33 +16,27 @@ class RegisterTeacherController {
 	}*/
 
 	// 2º) función para mostrar el HTML
-	public function mainRegister(){
+	public function mainLogin(){
 		//instancias/creas un objeto de clase LoginView
-		$view = new RegisterTeacherView();
+		$view = new loginView();
 		//devuelves el HTML generado en la vista
-		return $view->genRegister();
+		return $view->genLogin();
 	}
 
-	// 1º) función para recoger el register
-	public function checkRegister(){
-
-		//variable para recoger el envío de datos del usuario
-		$pickName = $_POST ["name"];
+	// 1º) función para recoger el login
+	public function checkLogin(){
     //variable para recoger el envío de datos del usuario
 		$pickEmail = $_POST ["email"];
 		//variable para recoger el envío de datos del usuario
 		$pickPass = $_POST ["password"];
 
-	
-		//para utilizar un método, 1º debemos instanciar un objeto de su clase (clase=estructura / objeto=instanciar) [$model = new LoginModel();]. 2º) Debemos llamar a ese método señalándolo con el objeto que hemos instanciado y dándole los parámetros que hemos definido previamente ($model->checkPass($pickName,$pickPass);)
-		//instanciamos objeto de la clase LoginModel
 
-		$model = new RegisterTeacherModel();
+		$model = new loginModel();
 
 		//variable para almacenar si email y password existen y coinciden
 		//llamamos al método checkPAss() de la clase LoginModel. lo hacemos señalándolo con el objeto de su clase ($model)
 		//esto devuelve un número de 0 en adelante. Si no es cero, login OK
-		$idUser = $model->createTeacher($pickName,$pickEmail,$pickPass);
+		$idUser = $model->loginUser($pickEmail,$pickPass);
         
 		//Si login es correcto...
 		if($idUser){
@@ -63,7 +57,7 @@ class RegisterTeacherController {
 			$failLogin ["status"] = 0;
 
 			//creamos segundo campo de array asociativo -> message = "la has cagado amigo";
-			$failLogin["message"] = "la has cagado amigo";
+			$failLogin["message"] = "Error, no existe usuario/contraseña";
 			return $failLogin;
 		}
 	}

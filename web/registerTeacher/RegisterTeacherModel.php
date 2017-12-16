@@ -1,6 +1,6 @@
 <?php
 // Solicitamos el archivo de conexión a BBDD
-require_once "Implementation/MysqlDBImplementation.php";
+require_once __DIR__ . "/Implementation/MysqlDBImplementation.php";
 
 	//creamos clase
 	class RegisterTeacherModel{
@@ -17,7 +17,8 @@ require_once "Implementation/MysqlDBImplementation.php";
 			//después del require_once "MysqlDBImplementation.php";, instanciamos un objeto de la clase
 
 			//DBhost, $port, $DBname, $user, $pass
-			$mysqli = new MysqlDBImplementation("localhost", "8889", "DBLEARN", "root", "learn");
+			$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
+
 
 			//llamamos al método constructor para abrir conexión con bbdd y lo rellenamos con los datos de los parámetros
 
@@ -26,7 +27,6 @@ require_once "Implementation/MysqlDBImplementation.php";
 			$query = "SELECT COUNT(*) as PROFE_CREATED FROM PROFE WHERE EMAIL_PROFE = '{$pickEmail}' limit 1";
 
 			$result = $mysqli->executeQuery($query);
-
 			// Inicializamos
 			$id = 0;
 
@@ -34,29 +34,34 @@ require_once "Implementation/MysqlDBImplementation.php";
 			// El cero es la posicion del vector y profe_created es el nombre del campo
 			if($result [0]['PROFE_CREATED'] == 0){
 
-			//Definimos la query
-			$consult = "INSERT INTO PROFE VALUES (NOMBRE_PROFE = '{$pickName}', EMAIL_PROFE = '{$pickEmail}' AND CONTRASENA_PROFE = '{$pickPass}')";
-			$checkQuery = "SELECT ID_PROFE FROM PROFE WHERE EMAIL_PROFE = '{$pickEmail}'";
-			//Ejecución de query en la base de datos mediante el objeto mysqli.
-			//almacenamos en $result los resultados de la query "$consult" ejecutando el método query()
-			$result = $mysqli->executeQuery($consult);
+				//Definimos la query
+				$consult = "INSERT INTO PROFE (NOMBRE_PROFE, EMAIL_PROFE, CONTRASENA_PROFE) VALUES ('{$pickName}', '{$pickEmail}', '{$pickPass}')";
+				$checkQuery = "SELECT ID_PROFE FROM PROFE WHERE EMAIL_PROFE = '{$pickEmail}'";
+				//Ejecución de query en la base de datos mediante el objeto mysqli.
+				//almacenamos en $result los resultados de la query "$consult" ejecutando el método query()
+                
+                // modifyQuery es para UPDATE, INSERT y DELETE
+				$mysqli->modifyQuery($consult);
+                
+                // executeQuery es para SELECT
+                $result = $mysqli->executeQuery($checkQuery);
+				
 
-			//inicialiamos id =0, porque si no hay resultados no nos devolvería 0 al controlador sino "vacío" y daría fallo
+
+				//inicialiamos id =0, porque si no hay resultados no nos devolvería 0 al controlador sino "vacío" y daría fallo
 
 
-			//recorremos toda las filas de la tabla con el metodo mysqli_fecth_assoc()
-			//le pasamos al método nuestra query ($result)
-			/*while($row = mysqli_fetch_assoc($result)){
+				//recorremos toda las filas de la tabla con el metodo mysqli_fecth_assoc()
+				//le pasamos al método nuestra query ($result)
+				/*while($row = mysqli_fetch_assoc($result)){
 
-				//almacenamos en $id el resultado de la query &consult (valor del campo ID_PRO)
-				//será cero si no encuantra ningúna fila con NOM_PRO=name y CON_PRO=password
-				$id = $row["ID_PRO"];
+					//almacenamos en $id el resultado de la query &consult (valor del campo ID_PRO)
+					//será cero si no encuantra ningúna fila con NOM_PRO=name y CON_PRO=password
+					$id = $row["ID_PRO"];
 
-			}*/
+				}*/
 			$id = $result[0]['ID_PROFE'];
-		}
-			//cerramos conexión
-			$mysqli->disconnect();
+			}
 			return $id;
 		}
 
