@@ -1,5 +1,3 @@
--- Datos de los centros:
--- Nombre del centro, Comunidad Autónoma, Municipio, Código Postal
 INSERT INTO CENTR (NOMBRE_CENTR, COMUNIDAD_CENTR, MUNICIPIO_CENTR, CP_CENTR) VALUES
 ('I.E.S. Alameda de Osuna', 'Comunidad de Madrid', 'Madrid', 28042),
 ('I.E.S. Alfredo Kraus', 'Comunidad de Madrid', 'Madrid', 28022),
@@ -46,8 +44,6 @@ INSERT INTO CENTR (NOMBRE_CENTR, COMUNIDAD_CENTR, MUNICIPIO_CENTR, CP_CENTR) VAL
 ('I.E.S. Villablanca', 'Madrid', 'Madrid', 28032);
 
 
--- Datos de los cursos:
--- Nivel del curso (ejemplo: 1º E. S. O.), ID de centro existente
 INSERT INTO CURSO (NIVEL_CURSO, ID_CENTR) VALUES
 ('1º E. S. O.', 1),
 ('2º E. S. O.', 1),
@@ -103,8 +99,6 @@ INSERT INTO CURSO (NIVEL_CURSO, ID_CENTR) VALUES
 ('4º E. S. O.', 13);
 
 
--- Datos de los grupos:
--- Letra del grupo (ejemplo: A, B), ID de curso existente
 INSERT INTO GRUPO (LETRA_GRUPO, ID_CURSO) VALUES
 ('A', 1),
 ('B', 1),
@@ -134,8 +128,6 @@ INSERT INTO GRUPO (LETRA_GRUPO, ID_CURSO) VALUES
 ('B', 13);
 
 
--- Datos de los alumnos:
--- Nombre del alumno, apellido del alumno, email del alumno, contraseña del alumno, puntos de experiencia, puntos finales, imagen del alumno, ID de grupo existente
 INSERT INTO ALUMN (NOMBRE_ALUMN, APELLIDO_ALUMN, EMAIL_ALUMN, CONTRASENA_ALUMN, EXPERIENCIA_ALUMN, PUNTOS_ALUMN, IMG_ALUMN, ID_GRUPO) VALUES
 ('Lola', 'Pérez', 'lolaperez@gmail.com', 'cont5678', 4, 1200, 'web/img/alumno1.jpg', 1),
 ('Raúl', 'González', 'raulitog@gmail.com', 'cont5678', 6, 1520, 'web/img/alumno2.jpg', 1),
@@ -197,8 +189,6 @@ INSERT INTO ALUMN (NOMBRE_ALUMN, APELLIDO_ALUMN, EMAIL_ALUMN, CONTRASENA_ALUMN, 
 ('Roberto', 'García', 'robertoG@gmail.com', 'cont5678', 5, 1935, 'web/img/alumno5.jpg', 10);
 
 
--- Datos de los profesores:
--- Nombre del profesor, apellido del profesor, email del profesor, contraseña del profesor, imagen del profesor, ID de centro existente
 INSERT INTO PROFE (NOMBRE_PROFE, APELLIDO_PROFE, EMAIL_PROFE, CONTRASENA_PROFE, IMG_PROFE, ID_CENTR) VALUES
 ('Alfonso', 'Muñoz', 'alfonsomuñoz@gmail.com', 'cont5678', 'web/img/profe1.jpg', 1),
 ('Emilia', 'HernÁndez', 'e.Hernandez@gmail.com', 'cont5678', 'web/img/profe2.jpg', 1),
@@ -214,8 +204,6 @@ INSERT INTO PROFE (NOMBRE_PROFE, APELLIDO_PROFE, EMAIL_PROFE, CONTRASENA_PROFE, 
 ('Esteban', 'Calvo', 'estebancalvo@gmail.com', 'cont5678', 'web/img/profe10.jpg', 3);
 
 
--- Datos de las asignaturas:
--- Nombre de la asignatura, ID de profesor existente
 INSERT INTO ASIGN (NOMBRE_ASIGN, ID_PROFE) VALUES
 ('Lengua castellana y literatura', 1),
 ('Inglés', 1),
@@ -240,10 +228,8 @@ INSERT INTO ASIGN (NOMBRE_ASIGN, ID_PROFE) VALUES
 ('Educación para la ciudadanía', 10);
 
 
--- Datos de los temas:
--- Nombre del tema, Trimestre del tema (ejemplo: 1, 2, 3), ID de asignatura existente
 INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
---LENGUA--
+/* LENGUA */
 ('El lenguaje literario', 1, 1),
 ('La narración, el lenguaje oral/ escrito, primitivas, derivadas y géneros literarios', 1, 1),
 ('Género nominal, sustantivos. Escribir carta y épica castellana', 1, 1),
@@ -270,18 +256,18 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('El debate',1,1),
 ('La oración compuesta. Sinónima y antonimia. La coma y el guión y paréntesis. Teatro y las figuras literarias',1,1),
 
-('Lengua y sociedad',1,1,),
-('Las palabras',1,1,),
-('La oración',1,1,),
-('Oración simple y compuesta',1,1,),
-('Clases de textos',1,1,),
-('La literatura',1,1,),
-('Edad Media',1,1,),
-('Siglo XV',1,1,),
-('El Renacimiento',1,1,),
-('El Barroco',1,1,),
-('El teatro',1,1,),
-('Siglo XVIII',1,1,),
+('Lengua y sociedad',1,1),
+('Las palabras',1,1),
+('La oración',1,1),
+('Oración simple y compuesta',1,1),
+('Clases de textos',1,1),
+('La literatura',1,1),
+('Edad Media',1,1),
+('Siglo XV',1,1),
+('El Renacimiento',1,1),
+('El Barroco',1,1),
+('El teatro',1,1),
+('Siglo XVIII',1,1),
 
 ('El siglo XVIII: el Neoclasicismo',1,1), 
 ('Romanticismo',1,1), 
@@ -291,7 +277,7 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('Vanguardias',1,1), 
 ('Generación del 27',1,1), 
 
---SOCIALES--
+/* SOCIALES */
 ('Prehistoria: el Paleolítico',1,6),
 ('Neolítico y Edad de los metales',1,6),
 ('Mesopotamia y primeras civilizaciones',1,6),
@@ -349,7 +335,7 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('La España reciente',1,6),
 ('Globalización y nuevo orden internacional',1,6),
 
---MATEMÁTICAS--
+/* MATEMÁTICAS */
 ('Números naturales',1,3),
 ('Divisibilidad',1,3),
 ('Números enteros',1,3),
@@ -405,7 +391,7 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('Vectores en el plano',1,3),
 ('Ecuaciones de la recta en el plana',1,3),
 
---INGLÉS--
+/* INGLÉS */
 ('Present simple',1,2),
 ('Present simple vs present continuos',1,2),
 ('This is/are',1,2),
@@ -502,7 +488,7 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('Reflexive pronouns',1,2),
 ('Reported speech',1,2),
 
---EDUCACIÓN FISICA--
+/* EDUCACIÓN FISICA */
 ('Calentamiento general',1,14),
 ('Las capacidades físicas básicas',1,14),
 ('Habilidades motrices básicas',1,14),
@@ -529,7 +515,7 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('Nutrición, salud y ejercicio físico',1,14),
 ('Respiración y relajación',1,14),
 
---BIOLOGÍA Y GEOLOGÍA--
+/* BIOLOGÍA Y GEOLOGÍA */
 ('La Tierra en el universo',1,4),
 ('La geosfera',1,4),
 ('Los minerales y las rocas',1,4),
@@ -572,7 +558,7 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('Dinámica de las comunidades',1,4),
 ('La humanidad y el medio ambiente',1,4),
 
---MÚSICA--
+/* MÚSICA */
 ('Introducción',1,7),
 ('La altura: definición y tipos de sonidos',1,7),
 ('El pentagrama y las notas musicales',1,7),
@@ -588,7 +574,7 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('La intensidad',1,7),
 ('El timbre',1,7),
 
---VALORES ÉTICOS--
+/* VALORES ÉTICOS */
 ('La dignidad de la persona',1,11),
 ('La comprensión, el respeto y la igualdad en las relaciones humanas',1,11),
 ('La reflexión ética',1,11),
@@ -601,7 +587,7 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('Derechos humanos',1,11), 
 ('Valores éticos, ciencia y tecnología',1,11),
 
---FISICA Y QUIMICA--
+/* FISICA Y QUIMICA */
 ('La actividad científica',1,5),
 ('Como trabajan los científicos',1,5),
 ('Estados de agregación',1,5),
@@ -630,7 +616,7 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('La química del carbono',1,5),
 ('Compuestos de carbono',1,5),
 
---EDUCACIÓN PLÁSTICA Y AUDIOVISUAL--
+/* EDUCACIÓN PLÁSTICA Y AUDIOVISUAL */
 ('Lugares geométricos',1,16),
 ('Las texturas ',1,16),
 ('Tangencias',1,16),
@@ -639,7 +625,7 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('El color',1,16),
 ('Diseño gráfico',1,16),
 
---TECNOLOGÍA--
+/* TECNOLOGÍA */
 ('Dibujo',1,13),
 ('La madera ',1,13),
 ('Metales',1,13),
@@ -647,7 +633,7 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('Electricidad',1,13),
 ('Informática',1,13),
 
---LATÍN--
+/* LATÍN */
 ('El origen del latín y su diversificación',1,18),
 ('La lengua latina y su evolución',1,18),
 ('Introducción a la lengua latina',1,18),
@@ -656,7 +642,7 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('Segunda declinación y presente de indicativo',1,18),
 ('Historia de Roma y sus personajes',1,18),
 
---ECONOMÍA--
+/* ECONOMÍA */
 ('Ideas económicas básicas',1,19),
 ('Economía y empresa',1,19),
 ('Economía e ingresos y gastos del estado',1,19),
@@ -664,7 +650,7 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('Economía internacional',1,19),
 ('Economía personal',1,19),
 
---EDUCACIÓN PARA LA CIUDADANÍA--
+/* EDUCACIÓN PARA LA CIUDADANÍA */
 ('La persona y su entorno',1,21),
 ('Barrios, pueblos y ciudades',1,21),
 ('Sociedades democráticas',1,21),
