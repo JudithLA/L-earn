@@ -269,13 +269,13 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('El teatro',1,1),
 ('Siglo XVIII',1,1),
 
-('El siglo XVIII: el Neoclasicismo',1,1), 
-('Romanticismo',1,1), 
+('El siglo XVIII: el Neoclasicismo',1,1),
+('Romanticismo',1,1),
 ('Realismo',1,1),
 ('Modernismo',1,1),
 ('Generación del 98',1,1),
-('Vanguardias',1,1), 
-('Generación del 27',1,1), 
+('Vanguardias',1,1),
+('Generación del 27',1,1),
 
 /* SOCIALES */
 ('Prehistoria: el Paleolítico',1,6),
@@ -299,12 +299,12 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('Las invasiones bárbaras',1,6),
 ('Carlomagno y su imperio',1,6),
 ('La Europa feudal',1,6),
-('El renacer urbano de Europa',1,6), 
+('El renacer urbano de Europa',1,6),
 ('Los descubrimientos',1,6),
-('El nacimiento del Estado moderno',1,6), 
+('El nacimiento del Estado moderno',1,6),
 ('El Renacimiento',1,6),
 ('Reforma y Contrarreforma',1,6),
-('Los Reyes Católicos',1,6), 
+('Los Reyes Católicos',1,6),
 ('El arte renacentista',1,6),
 ('El siglo XVII',1,6),
 ('La población',1,6),
@@ -325,7 +325,7 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('Introducción a la Historia',1,6),
 ('Los inicios del siglo XVIII',1,6),
 ('El liberalismo',1,6),
-('Revolución Industrial',1,6), 
+('Revolución Industrial',1,6),
 ('España en el siglo XIX',1,6),
 ('Imperialismo y Primera Guerra Mundial',1,6),
 ('Periodo de entreguerras',1,6),
@@ -354,8 +354,8 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('Números decimales',1,3),
 ('Proporcionalidad',1,3),
 ('Expresiones algebraicas',1,3),
-('Ecuaciones',1,3), 
-('Semejanza y teorema de Thales',1,3), 
+('Ecuaciones',1,3),
+('Semejanza y teorema de Thales',1,3),
 ('Volumen de cuerpos geométricos',1,3),
 ('Funciones',1,3),
 ('Estadística',1,3),
@@ -376,7 +376,7 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('Movimientos',1,3),
 
 ('Números reales',1,3),
-('Radicales',1,3), 
+('Radicales',1,3),
 ('Polinomios y fracciones algebraicas',1,3),
 ('Ecuaciones y sistemas de ecuaciones no lineales',1,3),
 ('Inecuaciones',1,3),
@@ -408,7 +408,7 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('Present continuos with a future meaning',1,2),
 ('Will',1,2),
 ('Will or be going to',1,2),
-('First conditonal',1,2),  
+('First conditonal',1,2),
 
 ('Past simple and past continuos',1,2),
 ('Infinitive of purpose',1,2),
@@ -533,19 +533,19 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('Alimentación y salud',1,4),
 ('El aparato digestivo y la disgestión',1,4),
 ('El aparato respiratorio y la respiración',1,4),
-('Aparato circulatorio y circulación',1,4), 
+('Aparato circulatorio y circulación',1,4),
 ('El aparato excretor y la excreción',1,4),
 ('El sistema nervioso',1,4),
 ('El sistema endocrino',1,4),
 ('Órganos receptores. Órganos de los sentidos',1,4),
-('Órganos efectores. Órganos de los sentidos',1,4), 
-('Sexualidad y reproducción humanas',1,4), 
-('La salud y la enfermedad',1,4), 
-('Los ecosistemas',1,4), 
+('Órganos efectores. Órganos de los sentidos',1,4),
+('Sexualidad y reproducción humanas',1,4),
+('La salud y la enfermedad',1,4),
+('Los ecosistemas',1,4),
 ('La actividad geológica externa del planeta Tierra',1,4),
-('La actividad geología interna del planeta Tierra',1,4), 
+('La actividad geología interna del planeta Tierra',1,4),
 
-('El tiempo geológico',1,4), 
+('El tiempo geológico',1,4),
 ('Historia de la Tierra',1,4),
 ('La dinámica terrestre',1,4),
 ('La técnica de placas',1,4),
@@ -566,7 +566,7 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('Las líneas adicionales',1,7),
 ('Las alteraciones',1,7),
 
-('El sonido y sus cualidades',1,7), 
+('El sonido y sus cualidades',1,7),
 ('Elementos que intervienen en la audición',1,7),
 ('Las cuatro cualidades del sonido',1,7),
 ('La altura',1,7),
@@ -580,11 +580,11 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('La reflexión ética',1,11),
 ('Los valores éticos, el derecho y los derechos humanos',1,11),
 
-('La dignidad de la persona',1,11), 
+('La dignidad de la persona',1,11),
 ('Comprensión respeto e igualdad',1,11),
 ('La reflexión ética',1,11),
 ('Justicia y política',1,11),
-('Derechos humanos',1,11), 
+('Derechos humanos',1,11),
 ('Valores éticos, ciencia y tecnología',1,11),
 
 /* FISICA Y QUIMICA */
@@ -592,16 +592,16 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ID_ASIGN) VALUES
 ('Como trabajan los científicos',1,5),
 ('Estados de agregación',1,5),
 ('Los cambios en la materia',1,5),
-('Formulación',1,5), 
+('Formulación',1,5),
 ('El movimiento y la fuerza',1,5),
-('La energia',1,5), 
+('La energia',1,5),
 
 ('Método científico',1,5),
 ('Estados de la materia y teoría científica',1,5),
 ('Sustancias puras y mezclas',1,5),
 ('El átomo y los elementos químicos',1,5),
 ('Los elementos y compuestos químicos',1,5),
-('Reacciones químicas',1,5), 
+('Reacciones químicas',1,5),
 
 ('El movimiento rectilíneo',1,5),
 ('Movimiento circular',1,5),
@@ -664,7 +664,8 @@ INSERT INTO ENTRE (NOMBRE_ENTRE, DESCR_ENTRE, ID_TEMAS) VALUES
 ('Título de test de entrenamiento 2', 'Descripción de test de entrenamiento 2', 13);
 
 INSERT INTO FINAL (NOMBRE_FINAL, DESCR_FINAL, ID_TEMAS) VALUES
-('Título de test de final', 'Descripción de test de final', 1);
+('Título de test de final 1', 'Descripción de test de final 1', 1),
+('Título de test de final 2', 'Descripción de test de final 2', 156);
 
 INSERT INTO PREGU_ENTRE (ENUNCIADO_PREGU_ENTRE, ID_ENTRE) VALUES
 ('¿Qué escritor no pertenece a la Generación del 27?', 1),
@@ -689,16 +690,27 @@ INSERT INTO PREGU_ENTRE (ENUNCIADO_PREGU_ENTRE, ID_ENTRE) VALUES
 ('2 ¿Quién escribió «Nada»?', 2);
 
 INSERT INTO PREGU_FINAL (ENUNCIADO_PREGU_FINAL, ID_FINAL) VALUES
-('FINAL ¿Qué escritor no pertenece a la Generación del 27?', 1),
-('FINAL ¿Qué es la Generación del 27?', 1),
-('FINAL ¿Quién escribió «La Colmena»?', 1),
-('FINAL ¿Qué escritora no es española?', 1),
-('FINAL ¿Qué libro no es del siglo XX?', 1),
-('FINAL ¿Cuál de estos libros no escribió Benito Pérez Galdós?', 1),
-('FINAL ¿Qué poema escribió Federico García Lorca?', 1),
-('FINAL ¿Qué escritora es la máxima representante del nturalismo en España?', 1),
-('FINAL ¿Cómo se llamaba la compañía teatral de Federico García Lorca?', 1),
-('FINAL ¿Quién escribió «Nada»?', 1);
+('FINAL1 ¿Qué escritor no pertenece a la Generación del 27?', 1),
+('FINAL1 ¿Qué es la Generación del 27?', 1),
+('FINAL1 ¿Quién escribió «La Colmena»?', 1),
+('FINAL1 ¿Qué escritora no es española?', 1),
+('FINAL1 ¿Qué libro no es del siglo XX?', 1),
+('FINAL1 ¿Cuál de estos libros no escribió Benito Pérez Galdós?', 1),
+('FINAL1 ¿Qué poema escribió Federico García Lorca?', 1),
+('FINAL1 ¿Qué escritora es la máxima representante del nturalismo en España?', 1),
+('FINAL1 ¿Cómo se llamaba la compañía teatral de Federico García Lorca?', 1),
+('FINAL1 ¿Quién escribió «Nada»?', 1),
+
+('FINAL2 ¿Qué escritor no pertenece a la Generación del 27?', 2),
+('FINAL2 ¿Qué es la Generación del 27?', 2),
+('FINAL2 ¿Quién escribió «La Colmena»?', 2),
+('FINAL2 ¿Qué escritora no es española?', 2),
+('FINAL2 ¿Qué libro no es del siglo XX?', 2),
+('FINAL2 ¿Cuál de estos libros no escribió Benito Pérez Galdós?', 2),
+('FINAL2 ¿Qué poema escribió Federico García Lorca?', 2),
+('FINAL2 ¿Qué escritora es la máxima representante del nturalismo en España?', 2),
+('FINAL2 ¿Cómo se llamaba la compañía teatral de Federico García Lorca?', 2),
+('FINAL2 ¿Quién escribió «Nada»?', 2);
 
 INSERT INTO RESPU_ENTRE (TEXTO_RESPU_ENTRE, PESO_RESPU_ENTRE, CORRECTA_RESPUE_ENTRE, ID_PREGU_ENTRE) VALUES
 ('Respuesta 1', 1, 0, 1),
@@ -822,7 +834,47 @@ INSERT INTO RESPU_FINAL (TEXTO_RESPU_FINAL, PESO_RESPU_FINAL, CORRECTA_RESPUE_FI
 ('Respuesta 1', 1, 0, 10),
 ('Respuesta 2', 2, 0, 10),
 ('Respuesta 3', 3, 0, 10),
-('Respuesta 4', 4, 1, 10);
+('Respuesta 4', 4, 1, 10),
+('Respuesta 1', 1, 0, 11),
+('Respuesta 2', 2, 0, 11),
+('Respuesta 3', 3, 0, 11),
+('Respuesta 4', 4, 1, 11),
+('Respuesta 1', 1, 0, 12),
+('Respuesta 2', 2, 0, 12),
+('Respuesta 3', 3, 0, 12),
+('Respuesta 4', 4, 1, 12),
+('Respuesta 1', 1, 0, 13),
+('Respuesta 2', 2, 0, 13),
+('Respuesta 3', 3, 0, 13),
+('Respuesta 4', 4, 1, 13),
+('Respuesta 1', 1, 0, 14),
+('Respuesta 2', 2, 0, 14),
+('Respuesta 3', 3, 0, 14),
+('Respuesta 4', 4, 1, 14),
+('Respuesta 1', 1, 0, 15),
+('Respuesta 2', 2, 0, 15),
+('Respuesta 3', 3, 0, 15),
+('Respuesta 4', 4, 1, 15),
+('Respuesta 1', 1, 0, 16),
+('Respuesta 2', 2, 0, 16),
+('Respuesta 3', 3, 0, 16),
+('Respuesta 4', 4, 1, 16),
+('Respuesta 1', 1, 0, 17),
+('Respuesta 2', 2, 0, 17),
+('Respuesta 3', 3, 0, 17),
+('Respuesta 4', 4, 1, 17),
+('Respuesta 1', 1, 0, 18),
+('Respuesta 2', 2, 0, 18),
+('Respuesta 3', 3, 0, 18),
+('Respuesta 4', 4, 1, 18),
+('Respuesta 1', 1, 0, 19),
+('Respuesta 2', 2, 0, 19),
+('Respuesta 3', 3, 0, 19),
+('Respuesta 4', 4, 1, 19),
+('Respuesta 1', 1, 0, 20),
+('Respuesta 2', 2, 0, 20),
+('Respuesta 3', 3, 0, 20),
+('Respuesta 4', 4, 1, 20);
 
 INSERT INTO REL_GRUPO_ASIGN (ID_GRUPO, ID_ASIGN) VALUES
 (1, 1),
@@ -834,4 +886,5 @@ INSERT INTO REL_ALUMN_ENTRE (FECHA_REL_ALUMN_ENTRE, ID_ALUMN, ID_ENTRE) VALUES
 (DATE('2017-11-01'), 1, 1);
 
 INSERT INTO REL_ALUMN_FINAL (FECHA_REL_ALUMN_FINAL, PUNTOS_REL_ALUMN_FINAL, ID_ALUMN, ID_FINAL) VALUES
-(DATE('2017-11-01'),430, 1, 1);
+(DATE('2017-11-01'),430, 1, 1),
+(DATE('2017-12-20'),150, 1, 2);
