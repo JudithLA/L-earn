@@ -2,7 +2,7 @@ $(document).ready(function () {
 
 	// Función para mostrar el siguiente test
 	var showNextTest = function () {
-		
+
 		var url = "http://localhost/web/homeStudent/homeStudent.php";
 
 		var data = {
@@ -25,6 +25,7 @@ $(document).ready(function () {
 					// Creamos un enlace
 					var linkLastTextAsign = document.createElement('a');
 					linkLastTextAsign.setAttribute('href', nexTest);
+					linkLastTextAsign.setAttribute('class', 'col3 l');
 
 					// Creamos una imagen
 					var imgLastTextAsign = document.createElement('img');
@@ -44,7 +45,7 @@ $(document).ready(function () {
 					linkLastTextAsign.append(btnLastTextAsign);
 
 					// console.log("El FinalTest es " + elem.FinalTest + ", el IdLastTestDone es " + elem.IdLastTestDone + ", el DateLastTestDone es " + elem.DateLastTestDone + " y el nombre de la asignatura es " + elem.NombreAsign);
-					
+
 					$('#nextTestAsign').append(linkLastTextAsign);
 				});
 
@@ -64,8 +65,8 @@ $(document).ready(function () {
 
 	// Función para mostrar los puntos finales
 	var showFinPoints = function () {
-		
-		// Almacenamos en una variable la url del archivo de destino 
+
+		// Almacenamos en una variable la url del archivo de destino
 		var url = "http://localhost/web/homeStudent/homeStudent.php";
 
 		// Almacenamos en una variable los datos que mandamos al archivo de destino
@@ -101,7 +102,7 @@ $(document).ready(function () {
 
 	// Función para mostrar el porcentaje de experiencia
 	var showPercentage = function () {
-		
+
 		var url = "http://localhost/web/homeStudent/homeStudent.php";
 
 		var data = {
