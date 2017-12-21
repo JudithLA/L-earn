@@ -26,6 +26,7 @@ class MysqlDBImplementation implements DBInterface {
         $this->pass = $pass;
         $this->port = $port;
         $this->connect();
+
     }
     public function __destruct() {
         /* aquí tendré que destruir la conexión
@@ -41,8 +42,8 @@ class MysqlDBImplementation implements DBInterface {
         
         $this->conn = mysqli_connect($this->DBhost, $this->user, $this->pass,
                 $this->DBname, $this->port);
+        mysqli_set_charset($this->conn,"utf8");
         
-
         return !mysqli_errno($this->conn);
     }
 
