@@ -7,13 +7,13 @@
 	class HomeStudentController{
 		
 		// Creamos el atributo que almacenará el id del alumno que ha iniciado sesión
-		private $idAlumno;
+		// private $idAlumno;
 
 		//Constructor (crea la clase)
 		public function __construct(){
 
 			// Asignamos la variable de sesión con el id del alumno al atributo
-			$this->idAlumno = $_SESSION['idAlumno'];  
+			// $this->idAlumno = $_SESSION['idAlumno'];  
 		}
 
 		//Destructor (destruye la clase)
@@ -44,6 +44,7 @@
 			$model = new HomeStudentModel();
 
 			// Devolvemos la info extraída de la BBDD
+			
 			return $model->nextTest();
 
 		}
