@@ -19,12 +19,10 @@ $(document).ready(function () {
 				resultArray = JSON.parse(result);
 
 				resultArray.forEach(function(elem){
-					// Accedemos al último test
-					var nexTest = parseInt(elem.FinalTest) + 1;
 
 					// Creamos un enlace
 					var linkLastTextAsign = document.createElement('a');
-					linkLastTextAsign.setAttribute('href', nexTest);
+					linkLastTextAsign.setAttribute('href', '#');
 					linkLastTextAsign.setAttribute('class', 'col3 l');
 
 					// Creamos una imagen
@@ -37,20 +35,19 @@ $(document).ready(function () {
 					nameLastTextAsign.innerHTML = elem.NombreAsign;
 
 					// Creamos un botón
-					var btnLastTextAsign = document.createElement('button');
-					btnLastTextAsign.innerHTML = "Hacer el siguiente test";
+					var btnLastTextAsign = document.createElement('input');
+					btnLastTextAsign.setAttribute('type', 'button');
+					btnLastTextAsign.setAttribute('value', 'Hacer el siguiente test');
 
 					linkLastTextAsign.append(imgLastTextAsign);
 					linkLastTextAsign.append(nameLastTextAsign);
 					linkLastTextAsign.append(btnLastTextAsign);
 
 					// console.log("El FinalTest es " + elem.FinalTest + ", el IdLastTestDone es " + elem.IdLastTestDone + ", el DateLastTestDone es " + elem.DateLastTestDone + " y el nombre de la asignatura es " + elem.NombreAsign);
-
 					$('#nextTestAsign').append(linkLastTextAsign);
-				});
 
-				// $('#asign').html(nombreAsign);
-            },
+				});
+      },
 
 			error: function (jqXHR, textStatus, errorThrown) {
 				alert(jqXHR.status);
@@ -75,7 +72,6 @@ $(document).ready(function () {
 			action : "getStudentFinPoints"
 		};
 
-
 		$.ajax({
 			url: url,
 			data: data,
@@ -83,8 +79,8 @@ $(document).ready(function () {
 
 			// Si todo ok, imprimimos los datos en el HTML
 			success: function (result) {
-
-				$('#pFin').html('Puntuación: ' + result);
+				var resultPoints = JSON.parse(result);
+				$('#pFin').html('Puntuación: ' + resultPoints);
             },
 
             // Si error, mostramos en alerts mensajes
@@ -115,8 +111,9 @@ $(document).ready(function () {
 			method: "POST",
 
 			success: function (result) {
-
-				$('#pExp').html('Experiencia: ' + result + '%');
+				var resultPercentage = JSON.parse(result);
+				// resultPercentage.toFixed(2);
+				$('#pExp').html('Experiencia: ' + resultPercentage + ' %');
             },
 
 			error: function (jqXHR, textStatus, errorThrown) {

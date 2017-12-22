@@ -33,7 +33,7 @@
 							</div>
 							<div class='l col3'>
 								<div>
-									<h3>Mi progreso</h3>
+									<h2>Mi progreso</h2>
 									<div>
 										<div id='pFin'></div>
 										<div id='pExp'></div>
@@ -44,22 +44,21 @@
 						<div id='ramdomTest' class= 'l col12'>
 							<div  class='content'>
 								<div>
-									<a>
 										<h2>Test aleatorio</h2>
 										<p>Un test aleatorio consiste en esto.</p>
-										<button>HACER TEST</button>
-									</a>
+										<input type='button' value='HACER TEST'>
 								</div>
 							</div>
 						</div>
-
 						<footer class= 'l col12'>
 							<div class='content'>
 								<div>
-									<h5>Contacto</h5>
+									<h4>Contacto</h4>
 									<a href='mailto:contacto@learn.com'>contacto@learn.com</a>
 								</div>
-								<span>&copy; L-earn " . date("Y") . "</span>
+								<div id='copy'>
+									<span>&copy; L-earn " . date("Y") . "</span>
+								</div>
 							</div>
 						</footer>
 					</body>
