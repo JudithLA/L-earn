@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     var showGroups = function () {
         //definimos variable para la url del archivo de destino destino
-        var url = "http://localhost/homeTeacher/homeTeacher.php";
+        var url = "http://localhost:8888/homeTeacher/homeTeacher.php";
         //variable data que almacena los datos que mandamos al archivo de destino
         // data en este caso almacenará el método get del controller.php
         var data = {

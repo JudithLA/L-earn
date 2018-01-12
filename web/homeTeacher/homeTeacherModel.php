@@ -15,7 +15,7 @@
 		//Constructor (crea la clase)
 		public function __construct(){
 			//CONN2ºle pasamos al atributo mysqli el objeto. Creamos un objeto de la clase MysqlDBImplementation y abrimos una conexión a bbdd con los perímetros (host, puerto, nombre de base de datos, usuario, contraseña). De esta forma, cuando en Controller.php se instancie la clase del Modelo, se construirá la clase con esta conexión
-			$this-> mysqli = new MysqlDBImplementation("localhost", "3306", "DBLEARN", "root", "learn");
+			$this-> mysqli = new MysqlDBImplementation("127.0.0.1", "8889", "DBLEARN", "root", "learn");
 		}
 
 		//Destructor (Destruye la clase)

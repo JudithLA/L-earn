@@ -1,4 +1,7 @@
 <?php
+// FOOTER: para incluir el footer, deberíamos crear un archivo externo y llamarlo con el require. En el código de resultHTML, lo concatenas para llamar al método de la clase () que contoiene el archivo del require
+require_once __DIR__ . "/../Commons/Commons.php"
+
 //creamos clase de view
 class HomeTeacherView{
 	//siempre comenzaremos creando la función Construct (crea la clase)y Destruct (Destruye la clase)
@@ -33,7 +36,7 @@ class HomeTeacherView{
 					<div id='console_group'></div>
 				<div class='console_group_crear'><a href=''>CREAR NUEVO GRUPO</a></div>	
 			</div>
-		
+			".Commons::footer()."
 
 			</body>
 			</html>
