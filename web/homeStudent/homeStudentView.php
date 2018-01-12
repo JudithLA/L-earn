@@ -1,5 +1,6 @@
 <?php
 	// Clase de la Vista
+	require __DIR__."/../Commons/Commons.php";
 	class HomeStudentView{
 
 		//Constructor (crea la clase)
@@ -8,6 +9,7 @@
 		//Destructor (destruye la clase)
 		public function __destruct(){}
 
+		
 		// Método que devolverá el HTML
 		public function genHomeStudent() {
 			// Variable con el HTML –con comillas simples–
@@ -61,6 +63,7 @@
 								</div>
 							</div>
 						</footer>
+						".Commons::footer()."
 					</body>
 					</html>
 			";

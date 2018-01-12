@@ -14,7 +14,7 @@
 			// Creamos un objeto de la clase MysqlDBImplementation, se lo pasamos al atributo $mysqli y abrimos conexión con base de datos
 			// Parámetros: host, puerto, nombre de base de datos, usuario, contraseña
 
-			$this->mysqli = new MysqlDBImplementation("localhost", "3306", "DBLEARN", "root", "learn");
+			$this->mysqli = new MysqlDBImplementation("127.0.0.1", "8889", "DBLEARN", "root", "learn");
 
 
 

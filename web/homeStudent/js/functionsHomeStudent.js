@@ -3,7 +3,7 @@ $(document).ready(function () {
 	// Función para mostrar el siguiente test
 	var showNextTest = function () {
 
-		var url = "http://localhost/web/homeStudent/homeStudent.php";
+		var url = "http://localhost:8888/web/homeStudent/homeStudent.php";
 
 		var data = {
 			action : "getNextTest"
@@ -50,9 +50,9 @@ $(document).ready(function () {
       },
 
 			error: function (jqXHR, textStatus, errorThrown) {
-				alert(jqXHR.status);
-				alert(textStatus);
-				alert(errorThrown);
+				// alert(jqXHR.status);
+				// alert(textStatus);
+				// alert(errorThrown);
 			}
 
 		});
@@ -64,7 +64,7 @@ $(document).ready(function () {
 	var showFinPoints = function () {
 
 		// Almacenamos en una variable la url del archivo de destino
-		var url = "http://localhost/web/homeStudent/homeStudent.php";
+		var url = "http://localhost:8888/web/homeStudent/homeStudent.php";
 
 		// Almacenamos en una variable los datos que mandamos al archivo de destino
 		// Aquí llamamos al método del Controlador
@@ -85,9 +85,9 @@ $(document).ready(function () {
 
             // Si error, mostramos en alerts mensajes
 			error: function (jqXHR, textStatus, errorThrown) {
-				alert(jqXHR.status);
-				alert(textStatus);
-				alert(errorThrown);
+				// alert(jqXHR.status);
+				// alert(textStatus);
+				// alert(errorThrown);
 			}
 
 		});
@@ -99,7 +99,7 @@ $(document).ready(function () {
 	// Función para mostrar el porcentaje de experiencia
 	var showPercentage = function () {
 
-		var url = "http://localhost/web/homeStudent/homeStudent.php";
+		var url = "http://localhost:8888/web/homeStudent/homeStudent.php";
 
 		var data = {
 			action : "getPercentageStudentExpPoints"
@@ -117,9 +117,9 @@ $(document).ready(function () {
             },
 
 			error: function (jqXHR, textStatus, errorThrown) {
-				alert(jqXHR.status);
-				alert(textStatus);
-				alert(errorThrown);
+				// alert(jqXHR.status);
+				// alert(textStatus);
+				// alert(errorThrown);
 			}
 
 		});
