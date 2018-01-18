@@ -10,6 +10,7 @@ if(!empty($_POST)) {
     echo json_encode($result); 
 	return;
 }else{
+	//inicializar sesión aquí session_start(); y se define en elc controlador
 	//instancias/creas un objeto de clase homeTeacherController
 	$view = new HomeTeacherController();
 	//llamas al método de mostrar del objeto de

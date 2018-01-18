@@ -27,12 +27,28 @@
 			// Como vamos a tener más de una función, para que todas mamen de la misma conexión lo subimos a nivel de los constructores/destructores, pero lo hacemos como atributo. //Creamos un objeto de la clase MysqlDBImplementation y abrimos una conexión a bbdd con los perímetros (host, puerto, nombre de base de datos, usuario, contraseña)
 			//$mysqli = new MysqlDBImplementation("localhost", "8888", "DBLEARN", "root", "learn");
 			//este session sirve para falsear el profesor
-			$_SESSION['id'] = 5;
+			$_SESSION['id'] = 3;
+
 			// Definimos la query
+			/*
 			$consult = "SELECT CURSO.NIVEL_CURSO AS GroupLevel, GRUPO.LETRA_GRUPO AS GroupLetter, GRUPO.ID_GRUPO  AS GroupId FROM GRUPO
-				INNER JOIN CURSO ON GRUPO.ID_CURSO=CURSO.ID_CURSO
-				INNER JOIN CENTR ON CURSO.ID_CENTR=CENTR.ID_CENTR
-				INNER JOIN PROFE ON CENTR.ID_CENTR=PROFE.ID_CENTR WHERE ID_PROFE='{$_SESSION ["id"]}'";
+			INNER JOIN CURSO ON GRUPO.ID_CURSO=CURSO.ID_CURSO
+			INNER JOIN CENTR ON CURSO.ID_CENTR=CENTR.ID_CENTR
+			INNER JOIN PROFE ON CENTR.ID_CENTR=PROFE.ID_CENTR WHERE ID_PROFE='{$_SESSION ["id"]}'";
+			*/
+			/*
+			$consult = "SELECT CURSO.NIVEL_CURSO AS GroupLevel, CURSO.LETRA_CURSO AS GroupLetter, CURSO.ID_CURSO  AS GroupId FROM CURSO
+			INNER JOIN CENTR ON CURSO.ID_CENTR=CENTR.ID_CENTR
+			INNER JOIN PROFE ON CENTR.ID_CENTR=PROFE.ID_CENTR WHERE ID_PROFE='{$_SESSION ["id"]}'
+			";
+			*/
+
+			$consult = "SELECT CURSO.NIVEL_CURSO AS GroupLevel, CURSO.LETRA_CURSO AS GroupLetter, CURSO.ID_CURSO  AS GroupId FROM CURSO
+			INNER JOIN CENTR ON CURSO.ID_CENTR=CENTR.ID_CENTR
+			INNER JOIN PROFE ON CENTR.ID_CENTR=PROFE.ID_CENTR
+			INNER JOIN ASIGN ON PROFE.ID_PROFE=ASIGN.ID_PROFE
+			INNER JOIN REL_CURSO_ASIGN ON ASIGN.ID_ASIGN=REL_CURSO_ASIGN.ID_ASIGN AND REL_CURSO_ASIGN.ID_CURSO = CURSO.ID_CURSO  WHERE PROFE.ID_PROFE='{$_SESSION ["id"]}' GROUP BY CURSO.ID_CURSO ORDER BY CURSO.NIVEL_CURSO";
+			
 
 			//creamos una clase $result donde, mediante el objeto mysqli, almacenaremos los resultados de la query "$consult".
 			//estos resultados serán obtenidos mediante el acceso al atributo $mysqli del método executeQuery(), que está incorporado en MysqlDBImplementation.php, 
