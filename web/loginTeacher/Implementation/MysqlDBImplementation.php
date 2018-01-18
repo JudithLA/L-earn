@@ -19,7 +19,7 @@ class MysqlDBImplementation implements DBInterface {
     private $pass;
     private $port;
 
-     function __construct($DBhost = "127.0.0.1", $port = "8889", $DBname = "DBLEARN", $user = "root", $pass = "learn") {
+     function __construct($DBhost = "127.0.0.1", $port = "8889", $DBname = "DBLEARN", $user = "root", $pass = "") {
         $this->DBhost = $DBhost;
         $this->DBname = $DBname;
         $this->user = $user;
