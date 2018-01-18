@@ -39,13 +39,13 @@ require_once __DIR__ . "/Implementation/MysqlDBImplementation.php";
 				$checkQuery = "SELECT ID_PROFE FROM PROFE WHERE EMAIL_PROFE = '{$pickEmail}'";
 				//Ejecución de query en la base de datos mediante el objeto mysqli.
 				//almacenamos en $result los resultados de la query "$consult" ejecutando el método query()
-                
+
                 // modifyQuery es para UPDATE, INSERT y DELETE
 				$mysqli->modifyQuery($consult);
-                
+
                 // executeQuery es para SELECT
                 $result = $mysqli->executeQuery($checkQuery);
-				
+
 
 
 				//inicialiamos id =0, porque si no hay resultados no nos devolvería 0 al controlador sino "vacío" y daría fallo
@@ -66,7 +66,26 @@ require_once __DIR__ . "/Implementation/MysqlDBImplementation.php";
 		}
 
 
+		public function selectCenter(){
+
+			$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
+				//comprobamos si el usuario que se esta registrando ya esta registrado o no
+				$query = "SELECT ID_CENTR, NOMBRE_CENTR FROM CENTR";
+				// executeQuery es para SELECT
+				$result = $mysqli->executeQuery($checkQuery);
+				return $result;
+		}
+
+
+
 	}
+
+
+
+
+
+
+
 
 
 

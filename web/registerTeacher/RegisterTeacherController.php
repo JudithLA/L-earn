@@ -33,9 +33,9 @@ class RegisterTeacherController {
 		//variable para recoger el envío de datos del usuario
 		$pickPass = $_POST ["password"];
 
-	
-		//para utilizar un método, 
-			//1º debemos instanciar un objeto de su clase (clase=estructura / objeto=instanciar) [$model = new LoginModel();]. 
+
+		//para utilizar un método,
+			//1º debemos instanciar un objeto de su clase (clase=estructura / objeto=instanciar) [$model = new LoginModel();].
 			//2º) Debemos llamar a ese método señalándolo con el objeto que hemos instanciado y dándole los parámetros que hemos definido previamente ($model->checkPass($pickName,$pickPass);)
 		//instanciamos objeto de la clase LoginModel
 
@@ -45,7 +45,7 @@ class RegisterTeacherController {
 		//llamamos al método checkPAss() de la clase LoginModel. lo hacemos señalándolo con el objeto de su clase ($model)
 		//esto devuelve un número de 0 en adelante. Si no es cero, login OK
 		$idUser = $model->createTeacher($pickName,$pickEmail,$pickPass);
-        
+
 		//Si login es correcto...
 		if($idUser){
 
@@ -68,6 +68,20 @@ class RegisterTeacherController {
 			$failLogin["message"] = "la has cagado amigo";
 			return $failLogin;
 		}
+	}
+
+
+	public function getCenter(){
+		$model = new RegisterTeacherModel();
+
+		$centers = $model->selectCenter();
+
+		$view = new RegisterTeacherView();
+		$select = $view->genSelect($centers);
+
+		return $select;
+
+
 	}
 }
 ?>
