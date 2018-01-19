@@ -72,7 +72,7 @@ require_once __DIR__ . "/Implementation/MysqlDBImplementation.php";
 				//comprobamos si el usuario que se esta registrando ya esta registrado o no
 				$query = "SELECT ID_CENTR, NOMBRE_CENTR FROM CENTR";
 				// executeQuery es para SELECT
-				$result = $mysqli->executeQuery($checkQuery);
+				$result = $mysqli->executeQuery($query);
 				return $result;
 		}
 

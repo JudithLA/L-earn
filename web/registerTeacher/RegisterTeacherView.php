@@ -65,15 +65,18 @@
 
 	//creación de método que te devuelve el HTML
 	public function genSelect($centers) {
+
+		
 		$resultHTML = "
 			<div id='paso3'>
 				<p class='title_section'>Elige tu centro</p>
 				<select>";
-				foreach ($centers as $id => $name) {
-					 echo "<option value='$id'>$name</option>";
+				foreach ($centers as $row) {
+					 $resultHTML.= "<option value='{$row['ID_CENTR']}'>{$row['NOMBRE_CENTR']}</option>";
 				}
 
 			$resultHTML .=	"</select> </div>";
+			return $resultHTML;
 	}
 
 	}

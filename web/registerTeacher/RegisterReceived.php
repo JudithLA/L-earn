@@ -10,14 +10,20 @@ require_once __DIR__."/RegisterTeacherController.php";
 //$_POST ["password"] = "1234";
 header('Access-Control-Allow-Origin: *');
 
+
+if(!isset($_POST)){
 $controller = new RegisterTeacherController();
 $result = $controller->checkRegister();
 
 echo json_encode($result);
 return;
+} else {
+   $action = $_POST['action'];
+   $controller = new RegisterTeacherController();
+   $result = $controller->$action();
 
-$controller = new RegisterTeacherController();
-$result = $controller->genSelect();
+   echo json_encode($result);
+   return;
+}
 
-echo json_encode($result);
  ?>

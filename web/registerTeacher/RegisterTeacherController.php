@@ -72,14 +72,16 @@ class RegisterTeacherController {
 
 
 	public function getCenter(){
+
 		$model = new RegisterTeacherModel();
 
 		$centers = $model->selectCenter();
 
 		$view = new RegisterTeacherView();
 		$select = $view->genSelect($centers);
-
-		return $select;
+		$cent['status'] = 'OK';
+		$cent['html'] = $select;
+		return $cent;
 
 
 	}
