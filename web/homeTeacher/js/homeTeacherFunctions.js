@@ -36,7 +36,7 @@ $(document).ready(function(){
                     //console.log(“el id” + element[‘id’] + “está asociado a “ + element[‘alumno’]);
                     var currentGroup = element.GroupLevel + '  ' + element.GroupLetter;
 
-                    var linkNameGroup = 'group_' + element.GroupId;
+                    var linkNameGroup = 'homeTeacherAlumnos.php?GroupId=' + element.GroupId;
 
                     var linkGroup = document.createElement('a');
                     linkGroup.setAttribute('href',linkNameGroup);

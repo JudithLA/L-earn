@@ -13,8 +13,25 @@ class  Commons{
 					<span>&copy; L-earn " . date("Y") . "</span>
 				</div>
 			</div>
-		</footer>"
+		</footer>";
 		return $footerHTML;
+	}
+
+// homeTeacher HEADER
+	public static function teacherHeader(){
+	$teacherHeaderHTML = "
+		<header>
+			<nav>
+				<ul>
+					<li><a href=''>Alumnos</a></li>
+					<li><a href=''>Asignaturas</a></li>
+					<li><a href=''>Tests</a></li>
+
+				</ul>
+			</nav>
+		</header>
+		";
+	return $teacherHeaderHTML;
 	}
 }
 

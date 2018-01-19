@@ -24,6 +24,7 @@ class HomeTeacherController{
 
 	//método para imprimir el view
 	public function showViewTeacher(){
+		//$_GET['idClass'];
 		// Instanciamos un objeto de la clase HomeTeacherView
 		$view = new HomeTeacherView();
 		// Devolvemos la función de esa clase (la función de la clase del view.php)
