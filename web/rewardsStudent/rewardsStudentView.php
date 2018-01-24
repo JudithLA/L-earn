@@ -1,7 +1,6 @@
 <?php
 
 	require __DIR__."/../Commons/Commons.php";
-	// require __DIR__."/../Commons/headerStudent.php";
 
 	class RewardsStudentView{
 
