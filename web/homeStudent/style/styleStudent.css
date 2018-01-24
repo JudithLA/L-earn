@@ -19,6 +19,9 @@
 .col11 {width: 91.666%;}
 .col12 {width: 100%;}
 
+header{display: flex; flex-direction: row;}
+nav ul {display: flex; flex-direction: row; margin-left: 50px;}
+nav ul li {margin-right: 30px;}
 body{margin-top: 50px;}
 
 h2 {padding: 20px 0;}
@@ -30,7 +33,7 @@ h2 {padding: 20px 0;}
   background-color: #99CCFF;
 }
 
-footer {background-color: #d9d9d9;}
+footer {background-color: #d9d9d9; position: absolute; bottom: 0;}
 footer div.content {padding: 2% 0;}
 #copy {text-align: center;}
 footer span {font-size: 12px;}

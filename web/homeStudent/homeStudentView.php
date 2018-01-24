@@ -1,7 +1,7 @@
 <?php
 	// Clase de la Vista
 	require __DIR__."/../Commons/Commons.php";
-	require __DIR__."/../Commons/headerStudent.php";
+	// require __DIR__."/../Commons/headerStudent.php";
 
 	class HomeStudentView{
 
@@ -11,7 +11,7 @@
 		//Destructor (destruye la clase)
 		public function __destruct(){}
 
-		
+
 		// Método que devolverá el HTML
 		public function genHomeStudent() {
 			// Variable con el HTML –con comillas simples–
@@ -26,7 +26,7 @@
 						<script src='js/functionsHomeStudent.js'></script>
 					</head>
 					<body>
-						" . CommonsStudent::header() . "
+						" . Commons::headerStudent() . "
 						<div class='content'>
 							<div class='l col9'>
 								<div>

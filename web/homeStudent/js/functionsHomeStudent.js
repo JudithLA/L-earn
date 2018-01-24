@@ -1,12 +1,12 @@
 $(document).ready(function () {
 
 	// Función para mostrar el siguiente test
-	var showNextTest = function () {
+	var showLastTest = function () {
 
 		var url = "http://localhost:8888/L-earn/web/homeStudent/homeStudent.php";
 
 		var data = {
-			action : "getNextTest"
+			action : "getLastTest"
 		};
 
 		$.ajax({
@@ -57,7 +57,7 @@ $(document).ready(function () {
 		});
 	}
 
-	showNextTest();
+	showLastTest();
 
 
 });

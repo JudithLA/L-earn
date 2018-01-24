@@ -36,29 +36,6 @@
 
 		}
 
-		// Método consultar la BBDD y obtener el último test final realizado por el alumno
-		// Habrá que pasar el ID_ALUMN por parámetro: public function nextTest($idAlumno){WHERE ALUMN.ID_ALUMN = '{$idAlumno}'}
-		public function nextTest(){
-
-			$_SESSION['id'] = 1;
-			// Definimos la query
-			$consult = "SELECT FINAL.ID_FINAL AS FinalTest, REL_ALUMN_FINAL.ID_FINAL AS IdLastTestDone, REL_ALUMN_FINAL.FECHA_REL_ALUMN_FINAL AS DateLastTestDone, TEMAS.ICON_TEMAS AS ImgTema, ASIGN.NOMBRE_ASIGN AS NombreAsign FROM ALUMN
-						INNER JOIN REL_ALUMN_FINAL ON ALUMN.ID_ALUMN = REL_ALUMN_FINAL.ID_ALUMN
-						INNER JOIN FINAL ON REL_ALUMN_FINAL.ID_FINAL = FINAL.ID_FINAL
-						INNER JOIN TEMAS ON FINAL.ID_TEMAS = TEMAS.ID_TEMAS
-						INNER JOIN ASIGN ON TEMAS.ID_ASIGN = ASIGN.ID_ASIGN
-						WHERE ALUMN.ID_ALUMN = '{$_SESSION["id"]}' ORDER BY REL_ALUMN_FINAL.FECHA_REL_ALUMN_FINAL DESC";
-
-			// Llamada al método executeQuery() mediante el acceso al atributo $mysqli para ejecutar la query en la BBDD
-			// Almacenamos en $result los resultados de la query "$consult"
-			$result = $this->mysqli -> executeQuery($consult);
-
-			// Almacenamos el resultado de la query
-			//$lastTestDone = $result;
-
-			return $result;
-		}
-
 		// Método consultar la BBDD y obtener el porcentaje de los puntos de experiencia total del alumno entre todas sus asignaturas
 		public function percentageStudentExpPoints(){
 
@@ -98,8 +75,59 @@
 			return $finalPoints;
 		}
 
+		// Método consultar la BBDD y obtener el último test final realizado por el alumno
+		// Habrá que pasar el ID_ALUMN por parámetro: public function nextTest($idAlumno){WHERE ALUMN.ID_ALUMN = '{$idAlumno}'}
+		public function lastTest(){
+
+			$_SESSION['id'] = 1;
+			// Definimos la query
+			$consult = "SELECT FINAL.ID_FINAL AS FinalTest, REL_ALUMN_FINAL.ID_FINAL AS IdLastTestDone, REL_ALUMN_FINAL.FECHA_REL_ALUMN_FINAL AS DateLastTestDone, TEMAS.ICON_TEMAS AS ImgTema, ASIGN.NOMBRE_ASIGN AS NombreAsign FROM ALUMN
+						INNER JOIN REL_ALUMN_FINAL ON ALUMN.ID_ALUMN = REL_ALUMN_FINAL.ID_ALUMN
+						INNER JOIN FINAL ON REL_ALUMN_FINAL.ID_FINAL = FINAL.ID_FINAL
+						INNER JOIN TEMAS ON FINAL.ID_TEMAS = TEMAS.ID_TEMAS
+						INNER JOIN ASIGN ON TEMAS.ID_ASIGN = ASIGN.ID_ASIGN
+						WHERE ALUMN.ID_ALUMN = '{$_SESSION["id"]}' ORDER BY REL_ALUMN_FINAL.FECHA_REL_ALUMN_FINAL DESC";
+
+			// Llamada al método executeQuery() mediante el acceso al atributo $mysqli para ejecutar la query en la BBDD
+			// Almacenamos en $result los resultados de la query "$consult"
+			$result = $this->mysqli -> executeQuery($consult);
+
+			// Almacenamos el resultado de la query
+			//$lastTestDone = $result;
+
+			return $result;
+		}
+
+		// Método consultar la BBDD y obtener el siguiente test final
+		public function nextTest(){
+
+			$_SESSION['id'] = 1;
+			// Definimos la query
+			$consult = "SELECT AvailableTest.IdTest, AvailableTest.NombreAsign, AvailableTest.IdAsign  FROM
+				(SELECT FINAL.ID_FINAL AS IdTest, TEMAS.ICON_TEMAS AS ImgTema, ASIGN.NOMBRE_ASIGN AS NombreAsign, ASIGN.ID_ASIGN as IdAsign FROM FINAL
+				INNER JOIN TEMAS ON FINAL.ID_TEMAS = TEMAS.ID_TEMAS
+				INNER JOIN ASIGN ON TEMAS.ID_ASIGN = ASIGN.ID_ASIGN
+				) AS AvailableTest
+				INNER JOIN
+				(SELECT MAX(REL_ALUMN_FINAL.ID_FINAL) AS IdLastTestDone, ASIGN.ID_ASIGN AS IdAsign FROM REL_ALUMN_FINAL
+				INNER JOIN FINAL ON REL_ALUMN_FINAL.ID_FINAL = FINAL.ID_FINAL
+				INNER JOIN TEMAS ON FINAL.ID_TEMAS = TEMAS.ID_TEMAS
+				INNER JOIN ASIGN ON TEMAS.ID_ASIGN = ASIGN.ID_ASIGN
+				WHERE REL_ALUMN_FINAL.ID_ALUMN = '{$_SESSION["id"]}' GROUP BY ASIGN.ID_ASIGN) AS LastTestDone ON AvailableTest.IdTest > LastTestDone.IdLastTestDone AND LastTestDone.IdAsign = AvailableTest.IdAsign
+				GROUP BY LastTestDone.IdAsign";
+
+			// Llamada al método executeQuery() mediante el acceso al atributo $mysqli para ejecutar la query en la BBDD
+			// Almacenamos en $result los resultados de la query "$consult"
+			$result = $this->mysqli -> executeQuery($consult);
+
+			// Almacenamos el resultado de la query
+			//$lastTestDone = $result;
+
+			return $result;
+		}
+
 	}
 // $m = new HomeStudentModel();
-// $result = $m->percentageStudentExpPoints();
+// $result = $m->nextTest();
 // print_r($result);
  ?>
