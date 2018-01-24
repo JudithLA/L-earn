@@ -14,9 +14,6 @@ Login.fn.AddUser = function (user, email, pass) {
         email: $('#email').val(),
         pass: $('#password').val()
     };
-    //$.get(url, data, function(result){alert ("Ha ido Bien la cosa");});
-
-    //$.post(url, data, function(result){alert ("Ha ido Bien la cosa");});
 
     $.ajax({
         url: url,
@@ -58,9 +55,6 @@ Login.fn.selectCenter = function () {
       // parametro que indica que es profesor
       userType: 'profesor'
     };
-    //$.get(url, data, function(result){alert ("Ha ido Bien la cosa");});
-
-    //$.post(url, data, function(result){alert ("Ha ido Bien la cosa");});
 
     $.ajax({
         url: url,
@@ -81,6 +75,52 @@ Login.fn.selectCenter = function () {
                 $('#paso2').after(paso3);
                 $('#paso2').removeClass('on');
                 $('#paso3').addClass('on');
+                $('.boton').click(function(){
+                  alert('hola');
+                  var idCentro = $('#centros').find(":selected").attr('value');
+                  console.log(idCentro);
+                  Login.fn.selectCurse();
+                });
+            } else {
+                $('.msgError').html(resultArray['msg']);
+            }
+        },
+
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.status);
+            alert(textStatus);
+            alert(errorThrown);
+        }
+
+    });
+}
+
+
+Login.fn.selectCurse = function () {
+  var idCentro = $('#centros').find(":selected").attr('value');
+    var url = "http://localhost:8888/L-earn/web/registerTeacher/RegisterReceived.php";
+    var data = {
+      // accion a ejecutar en servidor
+      action : 'insertCenter',
+      // parametro que indica que es profesor
+      idCenter: idCentro
+    };
+
+    $.ajax({
+        url: url,
+        data: data,
+        method: "POST",
+
+        beforeSend: function () {
+        },
+
+        success: function (result) {
+            console.log(result);
+
+            resultArray = JSON.parse(result);console.log(resultArray);
+            if(resultArray['status'] == 'OK'){
+                $('#paso3').removeClass('on');
+                $('#paso4').addClass('on');
             } else {
                 $('.msgError').html(resultArray['msg']);
             }
@@ -98,7 +138,13 @@ Login.fn.selectCenter = function () {
 
 
 
-
+$(".boton").click(function(){
+  alert('hola');
+  var idCentro = $('#centros').find(":selected").attr('value');
+  console.log(idCentro);
+  return;
+  Login.fn.selectCurse();
+});
 
 $("#btn_register").click(function(){
   email = $("#email").val();
@@ -112,5 +158,6 @@ $("#btn_register").click(function(){
 $("#box_profe").click(function(){
   Login.fn.selectCenter();
 });
+
 
 };

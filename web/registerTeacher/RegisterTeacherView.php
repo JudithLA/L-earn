@@ -17,8 +17,7 @@
       <html>
         <head>
           <meta charset='utf-8'>
-          <script src='js/jquery-3.2.1.min.js'></script>
-          <script src='js/loginProfe.js'></script>
+
           <title>NUEVO REGISTRO</title>
 
           <style>
@@ -57,6 +56,8 @@
           </div>
 
         </body>
+				<script src='js/jquery-3.2.1.min.js'></script>
+				<script src='js/loginProfe.js'></script>
       </html>
 
 		";
@@ -66,18 +67,32 @@
 	//creación de método que te devuelve el HTML
 	public function genSelect($centers) {
 
-		
 		$resultHTML = "
 			<div id='paso3'>
-				<p class='title_section'>Elige tu centro</p>
-				<select>";
-				foreach ($centers as $row) {
-					 $resultHTML.= "<option value='{$row['ID_CENTR']}'>{$row['NOMBRE_CENTR']}</option>";
-				}
+			<p class='title_section'>Elige tu centro</p>
+			<select id ='centros'>";
+			foreach ($centers as $row) {
+				 $resultHTML.= "<option value='{$row['ID_CENTR']}'>{$row['NOMBRE_CENTR']}</option>";
+			}
+			$resultHTML .=	"</select> <button class='boton'>Siguiente</button> </div>";
+			return $resultHTML;
+	}
 
+
+	//creación de método que te devuelve el HTML
+	public function genCurso($centers) {
+
+		$resultHTML = "
+			<div id='paso4'>
+			<p class='title_section'>Mis alumnos son de:</p>";
+			foreach ($centers as $row) {
+				 $resultHTML.= "<option value='{$row['ID_CENTR']}'>{$row['NOMBRE_CENTR']}</option>";
+			}
 			$resultHTML .=	"</select> </div>";
 			return $resultHTML;
 	}
+
+
 
 	}
 
