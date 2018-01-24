@@ -1,7 +1,6 @@
 <?php
 	// Clase de la Vista
 	require __DIR__."/../Commons/Commons.php";
-	// require __DIR__."/../Commons/headerStudent.php";
 
 	class HomeStudentView{
 
