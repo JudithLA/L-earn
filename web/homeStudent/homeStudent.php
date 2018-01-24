@@ -2,6 +2,9 @@
 	// Incluimos el archivo del Controlador
 	require_once __DIR__ . "/homeStudentController.php";
 
+
+	session_start();
+
 	if (!empty($_POST)) {
 		$action = $_POST['action'];
 		$view = new HomeStudentController();
