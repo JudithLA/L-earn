@@ -3,7 +3,7 @@ $(document).ready(function () {
 	// Función para mostrar el siguiente test
 	var showNextTest = function () {
 
-		var url = "http://localhost:8888/web/homeStudent/homeStudent.php";
+		var url = "http://localhost:8888/L-earn/web/homeStudent/homeStudent.php";
 
 		var data = {
 			action : "getNextTest"
@@ -43,89 +43,21 @@ $(document).ready(function () {
 					linkLastTextAsign.append(nameLastTextAsign);
 					linkLastTextAsign.append(btnLastTextAsign);
 
-					// console.log("El FinalTest es " + elem.FinalTest + ", el IdLastTestDone es " + elem.IdLastTestDone + ", el DateLastTestDone es " + elem.DateLastTestDone + " y el nombre de la asignatura es " + elem.NombreAsign);
 					$('#nextTestAsign').append(linkLastTextAsign);
 
 				});
       },
 
 			error: function (jqXHR, textStatus, errorThrown) {
-				// alert(jqXHR.status);
-				// alert(textStatus);
-				// alert(errorThrown);
+				alert(jqXHR.status);
+				alert(textStatus);
+				alert(errorThrown);
 			}
 
 		});
 	}
 
 	showNextTest();
-
-	// Función para mostrar los puntos finales
-	var showFinPoints = function () {
-
-		// Almacenamos en una variable la url del archivo de destino
-		var url = "http://localhost:8888/web/homeStudent/homeStudent.php";
-
-		// Almacenamos en una variable los datos que mandamos al archivo de destino
-		// Aquí llamamos al método del Controlador
-		var data = {
-			action : "getStudentFinPoints"
-		};
-
-		$.ajax({
-			url: url,
-			data: data,
-			method: "POST",
-
-			// Si todo ok, imprimimos los datos en el HTML
-			success: function (result) {
-				var resultPoints = JSON.parse(result);
-				$('#pFin').html('Puntuación: ' + resultPoints);
-            },
-
-            // Si error, mostramos en alerts mensajes
-			error: function (jqXHR, textStatus, errorThrown) {
-				// alert(jqXHR.status);
-				// alert(textStatus);
-				// alert(errorThrown);
-			}
-
-		});
-	}
-
-	// Ejecutamos la función
-	showFinPoints();
-
-	// Función para mostrar el porcentaje de experiencia
-	var showPercentage = function () {
-
-		var url = "http://localhost:8888/web/homeStudent/homeStudent.php";
-
-		var data = {
-			action : "getPercentageStudentExpPoints"
-		};
-
-		$.ajax({
-			url: url,
-			data: data,
-			method: "POST",
-
-			success: function (result) {
-				var resultPercentage = JSON.parse(result);
-				// resultPercentage.toFixed(2);
-				$('#pExp').html('Experiencia: ' + resultPercentage + ' %');
-            },
-
-			error: function (jqXHR, textStatus, errorThrown) {
-				// alert(jqXHR.status);
-				// alert(textStatus);
-				// alert(errorThrown);
-			}
-
-		});
-	}
-
-	showPercentage();
 
 
 });
