@@ -1,6 +1,8 @@
 <?php
 	// Clase de la Vista
 	require __DIR__."/../Commons/Commons.php";
+	require __DIR__."/../Commons/headerStudent.php";
+
 	class HomeStudentView{
 
 		//Constructor (crea la clase)
@@ -24,6 +26,7 @@
 						<script src='js/functionsHomeStudent.js'></script>
 					</head>
 					<body>
+						" . CommonsStudent::header() . "
 						<div class='content'>
 							<div class='l col9'>
 								<div>
@@ -37,8 +40,8 @@
 								<div>
 									<h2>Mi progreso</h2>
 									<div>
-										<div id='pFin'></div>
-										<div id='pExp'></div>
+										<div id='pFin'>Puntuación: " . $_SESSION['finPoints'] . "</div>
+										<div id='pExp'>Experiencia: " . $_SESSION['percentage'] . "</div>
 									</div>
 								</div>
 							</div>
@@ -52,7 +55,7 @@
 								</div>
 							</div>
 						</div>
-						".Commons::footer()."
+						" . Commons::footer() . "
 					</body>
 					</html>
 			";
