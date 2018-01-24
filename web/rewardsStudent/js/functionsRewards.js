@@ -39,7 +39,10 @@ $(document).ready(function () {
 
 					if (elem.RelRecomId != null) {
 						linkReward.setAttribute('class', 'disabled-reward');
-						
+						$('.disabled-reward').click(function(){
+							return false;
+						});
+
 					}
 
 					$('#rewards').append(linkReward);

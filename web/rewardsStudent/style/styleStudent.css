@@ -19,8 +19,10 @@
 .col11 {width: 91.666%;}
 .col12 {width: 100%;}
 
+header{display: flex; flex-direction: row;}
+nav ul {display: flex; flex-direction: row; margin-left: 50px;}
+nav ul li {margin-right: 30px;}
 body{margin-top: 50px;}
-
 h2 {padding: 20px 0;}
 
 #ramdomTest {
@@ -49,6 +51,7 @@ h2 {padding: 20px 0;}
   height: 200px;
   margin-right: 5px;
   background-color: lightblue;
+  cursor: default;
 }
 #rewards a.disabled-reward{
   text-decoration: none;

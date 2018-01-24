@@ -1,7 +1,7 @@
 <?php
 
 	require __DIR__."/../Commons/Commons.php";
-	require __DIR__."/../Commons/headerStudent.php";
+	// require __DIR__."/../Commons/headerStudent.php";
 
 	class RewardsStudentView{
 
@@ -22,7 +22,7 @@
 						<script src='js/functionsRewards.js'></script>
 					</head>
 					<body>
-						" . CommonsStudent::header() . "
+						" . Commons::headerStudent() . "
 						<div class='content'>
 							<div>
 								<h2>Consigue tu premio</h2>
