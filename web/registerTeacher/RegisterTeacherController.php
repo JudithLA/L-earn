@@ -71,12 +71,12 @@ public function getCenter(){
 	}
 
 	public function insertCenter(){
-		$idCenter = $_POST['idCenter'];
-			$model = new RegisterTeacherModel();
-			$centers = $model->updateCenter($idCenter);
-			$view = new RegisterTeacherView($centers);
-			$select = $view-> genCurso();
-			return $select;
+		$idCenter = $_POST['idCentro'];
+		$model = new RegisterTeacherModel();
+		$centers = $model->updateCenter($idCenter);
+		$view = new RegisterTeacherView();
+		$select = $view-> genCurso($centers);
+		return $select;
 	}
 }
 ?>

@@ -67,7 +67,8 @@ Login.fn.selectCenter = function () {
         success: function (result) {
             console.log(result);
 
-            resultArray = JSON.parse(result);console.log(resultArray);
+            resultArray = JSON.parse(result);
+            console.log(resultArray);
             if(resultArray['status'] == 'OK'){
               var paso3 = document.createElement("div").innerHtml = resultArray.html;
               var paso2 = document.getElementById('paso2');
@@ -117,10 +118,16 @@ Login.fn.selectCurse = function () {
         success: function (result) {
             console.log(result);
 
-            resultArray = JSON.parse(result);console.log(resultArray);
+            resultArray = JSON.parse(result);
+            console.log(resultArray);
             if(resultArray['status'] == 'OK'){
+                var paso4 = document.createElement("div").innerHtml = resultArray.html;
+                var paso3 = document.getElementById('paso3');
+                console.log(paso3.parentNode);
+                $('#paso3').after(paso4);
                 $('#paso3').removeClass('on');
                 $('#paso4').addClass('on');
+                
             } else {
                 $('.msgError').html(resultArray['msg']);
             }
@@ -138,13 +145,6 @@ Login.fn.selectCurse = function () {
 
 
 
-$(".boton").click(function(){
-  alert('hola');
-  var idCentro = $('#centros').find(":selected").attr('value');
-  console.log(idCentro);
-  return;
-  Login.fn.selectCurse();
-});
 
 $("#btn_register").click(function(){
   email = $("#email").val();

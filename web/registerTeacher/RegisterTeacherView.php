@@ -86,7 +86,7 @@
 			<div id='paso4'>
 			<p class='title_section'>Mis alumnos son de:</p>";
 			foreach ($centers as $row) {
-				 $resultHTML.= "<option value='{$row['ID_CENTR']}'>{$row['NOMBRE_CENTR']}</option>";
+				 $resultHTML.= "<option value='{$row['ID_CURSO']}'>{$row['NIVEL_CURSO']}</option>";
 			}
 			$resultHTML .=	"</select> </div>";
 			return $resultHTML;
