@@ -23,7 +23,7 @@ $(document).ready(function(){
             beforeSend: function () {
             },
 */
-            //success muestra en JSON lo que le indiques si ha salido todo bien. te devuelve un con
+            //success muestra en JSON (porque lo parseas a JSON y lo atribuyes a la variable resultArray) lo que le indiques (dentro del parámetro result) si ha salido todo bien
             success: function (result) {
                 resultArray = JSON.parse(result);
                 //para comprobar que saca bien el json y saber cuáles son los identificados para llamarlos en el bucle foreach
@@ -34,9 +34,9 @@ $(document).ready(function(){
                     // console.log("el curso" + element.GroupLevel + "tiene una letra " + element.GroupLetter);
                     // Podemos acceder a la propiedad como si fuese un vector
                     //console.log(“el id” + element[‘id’] + “está asociado a “ + element[‘alumno’]);
-                    var currentGroup = element.GroupLevel + '  ' + element.GroupLetter;
+                    var currentGroup = element.GroupLevel + ' ESO ' + element.GroupLetter;
 
-                    var linkNameGroup = 'homeTeacherAlumnos.php?GroupId=' + element.GroupId;
+                    var linkNameGroup = '../teacherStudents/teacherStudents.php?action=getStudentsGroups&GroupId=' + element.GroupId;
 
                     var linkGroup = document.createElement('a');
                     linkGroup.setAttribute('href',linkNameGroup);
@@ -92,6 +92,6 @@ $(document).ready(function(){
         });
 */
     }
-
+//llamada a la función para que se ejecute
 showGroups();
 });

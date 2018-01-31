@@ -23,12 +23,21 @@ class  Commons{
 		<header>
 			<nav>
 				<ul>
-					<li><a href=''>Alumnos</a></li>
-					<li><a href=''>Asignaturas</a></li>
-					<li><a href=''>Tests</a></li>
+					<li><a href='../homeTeacher/homeTeacher.php'>Alumnos</a></li>
+					<li><a href='../teacherAsign/teacherAsign.php'>Asignaturas</a></li>
+					<li><a href='../teacherTests/teacherTests.php'>Tests</a></li>
 
 				</ul>
 			</nav>
+
+			<div class='header-profile'>"
+				. $_SESSION['teacherName'] 
+				. $_SESSION['teacherSurname'] .
+				"<img src='"
+				. $_SESSION['imgStu'] .
+				"' alt='Imagen del usuario'>
+			
+			</div>
 		</header>
 		";
 	return $teacherHeaderHTML;

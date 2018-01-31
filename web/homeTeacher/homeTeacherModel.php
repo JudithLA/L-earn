@@ -14,7 +14,7 @@
 
 		//Constructor (crea la clase)
 		public function __construct(){
-			//CONN2ºle pasamos al atributo mysqli el objeto. Creamos un objeto de la clase MysqlDBImplementation y abrimos una conexión a bbdd con los perímetros (host, puerto, nombre de base de datos, usuario, contraseña). De esta forma, cuando en Controller.php se instancie la clase del Modelo, se construirá la clase con esta conexión
+			//CONN2º cuando tenemos varias funciones, definimos la conexión en el método Construct para que todas las funciones puedan tirar de ella. le pasamos al atributo mysqli el objeto. Creamos un objeto de la clase MysqlDBImplementation y abrimos una conexión a bbdd con los perímetros (host, puerto, nombre de base de datos, usuario, contraseña). De esta forma, cuando en Controller.php se instancie la clase del Modelo, se construirá la clase con esta conexión
 			$this-> mysqli = new MysqlDBImplementation("127.0.0.1", "8889", "DBLEARN", "root", "learn");
 		}
 
@@ -50,17 +50,15 @@
 			INNER JOIN REL_CURSO_ASIGN ON ASIGN.ID_ASIGN=REL_CURSO_ASIGN.ID_ASIGN AND REL_CURSO_ASIGN.ID_CURSO = CURSO.ID_CURSO  WHERE PROFE.ID_PROFE='{$_SESSION ["id"]}' GROUP BY CURSO.ID_CURSO ORDER BY CURSO.NIVEL_CURSO";
 			
 
-			//creamos una clase $result donde, mediante el objeto mysqli, almacenaremos los resultados de la query "$consult".
-			//estos resultados serán obtenidos mediante el acceso al atributo $mysqli del método executeQuery(), que está incorporado en MysqlDBImplementation.php, 
+		//mediante el objeto mysqli, almacenaremos los resultados de la query "$consult" en result. estos resultados serán obtenidos mediante el acceso al atributo $mysqli del método executeQuery(), que está incorporado en MysqlDBImplementation.php.
 			$result = $this->mysqli -> executeQuery($consult);
 
 			//devolvemos resultado del executeQuery a través de la clase que habíamos instanciado
 			return $result;
 
-//¿ESTO DE INICIALIZAR A 0 POR QUÉ NO?
-			//inicialiamos id =0, porque si no hay resultados no nos devolvería 0 al controlador sino "vacío" y daría fallo
+//Para comprobar si hay resultados: inicializamos una variable a 0 para comprobar que se ha ejecutado correctamente la query (para evitar devolver al controller un «vacío» y que no nos de fallo; porque si no hay resultados no nos devolvería 0 al controlador sino "vacío" y daría fallo).
 			//$id = 0;
-			//recorremos toda las filas de la tabla con el metodo mysqli_fecth_assoc() //le pasamos al método nuestra query ($result)
+			//recorremos toda las filas de la tabla con el metodo mysqli_fecth_assoc() y le pasamos al método nuestra query ($result)
 			// while($row = mysqli_fetch_assoc($result)){
 				//almacenamos en $id el resultado de la query &consult (valor del campo ID_PRO)
 				//será cero si no encuantra ningúna fila con NOM_PRO=name y CON_PRO=password
