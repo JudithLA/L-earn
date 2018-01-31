@@ -39,7 +39,7 @@ class RegisterTeacherController {
 
 
 		if($idUser){
-				session_start();
+				//session_start();
 				$_SESSION ["id"] = $idUser;
 	      $result['status'] = 'OK';
 				$result['url'] = "http://www.publico.es";
@@ -70,13 +70,60 @@ public function getCenter(){
 
 	}
 
+  // Insert centro y Genera Curso
 	public function insertCenter(){
-		$idCenter = $_POST['idCentro'];
+		$idCenter = $_POST['idCenter'];
+		$_SESSION['idCenter'] = $idCenter;
 		$model = new RegisterTeacherModel();
 		$centers = $model->updateCenter($idCenter);
 		$view = new RegisterTeacherView();
 		$select = $view-> genCurso($centers);
-		return $select;
+		$cent['status'] = 'OK';
+		$cent['html'] = $select;
+		return $cent;
 	}
+
+  // Insert Curso y Genera Letra
+	public function insertCurso(){
+		$curso = $_POST['curso'];
+		$_SESSION['nivel_curso'] = $curso;
+		$model = new RegisterTeacherModel();
+		$letra = $model->selectLetraModel($curso);
+		$view = new RegisterTeacherView();
+		$select = $view-> genLetra($letra);
+		$cent['status'] = 'OK';
+		$cent['html'] = $select;
+		return $cent;
+	}
+
+	// Insert Letra y Genera Asignatura
+	public function selectAsign(){
+		$letra = $_POST['letra'];
+		$_SESSION['letra_curso'] = $letra;
+		$curso = $_SESSION['nivel_curso'];
+		$model = new RegisterTeacherModel();
+		$new = $model->selectAsignModel($curso);
+		$view = new RegisterTeacherView();
+		$select = $view-> genAsign($new);
+		$cent['status'] = 'OK';
+		$cent['html'] = $select;
+		return $cent;
+	}
+
+	// Insert ASIGN
+	public function insertAsign(){
+		$asign = $_POST['asign'];
+		$_SESSION['id_asign'] = $asign;
+		$model = new RegisterTeacherModel();
+		$new = $model->insertAsignModel($asign);
+		$view = new RegisterTeacherView();
+		$select = $view-> modalFinal($_SESSION['id'], $_SESSION['id_asign'],$_SESSION['nivel_curso'],$_SESSION['letra_curso']);
+		$cent['status'] = 'OK';
+		$cent['html'] = $select;
+		return $cent;
+	}
+
+
+
 }
 ?>

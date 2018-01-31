@@ -9,6 +9,11 @@ require_once __DIR__."/RegisterTeacherController.php";
 header('Access-Control-Allow-Origin: *');
 
 
+if(!isset($_SESSION)){
+  session_start();
+  
+}
+
 if(!isset($_POST)){
     $controller = new RegisterTeacherController();
     $result = $controller->checkRegister();

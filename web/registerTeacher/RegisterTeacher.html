@@ -7,14 +7,22 @@
     <title>NUEVO REGISTRO</title>
 
     <style>
-      #paso1.on, #paso3.on, #paso4.on { display: flex;}
-      #paso1, #paso2, #paso3, #paso4 { display: none; }
+      #paso1.on, #paso3.on, #paso7.on { display: flex;}
+      #paso4.on, #paso5.on, #paso6.on { display: block; }
+      #paso1, #paso2, #paso3, #paso4, #paso5, #paso6, #paso7 { display: none; }
       #paso2.on { display: flex; height: 100vh; position: relative; flex-direction: row;}
       #paso2 .title_section { position: absolute; z-index: 999; top: 10vh; left: 50%; transform: translateX(-50%); text-align: center; font-family: 'Helvetica', sans-serif; font-size: 100px; color: #fff; }
       .box_register_type { width: 50%; height: 100vh; display: flex; justify-content: center; align-items: center; cursor: pointer;}
       .box_register_type p { font-family: 'Helvetica', sans-serif; font-size: 30px; font-weight: bold; color: #FFF;}
       #box_profe { background-color: rgb(24, 37, 101); }
       #box_alumno { background-color:rgb(111, 50, 129); }
+      .flexRow { display: flex; flex-direction: row; }
+      .flexColumn { display: flex; flex-direction: column; }
+      .flexWrap { display: flex; flex-wrap: wrap; }
+      .flexJustA { justify-content: space-around; }
+      .flexJustB { justify-content: space-between; }
+      .item-curso, .item-asign { width: 200px; height: 200px; background-color: #ccc; text-align: center; cursor: pointer; margin: 10px;}
+      .item-asign p, .item-curso p { color: black; }
     </style>
   </head>
   <body>

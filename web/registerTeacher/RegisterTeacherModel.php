@@ -45,13 +45,38 @@ class RegisterTeacherModel{
 
 
 		public function updateCenter($idCenter){
+
 					$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
 					$query = "UPDATE PROFE SET ID_CENTR = '{$idCenter}' WHERE ID_PROFE = '{$_SESSION['id']}'";
-					$query = "SELECT * FROM CURSO WHERE ID_CENTRO = '{$idCenter}'";
+					$result = $mysqli->modifyQuery($query);
+					$query = "SELECT DISTINCT NIVEL_CURSO FROM CURSO WHERE ID_CENTR = '{$idCenter}'";
+
 					$result = $mysqli->executeQuery($query);
+
 					return $result;
 		}
 
+		public function selectLetraModel($curso){
+			$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
+			$query = "SELECT DISTINCT LETRA_CURSO FROM CURSO WHERE ID_CENTR = '{$_SESSION['idCenter']}' AND NIVEL_CURSO = {$curso}";
+			$result = $mysqli->executeQuery($query);
+
+			return $result;
+		}
+
+		public function selectAsignModel($curso){
+			$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
+			$query = "SELECT DISTINCT ON NOMBRE_ASIGN * FROM ASIGN WHERE NIVEL_ASIGN = '{$curso}'";
+			$result = $mysqli->executeQuery($query);
+			return $result;
+		}
+
+		public function insertAsignModel($curso){
+			$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
+			$query = "INSERT DISTINCT ON NOMBRE_ASIGN * FROM ASIGN WHERE NIVEL_ASIGN = '{$curso}'";
+			$result = $mysqli->executeQuery($query);
+			return $result;
+		}
 
 
 	}

@@ -81,14 +81,58 @@
 
 	//creación de método que te devuelve el HTML
 	public function genCurso($centers) {
-
 		$resultHTML = "
 			<div id='paso4'>
-			<p class='title_section'>Mis alumnos son de:</p>";
+			<p class='title_section'>Mis alumnos son de:</p>
+			<div class='flexRow flexWrap box-curso'>";
 			foreach ($centers as $row) {
-				 $resultHTML.= "<option value='{$row['ID_CURSO']}'>{$row['NIVEL_CURSO']}</option>";
+				 $resultHTML.= "<div class='item-curso' data-curso='{$row['NIVEL_CURSO']}'><p>{$row['NIVEL_CURSO']}º E.S.O.</p></div>";
 			}
-			$resultHTML .=	"</select> </div>";
+			$resultHTML .=	"</div></div>";
+			return $resultHTML;
+	}
+
+
+	//creación de método que te devuelve el HTML
+	public function genLetra($letra) {
+
+		$resultHTML = "
+			<div id='paso5'>
+			<p class='title_section'>Crea tu grupo</p>
+			<div class='flexRow flexWrap box-curso'>";
+			foreach ($letra as $row) {
+				 $resultHTML.= "<div class='item-curso' data-letra='{$row['LETRA_CURSO']}'><p>{$row['LETRA_CURSO']}</p></div>";
+			}
+			$resultHTML .=	"</div></div>";
+			return $resultHTML;
+	}
+
+	//creación de método que te devuelve el HTML
+	public function genAsign($new) {
+
+		$resultHTML = "
+			<div id='paso6'>
+			<p class='title_section'>Elige tu asignatura</p>
+			<div class='flexRow flexWrap box-asign'>";
+			foreach ($new as $row) {
+				 $resultHTML.= "<div class='item-asign' data-asign='{$row['ID_ASIGN']}'><p>{$row['NOMBRE_ASIGN']}</p></div>";
+			}
+			$resultHTML .=	"</div></div>";
+			return $resultHTML;
+	}
+
+
+// modalFinal($_SESSION['id'], $_SESSION['id_asign'],$_SESSION['nivel_curso'],$_SESSION['letra_curso']);
+	//creación de método que te devuelve el HTML
+	public function modalFinal($nombreProfesor, $nombreAsignatura, $nivelCurso, $letraCurso) {
+
+		$resultHTML = "
+			<div id='paso7'>
+			<p class='title_section'>ENHORABUENA</p>
+			<div class='flexRow flexWrap box-asign'>
+			<p>{$row['NOMBRE_ASIGN']}</p></div>";
+
+			$resultHTML .=	"</div></div>";
 			return $resultHTML;
 	}
 
