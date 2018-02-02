@@ -130,7 +130,7 @@
 			<div id='paso7'>
 			<p class='title_section'>ENHORABUENA</p>
 			<div class='flexRow flexWrap box-asign'>
-			<p>{$row['NOMBRE_ASIGN']}</p></div>";
+			<p>$nombreProfesor <br> $nombreAsignatura <br> $nivelCurso <br> $letraCurso</p></div>";
 
 			$resultHTML .=	"</div></div>";
 			return $resultHTML;

@@ -91,6 +91,9 @@ public function getCenter(){
 		$letra = $model->selectLetraModel($curso);
 		$view = new RegisterTeacherView();
 		$select = $view-> genLetra($letra);
+		$model = new RegisterTeacherModel();
+		$id_curso = $model->selectIdCursoModel($curso);
+		$_SESSION['id_curso'] = $id_curso[0]['id_curso'];
 		$cent['status'] = 'OK';
 		$cent['html'] = $select;
 		return $cent;
@@ -113,11 +116,12 @@ public function getCenter(){
 	// Insert ASIGN
 	public function insertAsign(){
 		$asign = $_POST['asign'];
-		$_SESSION['id_asign'] = $asign;
 		$model = new RegisterTeacherModel();
 		$new = $model->insertAsignModel($asign);
+		$_SESSION['id_asign'] = $new[0]['id_asign'];
+		var_dump($_SESSION);
 		$view = new RegisterTeacherView();
-		$select = $view-> modalFinal($_SESSION['id'], $_SESSION['id_asign'],$_SESSION['nivel_curso'],$_SESSION['letra_curso']);
+		$select = $view-> modalFinal($_SESSION['id'], $_SESSION['id_asign'], $_SESSION['id_curso'], $_SESSION['nivel_curso'],$_SESSION['letra_curso']);
 		$cent['status'] = 'OK';
 		$cent['html'] = $select;
 		return $cent;

@@ -56,6 +56,16 @@ class RegisterTeacherModel{
 					return $result;
 		}
 
+		public function selectIdCursoModel($curso){
+		$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
+		$query_insert = "INSERT INTO CURSO (NIVEL_CURSO, GRADO_CURSO, ID_CENTR) VALUES('{$curso}', 'E.S.O', '{$_SESSION['idCenter']}')";
+		$result = $mysqli->modifyQuery($query_insert);
+		$query = "SELECT MAX(ID_CURSO) as id_curso FROM CURSO WHERE ID_CENTR = '{$_SESSION['idCenter']}' AND NIVEL_CURSO = {$curso}";
+		$result = $mysqli->executeQuery($query);
+
+		return $result;
+		}
+
 		public function selectLetraModel($curso){
 			$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
 			$query = "SELECT DISTINCT LETRA_CURSO FROM CURSO WHERE ID_CENTR = '{$_SESSION['idCenter']}' AND NIVEL_CURSO = {$curso}";
@@ -66,15 +76,22 @@ class RegisterTeacherModel{
 
 		public function selectAsignModel($curso){
 			$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
-			$query = "SELECT DISTINCT ON NOMBRE_ASIGN * FROM ASIGN WHERE NIVEL_ASIGN = '{$curso}'";
+			$query_insert = "UPDATE CURSO SET LETRA_CURSO = '{$_SESSION['letra_curso']}') WHERE ID_CURSO = '{$_SESSION['id_curso']}' AND ID_CENTR = '{$_SESSION['idCenter']}'";
+			$result = $mysqli->modifyQuery($query_insert);
+			$query = "SELECT DISTINCT NOMBRE_ASIGN, ID_ASIGN FROM ASIGN WHERE NIVEL_ASIGN = '{$curso}'";
 			$result = $mysqli->executeQuery($query);
 			return $result;
 		}
 
-		public function insertAsignModel($curso){
+		public function insertAsignModel($asign){
 			$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
-			$query = "INSERT DISTINCT ON NOMBRE_ASIGN * FROM ASIGN WHERE NIVEL_ASIGN = '{$curso}'";
-			$result = $mysqli->executeQuery($query);
+			$query_insert = "INSERT INTO ASIGN (ID_PROFE, NOMBRE_ASIGN, NIVEL_ASIGN) SELECT '{$_SESSION['id']}', NOMBRE_ASIGN, NIVEL_ASIGN FROM ASIGN WHERE ID_ASIGN ='{$asign}'";
+			$result = $mysqli->modifyQuery($query_insert);
+			$query = "INSERT INTO REL_CURSO_ASIGN (ID_CURSO, ID_ASIGN) SELECT '{$_SESSION['id_curso']}', MAX(ID_ASIGN) FROM ASIGN WHERE ID_PROFE ='{$_SESSION['id']}'";
+			$result = $mysqli->modifyQuery($query);
+			$query_select = "SELECT MAX(ID_ASIGN) as id_asign FROM ASIGN WHERE ID_PROFE ='{$_SESSION['id']}'";
+			$result = $mysqli->executeQuery($query_select);
+			var_dump($result);
 			return $result;
 		}
 
