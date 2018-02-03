@@ -31,12 +31,12 @@ class  Commons{
 			</nav>
 
 			<div class='header-profile'>"
-				. $_SESSION['teacherName'] 
+				. $_SESSION['teacherName']
 				. $_SESSION['teacherSurname'] .
 				"<img src='"
 				. $_SESSION['imgStu'] .
 				"' alt='Imagen del usuario'>
-			
+
 			</div>
 		</header>
 		";
@@ -47,17 +47,17 @@ class  Commons{
 		$headerHTML = "
 		<header>
 			<div class='content'>
-				<a href='http://localhost:8888/L-earn/web/homeStudent/homeStudent.php'>
+				<a href='http://localhost:8888/L-earn/web/homeStudent/homeStudent.php' id='logo'>
 					<h1>L-EARN</h1>
 				</a>
 				<nav>
 					<ul>
-						<li><a href='#'>Tests</a></li>
+						<li><a href='http://localhost:8888/L-earn/web/testStudent/testStudent.php'>Tests</a></li>
 						<li><a href='http://localhost:8888/L-earn/web/rewardsStudent/rewardsStudent.php'>Recompensas</a></li>
 					</ul>
 				</nav>
-				<span id='headPoints'>" . $_SESSION['finPoints'] . "</span>
-				<span id='headPercent'>" . $_SESSION['percentage'] . "</span>
+				<span id='headPoints'>" . $_SESSION['finPoints'] . " PTOS.</span>
+				<span id='headPercent'>" . $_SESSION['percentage'] . " % EXP.</span>
 				<span>" . $_SESSION['nameStu'] . $_SESSION['surnameStu'] . "</span>
 				<img src='" . $_SESSION['imgStu'] . "' alt='Imagen del usuario'>
 			</div>
