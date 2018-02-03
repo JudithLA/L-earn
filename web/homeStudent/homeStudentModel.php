@@ -25,11 +25,11 @@
 
 			$_SESSION['id'] = 1;
 
-			$consult = "SELECT NOMBRE_ALUMN, CONCAT(SUBSTRING(APELLIDO_ALUMN, 1, 1), '.') AS FirstSurname, IMG_ALUMN FROM ALUMN WHERE ID_ALUMN = '{$_SESSION["id"]}'";
+			$consult = "SELECT CONCAT(NOMBRE_ALUMN, ' ') AS Name, CONCAT(SUBSTRING(APELLIDO_ALUMN, 1, 1), '.') AS FirstSurname, IMG_ALUMN FROM ALUMN WHERE ID_ALUMN = '{$_SESSION["id"]}'";
 
 			$result = $this->mysqli -> executeQuery($consult);
 
-			$_SESSION['nameStu'] = $result[0]['NOMBRE_ALUMN'];
+			$_SESSION['nameStu'] = $result[0]['Name'];
 			$_SESSION['surnameStu'] = $result[0]['FirstSurname'];
 			$_SESSION['imgStu'] = $result[0]['IMG_ALUMN'];
 
@@ -42,9 +42,9 @@
 			$_SESSION['id'] = 1;
 			// Definimos la query
 			// Habrá que modificar el ID_ALUMN por '{$_SESSION ["id"]}'
-			$consult = "SELECT CONCAT(TRUNCATE((ALUMN.EXPERIENCIA_ALUMN*100)/(SELECT COUNT(ENTRE.ID_ENTRE)*4 AS TotalExperience FROM ENTRE
+			$consult = "SELECT TRUNCATE((ALUMN.EXPERIENCIA_ALUMN*100)/(SELECT COUNT(ENTRE.ID_ENTRE)*4 AS TotalExperience FROM ENTRE
         				INNER JOIN TEMAS ON ENTRE.ID_TEMAS = TEMAS.ID_TEMAS
-        				INNER JOIN ASIGN ON TEMAS.ID_ASIGN = ASIGN.ID_ASIGN), 2), ' % EXP.') AS Percentage
+        				INNER JOIN ASIGN ON TEMAS.ID_ASIGN = ASIGN.ID_ASIGN), 2) AS Percentage
 						FROM ALUMN WHERE ALUMN.ID_ALUMN = '{$_SESSION["id"]}'";
 
 			// Llamada al método executeQuery() mediante el acceso al atributo $mysqli para ejecutar la query en la BBDD
@@ -63,7 +63,7 @@
 			$_SESSION['id'] = 1;
 			// Definimos la query
 			// Habrá que modificar el ID_ALUMN por '{$_SESSION ["id"]}'
-			$consult = "SELECT CONCAT(PUNTOS_ALUMN, ' PTOS.') AS Points FROM ALUMN WHERE ID_ALUMN = '{$_SESSION["id"]}'";
+			$consult = "SELECT PUNTOS_ALUMN AS Points FROM ALUMN WHERE ID_ALUMN = '{$_SESSION["id"]}'";
 
 			// Llamada al método executeQuery() mediante el acceso al atributo $mysqli para ejecutar la query en la BBDD
 			// Almacenamos en $result los resultados de la query "$consult"

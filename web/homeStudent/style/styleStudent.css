@@ -4,27 +4,34 @@
 .content {width: 100%; margin: 0 auto; max-width: 960px;}
 .center {margin: 0 auto;}
 .l {float: left;}
-.r {float: right;}
-
-.col1 {width: 8.333%;}
-.col2 {width: 16.666%;}
-.col3 {width: 25%;}
-.col4 {width: 33.333%;}
-.col5 {width: 41.666%;}
-.col6 {width: 50%;}
-.col7 {width: 58.333%;}
-.col8 {width: 66.666%;}
-.col9 {width: 75%;}
-.col10 {width: 83.333%;}
-.col11 {width: 91.666%;}
 .col12 {width: 100%;}
 
 header{display: flex; flex-direction: row;}
-nav ul {display: flex; flex-direction: row; margin-left: 50px;}
+a#logo, nav {display: inline-block;}
+nav ul {display: flex; flex-direction: row; margin-left: 50px; list-style-type: none;}
 nav ul li {margin-right: 30px;}
+header img {width: 44px;}
 body{margin-top: 50px;}
 
+#currentInfo {
+	display: flex;
+	flex-direction: row;
+}
+#nextTestAsign-wrap{width: 75%;}
 h2 {padding: 20px 0;}
+#nextTestAsign {
+    min-height: 560px;
+    display: flex;
+    flex-direction: row;
+}
+#nextTestAsign a {
+    margin-right: 5px;
+}
+#nextTestAsign a img {width: 300px;}
+
+#progress{
+	width: 25%;
+}
 
 #ramdomTest {
   margin-top: 5%;
@@ -33,7 +40,7 @@ h2 {padding: 20px 0;}
   background-color: #99CCFF;
 }
 
-footer {background-color: #d9d9d9; position: absolute; bottom: 0;}
+footer {background-color: #d9d9d9;}
 footer div.content {padding: 2% 0;}
 #copy {text-align: center;}
 footer span {font-size: 12px;}

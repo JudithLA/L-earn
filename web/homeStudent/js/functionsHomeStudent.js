@@ -23,7 +23,6 @@ $(document).ready(function () {
 					// Creamos un enlace
 					var linkLastTextAsign = document.createElement('a');
 					linkLastTextAsign.setAttribute('href', '#');
-					linkLastTextAsign.setAttribute('class', 'col3 l');
 
 					// Creamos una imagen
 					var imgLastTextAsign = document.createElement('img');
@@ -46,7 +45,7 @@ $(document).ready(function () {
 					$('#nextTestAsign').append(linkLastTextAsign);
 
 				});
-      },
+      		},
 
 			error: function (jqXHR, textStatus, errorThrown) {
 				alert(jqXHR.status);

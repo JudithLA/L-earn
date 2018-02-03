@@ -26,8 +26,8 @@
 					</head>
 					<body>
 						" . Commons::headerStudent() . "
-						<div class='content'>
-							<div class='l col9'>
+						<div class='content' id='currentInfo'>
+							<div class='' id='nextTestAsign-wrap'>
 								<div>
 									<h2>Sigue donde lo dejaste</h2>
 									<div id='nextTestAsign'>
@@ -35,17 +35,17 @@
 									</div>
 								</div>
 							</div>
-							<div class='l col3'>
+							<div id='progress'>
 								<div>
 									<h2>Mi progreso</h2>
 									<div>
-										<div id='pFin'>Puntuación: " . $_SESSION['finPoints'] . "</div>
-										<div id='pExp'>Experiencia: " . $_SESSION['percentage'] . "</div>
+										<div id='pFin'>Puntuación: " . $_SESSION['finPoints'] . " PTOS.</div>
+										<div id='pExp'>Experiencia: " . $_SESSION['percentage'] . " EXP.</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div id='ramdomTest' class= 'l col12'>
+						<div id='ramdomTest' class= ''>
 							<div  class='content'>
 								<div>
 										<h2>Test aleatorio</h2>
