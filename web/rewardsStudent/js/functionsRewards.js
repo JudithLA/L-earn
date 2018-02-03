@@ -1,11 +1,45 @@
 $(document).ready(function () {
+	var globals = {};
+	globals.rewardId = 0;
+	globals.costReward = 0;
+
+	var sendCost = function (rewardId, costReward) {
+
+		console.log(rewardId, costReward);
+
+		var url = "http://localhost:8888/L-earn/web/rewardsStudent/rewardsStudent.php";
+
+		var data = {
+			action: "updatePoints",
+			costReward: costReward,
+			rewardId: rewardId
+		};
+
+		$.ajax({
+			url: url,
+			data: data,
+			method: "POST",
+
+			success: function (result) {
+				$('.popupReward').remove();
+				$('#'+rewardId+'').removeClass('reward');
+				$('#'+rewardId+'').addClass('disabled-reward');
+				$(".reward").css("pointer-events", "auto");
+			},
+			error: function (jqXHR, textStatus, errorThrown) {
+				alert(jqXHR.status);
+				alert(textStatus);
+				alert(errorThrown);
+			}
+		});
+	};
 
 	var showAllRewards = function () {
 
 		var url = "http://localhost:8888/L-earn/web/rewardsStudent/rewardsStudent.php";
 
 		var data = {
-			action : "getRewards"
+			action: "getRewards"
 		};
 
 		$.ajax({
@@ -19,35 +53,92 @@ $(document).ready(function () {
 
 				resultArray.forEach(function(elem){
 
-					var linkReward = document.createElement('a');
-					linkReward.setAttribute('href', elem.RecomId);
+					var linkReward = document.createElement('div');
 					linkReward.setAttribute('class', 'reward');
+					linkReward.setAttribute('id', elem.RecomId);
 
 					var nameReward = document.createElement('div');
 					nameReward.innerHTML = elem.RecomName;
 
 					var costReward = document.createElement('div');
-					costReward.innerHTML = elem.RecomCost;
+					costReward.setAttribute('id', 'costReward');
 
-					var btnReward = document.createElement('input');
-					btnReward.setAttribute('type', 'button');
-					btnReward.setAttribute('value', 'Obtener recompensa');
+					var costRewardPoints = document.createElement('span');
+					costRewardPoints.setAttribute('id', 'costRewardPoints');
+					costRewardPoints.innerHTML =elem.RecomCost;
+
+					var costRewardData = document.createElement('span');
+					costRewardData.innerHTML = " PTOS.";
+
+					costReward.append(costRewardPoints);
+					costReward.append(costRewardData);
+
+					var btnReward = document.createElement('button');
+					btnReward.innerHTML = "Obtener recompensa";
 
 					linkReward.append(nameReward);
 					linkReward.append(costReward);
 					linkReward.append(btnReward);
 
-					if (elem.RelRecomId != null) {
-						linkReward.setAttribute('class', 'disabled-reward');
-						$('.disabled-reward').click(function(){
-							return false;
-						});
-
-					}
-
 					$('#rewards').append(linkReward);
 
+					if (elem.RelRecomId != null) {
+						linkReward.setAttribute('class', 'disabled-reward');
+					}
+
+
 				});
+				$('.reward').click(function() {
+
+					globals.rewardId = $(this).attr("id");
+					globals.costReward = $(this).find('#costRewardPoints').text();
+
+					var popupReward = document.createElement('div');
+					popupReward.setAttribute('class', 'popupReward');
+
+					var popupClose = document.createElement('div');
+					popupClose.setAttribute('class', 'rewCancel popupRewardClose');
+					popupClose.innerHTML = "CERRAR";
+
+					var codeReward = document.createElement('div');
+					codeReward.innerHTML = "Tu código es ";
+
+					var codeNumber = document.createElement('span');
+					codeNumber.setAttribute('id', 'codeNumber');
+					codeNumber.innerHTML = Math.floor((Math.random() * 10000) + 1);
+
+					codeReward.append(codeNumber);
+
+					var btnCodeYes = document.createElement('button');
+					btnCodeYes.setAttribute('id', 'rewYes');
+					btnCodeYes.innerHTML = "Obtener";
+
+					var btnCodeNo = document.createElement('button');
+					btnCodeNo.setAttribute('class', 'rewCancel');
+					btnCodeNo.innerHTML = "Cancelar";
+
+					popupReward.append(popupClose);
+					popupReward.append(codeReward);
+					popupReward.append(btnCodeYes);
+					popupReward.append(btnCodeNo);
+
+					$('body').append(popupReward);
+
+					$(".reward").css("pointer-events", "none");
+
+					$('.rewCancel').on("click", function() {
+						$('.popupReward').remove();
+						$(".reward").css("pointer-events", "auto");
+					})
+
+					$('#rewYes').on("click", function() {
+
+						sendCost(globals.rewardId, globals.costReward);
+						console.log("rewardId global: " + globals.rewardId, "costReward global: " + globals.costReward);
+					});
+
+				});
+
       },
 
 			error: function (jqXHR, textStatus, errorThrown) {
@@ -60,5 +151,7 @@ $(document).ready(function () {
 	}
 
 	showAllRewards();
+
+
 
 });

@@ -4,25 +4,15 @@
 .content {width: 100%; margin: 0 auto; max-width: 960px;}
 .center {margin: 0 auto;}
 .l {float: left;}
-.r {float: right;}
-
-.col1 {width: 8.333%;}
-.col2 {width: 16.666%;}
-.col3 {width: 25%;}
-.col4 {width: 33.333%;}
-.col5 {width: 41.666%;}
-.col6 {width: 50%;}
-.col7 {width: 58.333%;}
-.col8 {width: 66.666%;}
-.col9 {width: 75%;}
-.col10 {width: 83.333%;}
-.col11 {width: 91.666%;}
 .col12 {width: 100%;}
 
 header{display: flex; flex-direction: row;}
-nav ul {display: flex; flex-direction: row; margin-left: 50px;}
+a#logo, nav {display: inline-block;}
+nav ul {display: flex; flex-direction: row; margin-left: 50px; list-style-type: none;}
 nav ul li {margin-right: 30px;}
+header img {width: 44px;}
 body{margin-top: 50px;}
+
 h2 {padding: 20px 0;}
 
 #ramdomTest {
@@ -40,24 +30,47 @@ h2 {padding: 20px 0;}
   height: 200px;
   background-color: whiteSmoke;
   margin-right: 5px;
-}
-#rewards a.reward{
-  text-decoration: none;
-  color: inherit;
   padding: 16px;
+  cursor: pointer;
 }
+
 .disabled-reward {
   width: 250px;
   height: 200px;
   margin-right: 5px;
   background-color: lightblue;
-  cursor: default;
-}
-#rewards a.disabled-reward{
-  text-decoration: none;
-  color: inherit;
+  pointer-events: none;
   padding: 16px;
 }
+
+.popupReward {
+  position: absolute;
+  top: 15%;
+  left: 40%;
+  width: 300px;
+  height: 200px;
+  background: #ccc;
+  padding: 70px 24px;
+  text-align: center;
+}
+.popupReward button {
+  margin: 24px 5px 0 5px;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.popupRewardClose{
+  background: #333;
+  color: white;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 3px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
 footer {background-color: #d9d9d9; position: absolute; bottom: 0;}
 footer div.content {padding: 2% 0;}
 #copy {text-align: center;}

@@ -10,10 +10,6 @@
 
 		public function viewInfo(){
 
-			// $this->getPercentageStudentExpPoints();
-			// $this->getStudentFinPoints();
-			// $this->getInfoStudent();
-
 			$view = new RewardsStudentView();
 
 			return $view->genRewardsHTML();
@@ -25,6 +21,15 @@
 
 			return $model->rewards();
 
+		}
+
+		public function updatePoints(){
+				$costReward = $_POST['costReward'];
+				$rewardId = $_POST['rewardId'];
+
+				$model = new RewardsStudentModel();
+
+				return $model->updateFinPoints($costReward, $rewardId);
 		}
 
 	}
