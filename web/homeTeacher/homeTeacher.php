@@ -2,7 +2,8 @@
 //solicitamos el archivo de Controlador
 require_once __DIR__ . "/homeTeacherController.php";
 
-session_start();
+//meterlo con isset para que así no cargue una petición nueva cada vez que solicita la petición
+if (!isset($_SESSION)){session_start();}
 
 if(!empty($_POST)) {
 	//almacenamos el método POST en la variable action. instanciamos un objeto teacherController de la clase HomeTeacherController. nos referimos al método post que a través de la variable action; para ello, señalamos la variable con el objeto instancado de teacherController

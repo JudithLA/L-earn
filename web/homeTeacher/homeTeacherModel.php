@@ -27,7 +27,7 @@
 			// Como vamos a tener más de una función, para que todas mamen de la misma conexión lo subimos a nivel de los constructores/destructores, pero lo hacemos como atributo. //Creamos un objeto de la clase MysqlDBImplementation y abrimos una conexión a bbdd con los perímetros (host, puerto, nombre de base de datos, usuario, contraseña)
 			//$mysqli = new MysqlDBImplementation("localhost", "8888", "DBLEARN", "root", "learn");
 			//este session sirve para falsear el profesor
-			$_SESSION['id'] = 3;
+			//$_SESSION['id'] = 3;
 
 			// Definimos la query
 			/*
