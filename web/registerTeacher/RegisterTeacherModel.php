@@ -76,7 +76,7 @@ class RegisterTeacherModel{
 
 		public function selectAsignModel($curso){
 			$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
-			$query_insert = "UPDATE CURSO SET LETRA_CURSO = '{$_SESSION['letra_curso']}') WHERE ID_CURSO = '{$_SESSION['id_curso']}' AND ID_CENTR = '{$_SESSION['idCenter']}'";
+			$query_insert = "UPDATE CURSO SET LETRA_CURSO = '{$_SESSION['letra_curso']}' WHERE ID_CURSO = '{$_SESSION['id_curso']}' AND ID_CENTR = '{$_SESSION['idCenter']}'";
 			$result = $mysqli->modifyQuery($query_insert);
 			$query = "SELECT DISTINCT NOMBRE_ASIGN, ID_ASIGN FROM ASIGN WHERE NIVEL_ASIGN = '{$curso}'";
 			$result = $mysqli->executeQuery($query);
@@ -91,7 +91,27 @@ class RegisterTeacherModel{
 			$result = $mysqli->modifyQuery($query);
 			$query_select = "SELECT MAX(ID_ASIGN) as id_asign FROM ASIGN WHERE ID_PROFE ='{$_SESSION['id']}'";
 			$result = $mysqli->executeQuery($query_select);
-			var_dump($result);
+			return $result;
+		}
+
+		public function selectAsign(){
+			$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
+			$query = "SELECT NOMBRE_ASIGN FROM ASIGN WHERE ID_ASIGN = '{$_SESSION['id_asign']}' AND ID_PROFE = '{$_SESSION['id']}'";
+			$result = $mysqli->executeQuery($query);
+			return $result;
+		}
+
+		public function selectCurso(){
+			$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
+			$query = "SELECT NIVEL_CURSO, LETRA_CURSO, GRADO_CURSO FROM CURSO WHERE ID_CURSO = '{$_SESSION['id_curso']}' AND ID_CENTR = '{$_SESSION['idCenter']}'";
+			$result = $mysqli->executeQuery($query);
+			return $result;
+		}
+
+		public function selectProfe(){
+			$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
+			$query = "SELECT NOMBRE_PROFE FROM PROFE WHERE ID_PROFE = '{$_SESSION['id']}'";
+			$result = $mysqli->executeQuery($query);
 			return $result;
 		}
 

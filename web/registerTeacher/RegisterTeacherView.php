@@ -124,14 +124,21 @@
 
 // modalFinal($_SESSION['id'], $_SESSION['id_asign'],$_SESSION['nivel_curso'],$_SESSION['letra_curso']);
 	//creación de método que te devuelve el HTML
-	public function modalFinal($nombreProfesor, $nombreAsignatura, $nivelCurso, $letraCurso) {
+	public function modalFinal($data_asign, $data_curso, $data_profe) {
 
 		$resultHTML = "
 			<div id='paso7'>
 			<p class='title_section'>ENHORABUENA</p>
-			<div class='flexRow flexWrap box-asign'>
-			<p>$nombreProfesor <br> $nombreAsignatura <br> $nivelCurso <br> $letraCurso</p></div>";
-
+			<div class='flexRow flexWrap box-asign'>";
+			foreach ($data_profe as $row) {
+				 $resultHTML.= "<div class='item-asign'>{$row['NOMBRE_PROFE']}</div>";
+			}
+			foreach ($data_asign as $row) {
+				 $resultHTML.= "<div class='item-asign'>ACABAS DE CREAR {$row['NOMBRE_ASIGN']}</div>";
+			}
+			foreach ($data_curso as $row) {
+				 $resultHTML.= "<div><p>{$row['NIVEL_CURSO']}</p><br> <p>{$row['GRADO_CURSO']}</p><br> <p>{$row['LETRA_CURSO']}</p></div>";
+			}
 			$resultHTML .=	"</div></div>";
 			return $resultHTML;
 	}

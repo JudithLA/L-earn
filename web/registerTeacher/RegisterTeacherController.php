@@ -119,9 +119,14 @@ public function getCenter(){
 		$model = new RegisterTeacherModel();
 		$new = $model->insertAsignModel($asign);
 		$_SESSION['id_asign'] = $new[0]['id_asign'];
-		var_dump($_SESSION);
+		$model = new RegisterTeacherModel();
+		$data_asign = $model->selectAsign();
+		$model = new RegisterTeacherModel();
+		$data_curso = $model->selectCurso();
+		$model = new RegisterTeacherModel();
+		$data_profe = $model->selectProfe();
 		$view = new RegisterTeacherView();
-		$select = $view-> modalFinal($_SESSION['id'], $_SESSION['id_asign'], $_SESSION['id_curso'], $_SESSION['nivel_curso'],$_SESSION['letra_curso']);
+		$select = $view-> modalFinal($data_asign, $data_curso, $data_profe);
 		$cent['status'] = 'OK';
 		$cent['html'] = $select;
 		return $cent;
