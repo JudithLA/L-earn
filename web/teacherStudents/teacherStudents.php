@@ -21,7 +21,7 @@ if(!empty($_POST)) {
 		
 	}else {
 		$view = new TeacherStudentsController();
-		//llamas al método de mostrar del objeto de
+		//llamas al método de mostrar de View para que se pinte algo
 		echo $view->showViewStudents();	
 	}
 	

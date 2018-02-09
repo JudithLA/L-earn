@@ -1,12 +1,12 @@
 <?php
 require_once __DIR__ . "/../Commons/Commons.php";
 
-class TeacherStudentsView{
+class TeacherSubjectsUnitsView{
 
 	public function __construct(){}
 	public function __destruct(){}	
 
-// studentsList() es el método al que llamamos con $resultadoQuery como parámetro en el getStudentsGroups del controlador. En él, recorremos el resultado de la query que nos han pasado como parámetro (por eso aquí podríamos llamarlo $resultadoQuery o $Pepe, como en JAVA). Así estructuraremos el listado y lo concatenaremos al html de la función de vista.
+// studentsList() es el método con el que recorremos el resultado de la query que nos han pasado como parámetro (por eso aquí podríamos llamarlo $resultadoQuery o $Pepe, como en JAVA). Así estructuraremos el listado y lo concatenaremos al html de la función de vista.
 //el bucle puedes hacerlo con un for o con un foreach o lo que quieras
 	/*
 			for ($i=0; $i < 10; $i++) { 
@@ -29,7 +29,6 @@ class TeacherStudentsView{
 	}
 
 	//IMPORTANTE: cuando el método que queremos ejecutar está en la misma clase, señalamos con $this ($this->studentsList($resultadoQuery))
-	// $resultadoQuery = null asegura que si no le pasamos parámetro, le asigna el valor nulo
 	public function viewStudents($resultadoQuery = null){
 		$resultHTML = "
 			<!DOCTYPE html>

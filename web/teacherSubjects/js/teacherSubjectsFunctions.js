@@ -26,10 +26,10 @@ $(document).ready(function(){
                     var nameSubject = element.SubjectName + " " + element.SubjectLevel + ' ESO ';
 
                     //comentamos esto porque vamos a intentarlo hacer x ajax y no pasando parámetros por get
-                    //var hrefSubject = '../teacherSubjects/teacherSubjects.php?action=getStudentsGroups&GroupId=' + element.SubjectId;
+                    var hrefSubject = '../teacherSubjects/teacherSubjects.php?action=getSubjectsUnits&GroupId=' + element.SubjectId;
 
-                    var linkSubject = document.createElement('div');
-                    //linkSubject.setAttribute('href',hrefSubject);
+                    var linkSubject = document.createElement('a');
+                    linkSubject.setAttribute('href',hrefSubject);
                     linkSubject.setAttribute('class', 'teacherSubjects-list-subject');
                     linkSubject.setAttribute('id', 'teacherSubjects' + element.SubjectId);
 

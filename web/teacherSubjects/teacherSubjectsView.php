@@ -6,6 +6,7 @@ class TeacherSubjectsView{
 	public function __construct(){}
 	public function __destruct(){}	
 
+// ---------------------------- FALTA ENLAZAR EL CREAR a las partes de Juju
 	//creamos método que devuelva HTML
 	public function viewTeacherSubjects(){
 		$resultHTML = "
