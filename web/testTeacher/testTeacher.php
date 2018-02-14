@@ -13,10 +13,10 @@
           session_start();
     }
 
-    if(!isset($_POST)){
+    if(empty($_POST)){
           $controller = new testTeacherController();
-          $result = $controller->checkTestTeacher(); //No olvidar
-          echo json_encode($result);
+          $result = $controller->welcomeTestController(); //No olvidar
+          echo $result;
           return;
     } else {
            $action = $_POST['action'];

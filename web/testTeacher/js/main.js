@@ -5,44 +5,44 @@ Login =  { fn: {}
 window.onload=function(){
 
 
+$('#btn-next').click(function(){
+  var url = "http://localhost:8888/L-earn/web/testTeacher/testTeacher.php";
+  var data = {
+    action: 'testPasoUnoController'
+  };
 
-Login.fn.AddUser = function (user, email, pass) {
-    var url = "http://localhost:8888/L-earn/web/registerTeacher/RegisterReceived.php";
-    var data = {
-        action: 'checkRegister',
-        name: $('#name').val(),
-        email: $('#email').val(),
-        password: $('#password').val()
-    };
+  $.ajax({
+      url: url,
+      data: data,
+      method: "POST",
 
-    $.ajax({
-        url: url,
-        data: data,
-        method: "POST",
+      beforeSend: function () {
+      },
 
-        beforeSend: function () {
-        },
+      success: function (result) {
+          console.log(result);
 
-        success: function (result) {
-            console.log(result);
+          resultArray = JSON.parse(result);
+          if(resultArray['status'] == 'OK'){
+              var paso2 = document.createElement("div").innerHtml = resultArray.html;
+              var paso1 = document.getElementById('paso1');
+              console.log(paso2.parentNode);
+              $('#paso1').after(paso2);
+              $('#paso1').removeClass('on');
+              $('#paso2').addClass('on');
+          } else {
+              $('.msgError').html(resultArray['html']);
+          }
+      },
 
-            resultArray = JSON.parse(result);
-            if(resultArray['status'] == 'OK'){
-            //   window.location.href = resultArray['url'];
-                $('#paso1').removeClass('on');
-                $('#paso2').addClass('on');
-            } else {
-                $('.msgError').html(resultArray['msg']);
-            }
-        },
+      error: function (jqXHR, textStatus, errorThrown) {
+          alert(jqXHR.status);
+          alert(textStatus);
+          alert(errorThrown);
+      }
 
-        error: function (jqXHR, textStatus, errorThrown) {
-            alert(jqXHR.status);
-            alert(textStatus);
-            alert(errorThrown);
-        }
+  });
+});
 
-    });
-};
 
 };

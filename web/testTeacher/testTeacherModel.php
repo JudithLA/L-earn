@@ -12,26 +12,12 @@ class testTeacherModel{
 		public function __destruct(){}
 
 
-		public function createTestModel($pickName,$pickEmail,$pickPass){
+		public function testPasoUnoModel($idUser){
 							$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
-							$query = "SELECT COUNT(*) as PROFE_CREATED FROM PROFE WHERE EMAIL_PROFE = '{$pickEmail}' limit 1";
+							$query = "SELECT ID_ASIGN, NOMBRE_ASIGN, NIVEL_ASIGN FROM ASIGN WHERE ID_PROFE = '{$idUser}'";
 							$result = $mysqli->executeQuery($query);
-							// Inicializamos
-							$id = 0;
-
-
-							if($result [0]['PROFE_CREATED'] == 0){
-											$consult = "INSERT INTO PROFE (NOMBRE_PROFE, EMAIL_PROFE, CONTRASENA_PROFE) VALUES ('{$pickName}', '{$pickEmail}', '{$pickPass}')";
-											$checkQuery = "SELECT ID_PROFE FROM PROFE WHERE EMAIL_PROFE = '{$pickEmail}'";
-
-							        // modifyQuery es para UPDATE, INSERT y DELETE
-											$mysqli->modifyQuery($consult);
-
-							        // executeQuery es para SELECT
-							        $result = $mysqli->executeQuery($checkQuery);
-											$id = $result[0]['ID_PROFE'];
-							}
-							return $id;
+	
+							return $result;
 		}
 
 
