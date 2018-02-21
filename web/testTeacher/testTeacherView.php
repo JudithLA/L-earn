@@ -28,7 +28,7 @@
         <div id='paso1' class='on'>
           <p>BIENVENIDO AL TEST DE L-EARN</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <a href='#' id='btn-preview'>Volver a atrás</a>
+          <a href='#' id='btn-preview'>Volver atrás</a>
           <a href='#' id='btn-next' class='welcome-test'>Siguiente</a>
         </div>
 
@@ -42,19 +42,49 @@
 
 
 	//creación de método que te devuelve el HTML
-	public function testPasoUnoView($model) {
+	public function testPasoUnoView($asign) {
 
 		$resultHTML = "
 			<div id='paso2'>
 			<p class='title_section'>Elige una asignatura</p>
 			<div class ='asignaturas'>";
-			foreach ($model as $row) {
-				 $resultHTML.= "<div data-idAsignatura='{$row['ID_ASIGN']}'>{$row['NOMBRE_ASIGN']} <br> {$row['NIVEL_ASIGN']}</div>";
+			foreach ($asign as $row) {
+				 $resultHTML.= "<div data-id='{$row['ID_ASIGN']}' data-nivel='{$row['NIVEL_CURSO']}' class='asign'>{$row['NOMBRE_ASIGN']} <br> {$row['NIVEL_CURSO']}</div>";
 			}
-			$resultHTML .=	"</div> <button class='boton'>Siguiente</button> </div>";
+			$resultHTML .= "</div>";
+			$resultHTML .= "</div>";
 			return $resultHTML;
 	}
 
+
+	//creación de método que te devuelve el HTML
+	public function testPasoDosView($temas) {
+		$resultHTML = "
+			<div id='paso3'>
+			<p class='title_section'>Elige un tema de tu asignatura</p>
+			<select class ='asignaturas'>";
+			foreach ($temas as $row) {
+				 $resultHTML.= "<option data-id='{$row['ID_TEMAS']}' class='asign' data-trimestre='{$row['TRIMESTRE_TEMAS']}'>{$row['NOMBRE_TEMAS']}</option>";
+			}
+		$resultHTML .= "</select>";
+		$resultHTML .= "</div>";
+		$resultHTML .= "<div id='btn-paso2'>Siguiente</div>";
+		return $resultHTML;
+	}
+
+
+	//creación de método que te devuelve el HTML
+	public function testPasoTresView() {
+		$resultHTML = "
+			<div id='paso4'>
+			<div class='item-test' data-test='entrenamiento'>Entrenamiento</div>
+			<div class='item-test' data-test='final'>Final</div>
+			Ponle un título a tu test <input type='text' name='nameTest'>
+			</div>
+		";
+		return $resultHTML;
+
+	}
 
 
 

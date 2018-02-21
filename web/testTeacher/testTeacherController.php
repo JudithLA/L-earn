@@ -22,7 +22,7 @@ class testTeacherController {
 				}
 
 				public function testPasoUnoController(){
-					  $idUser = 1;
+					  	$idUser = 1;
 						$model = new testTeacherModel();
 						$asign = $model -> testPasoUnoModel($idUser);
 						$view = new testTeacherView();
@@ -31,6 +31,34 @@ class testTeacherController {
 						$cent['html'] = $select;
 						return $cent;
 				}
+
+
+
+				// Muestra los temas de la asignatura
+				public function testPasoDosController(){
+					$asign = $_POST['asign'];
+					$nivel = $_POST['nivel'];
+					$model = new testTeacherModel();
+					$temas = $model -> testPasoDosModel($asign);
+					$view = new testTeacherView();
+					$select = $view -> testPasoDosView($temas);
+					$cent['status'] = 'OK';
+					$cent['html'] = $select;
+					return $cent;
+				}
+
+
+				// Elige entre test final|entrenamiento y asigna un titulo al test
+				public function testPasoTresController(){
+					$tema = $_POST['tema'];
+					$view = new testTeacherView();
+					$select = $view -> testPasoTresView();
+					$cent['status'] = 'OK';
+					$cent['html'] = $select;
+					return $cent;
+				}
+
+
 
 
 
