@@ -2,8 +2,7 @@
 	// Incluimos el archivo del Controlador
 	require_once __DIR__ . "/testStudentController.php";
 
-
-	session_start();
+	if (!isset($_SESSION)){session_start();}
 
 	if (!empty($_POST)) {
 		$action = $_POST['action'];
@@ -11,10 +10,13 @@
 		echo json_encode($view->$action());
 
 	}else{
-
-		// Instanciamos un objeto de la clase HomeStudentController
-		$view = new TestStudentController();
-		// Devolvemos y mostramos el HTML
-		echo $view->viewInfo();
+		if(isset($_GET['action'])){
+ 			$action = $_GET ['action'];
+ 			$view = new TestStudentController();
+ 			echo $view->$action();
+ 		}else {
+ 			$view = new TestStudentController();
+ 			echo $view->viewInfo();
+ 		}
 	}
  ?>

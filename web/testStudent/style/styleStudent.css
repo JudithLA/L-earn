@@ -14,19 +14,39 @@ header img {width: 44px;}
 body{margin-top: 50px;}
 
 h2 {padding: 20px 0;}
-#testAsign {
-    min-height: 560px;
+#reticule {
     display: flex;
     flex-direction: row;
+	flex-wrap: wrap;
+	margin-bottom: 300px;
 }
-#testAsign a {margin-right: 5px;}
-#testAsign a img {width: 300px;}
-#ramdomTest {
-  margin-top: 5%;
+#reticule a {
+	margin-right: 5px;
+	text-decoration: none;
+	color: black;
+}
+.test {
+  width: 250px;
+  height: 200px;
+  background-color: #ccc;
+  margin: 5px 5px 0 0;
+  padding: 16px;
+  cursor: pointer;
   text-align: center;
-  padding: 2% 0;
-  background-color: #99CCFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+a.test:hover {
+  background-color: #e6e6e6;
+}
+.test div {
+	margin: 15px 0;
+}
+.test div.test-type {
+	font-size: 12px;
+}
+
 
 footer {background-color: #d9d9d9;}
 footer div.content {padding: 2% 0;}
