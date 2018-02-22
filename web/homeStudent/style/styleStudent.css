@@ -20,7 +20,7 @@ body{margin-top: 50px;}
 #nextTestAsign-wrap{width: 75%;}
 h2 {padding: 20px 0;}
 #nextTestAsign {
-    min-height: 560px;
+    min-height: 900px;
     display: flex;
     flex-direction: row;
 }

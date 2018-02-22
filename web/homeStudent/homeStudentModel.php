@@ -86,7 +86,7 @@
 						INNER JOIN FINAL ON REL_ALUMN_FINAL.ID_FINAL = FINAL.ID_FINAL
 						INNER JOIN TEMAS ON FINAL.ID_TEMAS = TEMAS.ID_TEMAS
 						INNER JOIN ASIGN ON TEMAS.ID_ASIGN = ASIGN.ID_ASIGN
-						WHERE ALUMN.ID_ALUMN = '{$_SESSION["id"]}' ORDER BY REL_ALUMN_FINAL.FECHA_REL_ALUMN_FINAL DESC";
+						WHERE ALUMN.ID_ALUMN = '{$_SESSION["id"]}' GROUP BY ASIGN.ID_ASIGN ORDER BY REL_ALUMN_FINAL.FECHA_REL_ALUMN_FINAL DESC";
 
 			// Llamada al método executeQuery() mediante el acceso al atributo $mysqli para ejecutar la query en la BBDD
 			// Almacenamos en $result los resultados de la query "$consult"
