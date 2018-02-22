@@ -14,7 +14,7 @@ header img {width: 44px;}
 body{margin-top: 50px;}
 
 h2 {padding: 20px 0;}
-#units {
+#reticule {
     min-height: 1080px;
     display: flex;
     flex-direction: row;
@@ -27,9 +27,26 @@ h2 {padding: 20px 0;}
   margin: 5px 5px 0 0;
   padding: 16px;
   cursor: pointer;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-#units a {margin-right: 5px;}
-#units a img {width: 50px;}
+a.unit:hover {
+  background-color: #e6e6e6;
+}
+#reticule a {
+	margin-right: 5px;
+	text-decoration: none;
+	color: black;
+}
+#reticule a img {
+	display: block;
+	margin: 0 auto;
+	max-width: 70%;
+	height: auto;
+
+}
 
 
 footer {background-color: #d9d9d9;}

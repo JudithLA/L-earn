@@ -10,11 +10,11 @@
 		public function unitsAsignStu($resultQueryUnits){
 			$unitsAsign = "
 							<h2>" . $element['NombreAsign'] . "</h2>
-							<div id='units'>
+							<div id='reticule'>
 							";
 			foreach ($resultQueryUnits as $element){
 				$unitsAsign .="
-								<a href='../testStudent/testStudent.php?action=getUnitsStudent&UnitId=" . $element['IdTema'] . "' class='unit'>
+								<a href='../testStudent/testStudent.php?action=getTestUnit&UnitId=" . $element['IdTema'] . "' class='unit'>
 									<img src=" . $element['ImgTema'] . " alt='Imagen del tema " . $element['NombreTema'] . "'>
 									<div class=''>" . $element['NombreTema'] . "</div>
 								</a>
@@ -75,5 +75,5 @@
 
 
 	}
-	
+
 ?>
