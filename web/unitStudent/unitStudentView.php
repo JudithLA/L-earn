@@ -75,19 +75,5 @@
 
 
 	}
-	// $lastQuarter = $resultQueryQuarter["LAST_QUARTER"];
-	// echo $lastQuarter;
-
-	// $currentQuarter = 0;
-	// if ($currentQuarter <=$lastQuarter) {
-	// 	$dom = new DOMDocument;
-	// 	$thisQuarter = getElementsByTagName("a");
-	// 	$thisQuarter->setAttribute('class', 'currentQuarter');
-	// 	echo $thisQuarter;
-	// }
-	// else{
-	// 	$nextQuarter = $dom->getElementsByTagName("a");
-	// 	$nextQuarter->setAttribute('class', 'disabledQuarter');
-	// 	echo $nextQuarter;
-	// }
+	
 ?>
