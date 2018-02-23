@@ -77,15 +77,34 @@
 	public function testPasoTresView() {
 		$resultHTML = "
 			<div id='paso4'>
-			<div class='item-test' data-test='entrenamiento'>Entrenamiento</div>
-			<div class='item-test' data-test='final'>Final</div>
-			Ponle un título a tu test <input type='text' name='nameTest'>
+					<form class='type-text'>
+							<input type='radio' name='type-test' class='item-test' value='Entrenamiento'>
+							<input type='radio' name='type-test' class='item-test' value='Final'>
+
+							Ponle un título a tu test:
+							<input type='text' name='nameTest'>
+							Pon una descripcion a tu test:
+							<input type='text' name='descripcionTest'>
+							<input type='submit' value='Siguiente'>
+			<div id='paso4'>Siguiente</div>
 			</div>
 		";
 		return $resultHTML;
 
 	}
 
+
+
+	//creación de método que te devuelve el HTML
+	public function testPasoCuatroView($vista) {
+		$resultHTML = "
+			<div id='paso5'>
+					Holi
+			</div>
+		";
+		return $resultHTML;
+
+	}
 
 
 

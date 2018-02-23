@@ -51,8 +51,20 @@ class testTeacherModel{
 
 
 		// Elige test final o test de entrenamiento e introduce el nombre del test
-		public function testPasoCuatroModel($idUser){
-			// INSERT INTO FINAL (NOMBRE_FINAL, DESCR_FINAL, ID_TEMAS) VALUES ('nombre que ponga', 'descripcion que quiera', 1);
+		public function testPasoCuatroModel($test, $titulo, $descripcion,  $tema){
+			if ($test = 'Entrenamiento'){
+						$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
+						$query = "INSERT INTO ENTRE (NOMBRE_ENTRE, DESCR_ENTRE, ID_TEMAS) VALUES ('{$titulo}', '{$descripcion}', '{$tema}')";
+						$result = $mysqli->modifyQuery($query);
+			} else {
+						$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
+						$query = "INSERT INTO FINAL (NOMBRE_FINAL, DESCR_FINAL, ID_TEMAS) VALUES ('{$titulo}', '{$descripcion}', '{$tema}')";
+						$result = $mysqli->modifyQuery($query);
+			}
+
+			var_dump($query);
+			var_dump($result);
+			return $result;
 		}
 
 
