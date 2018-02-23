@@ -45,7 +45,7 @@
 							INNER JOIN FINAL ON REL_ALUMN_FINAL.ID_FINAL = FINAL.ID_FINAL
 							INNER JOIN TEMAS ON FINAL.ID_TEMAS = TEMAS.ID_TEMAS
 							INNER JOIN ASIGN ON TEMAS.ID_ASIGN = ASIGN.ID_ASIGN
-							WHERE REL_ALUMN_FINAL.ID_ALUMN = 1 AND ASIGN.ID_ASIGN = 1 GROUP BY ASIGN.ID_ASIGN))";
+							WHERE REL_ALUMN_FINAL.ID_ALUMN = 1 AND ASIGN.ID_ASIGN = {$IdAsign} GROUP BY ASIGN.ID_ASIGN))";
 			$result = $this->mysqli -> modifyQuery($insertQuery);
 
 			$lastQuarter = "SET @LastQuarter = (SELECT LAST_QUARTER FROM tempPassedQuarter)";
@@ -55,13 +55,13 @@
 							SET HALF_TOTAL_POSSIBLE = (SELECT TRUNCATE((((SELECT COUNT(FINAL.ID_FINAL) AS NumeroDeTestFin FROM FINAL
 							LEFT JOIN TEMAS ON FINAL.ID_TEMAS = TEMAS.ID_TEMAS
 							LEFT JOIN ASIGN ON TEMAS.ID_ASIGN = ASIGN.ID_ASIGN
-							WHERE ASIGN.ID_ASIGN = 1 AND TEMAS.TRIMESTRE_TEMAS IN (SELECT @LastQuarter))*40)/2), 0)),
+							WHERE ASIGN.ID_ASIGN = {$IdAsign} AND TEMAS.TRIMESTRE_TEMAS IN (SELECT @LastQuarter))*40)/2), 0)),
 							SUM_FIN_POINTS = (SELECT SUM(REL_ALUMN_FINAL.PUNTOS_REL_ALUMN_FINAL) AS SumaPuntosFinTrimAsign FROM ALUMN
 							INNER JOIN REL_ALUMN_FINAL ON ALUMN.ID_ALUMN = REL_ALUMN_FINAL.ID_ALUMN
 							INNER JOIN FINAL ON REL_ALUMN_FINAL.ID_FINAL = FINAL.ID_FINAL
 							INNER JOIN TEMAS ON FINAL.ID_TEMAS = TEMAS.ID_TEMAS
 							INNER JOIN ASIGN ON TEMAS.ID_ASIGN = ASIGN.ID_ASIGN
-							WHERE ASIGN.ID_ASIGN = 1 AND TEMAS.TRIMESTRE_TEMAS IN (SELECT @LastQuarter))
+							WHERE ASIGN.ID_ASIGN = {$IdAsign} AND TEMAS.TRIMESTRE_TEMAS IN (SELECT @LastQuarter))
 							WHERE HALF_TOTAL_POSSIBLE IS NULL AND SUM_FIN_POINTS IS NULL";
 			$result = $this->mysqli -> modifyQuery($insertQuery);
 
@@ -79,18 +79,13 @@
 			$tempTable = "SELECT * FROM tempPassedQuarter";
 			$result = $this->mysqli -> executeQuery($tempTable);
 
-
-
-			// var_dump($result);
 			return $result[0];
-
 
 		}
 
-
 	}
 // $m = new UnitStudentModel();
-// $result = $m->unitsStudent(1);
+// $result = $m->passedQuarter(1);
 // print_r($result);
 
  ?>
