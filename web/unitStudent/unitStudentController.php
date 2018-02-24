@@ -5,24 +5,25 @@
 	class UnitStudentController{
 
 		public function __construct(){}
-
 		public function __destruct(){}
 
-		// Método para mostrar el HTML
 		public function viewInfo(){
 			$view = new UnitStudentView();
-			return $view->genUnitsStudent($resultQueryUnits, $resultQueryQuarter);
+			return $view->genUnitsStudent();
 		}
 
-		public function getUnitsStudent(){
+		public function getUnits(){
 			$IdAsign = $_GET['AsignId'];
 
 			$model = new UnitStudentModel();
-			$resultQueryUnits = $model->unitsStudent($IdAsign);
-			$resultQueryQuarter = $model->passedQuarter($IdAsign);
+			return $model->unitsStudent($IdAsign);
+		}
 
-			$view = new UnitStudentView();
-			return $view->genUnitsStudent($resultQueryUnits, $resultQueryQuarter);
+		public function getPassedQuarter(){
+			$IdAsign = $_GET['AsignId'];
+
+			$model = new UnitStudentModel();
+			return $model->passedQuarter($IdAsign);
 		}
 
 	}

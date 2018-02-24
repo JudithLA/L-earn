@@ -11,7 +11,7 @@
 		if(isset($_GET['action'])){
 			$action = $_GET ['action'];
 			$view = new UnitStudentController();
-			echo $view->$action();
+			echo json_encode($view->$action());
 		}else {
 			$view = new UnitStudentController();
 			echo $view->viewInfo();
