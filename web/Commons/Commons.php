@@ -10,7 +10,7 @@ class  Commons{
 					<a href='mailto:contacto@learn.com'>contacto@learn.com</a>
 				</div>
 				<div id='copy'>
-					<span>&copy; L-earn 2017-" . date("Y") . "</span>
+					<span>&copy; L-earn 2017-" . @date("Y") . "</span>
 				</div>
 			</div>
 		</footer>";
@@ -52,7 +52,7 @@ class  Commons{
 				</a>
 				<nav>
 					<ul>
-						<li><a href='http://localhost:8888/L-earn/web/testStudent/testStudent.php'>Tests</a></li>
+						<li><a href='http://localhost:8888/L-earn/web/asignStudent/asignStudent.php'>Tests</a></li>
 						<li><a href='http://localhost:8888/L-earn/web/rewardsStudent/rewardsStudent.php'>Recompensas</a></li>
 					</ul>
 				</nav>
