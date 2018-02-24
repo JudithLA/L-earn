@@ -16,7 +16,7 @@ $(document).ready(function () {
 				resultArray = JSON.parse(result);
 
 				resultArray.forEach(function(elem){
-					var urlAsign = '../unitStudent/unitStudent.php?action=getUnitsStudent&AsignId=' + elem.IdAsign;
+					var urlAsign = '../unitStudent/unitStudent.php?AsignId=' + elem.IdAsign;
 
 					var linkAsign = document.createElement('a');
 					linkAsign.setAttribute('href', urlAsign);
