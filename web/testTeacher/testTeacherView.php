@@ -93,18 +93,18 @@
 
 	}
 
-
-
 	//creación de método que te devuelve el HTML
 	public function testPasoCuatroView($vista) {
 		$resultHTML = "
-			<div id='paso5'>
-					Holi
+			<div id='paso5' data-id-test='{$vista['ID_TEST']}'>
+					GENIAL! Estas a punto de crear un nuevo test.
+					<div class='btn-siguiente-comienzo'>Empezar</div> 
 			</div>
 		";
 		return $resultHTML;
-
 	}
+
+	
 
 
 

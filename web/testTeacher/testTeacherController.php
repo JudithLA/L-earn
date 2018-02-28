@@ -76,6 +76,23 @@ class testTeacherController {
 				}
 
 
+				// Primera pregunta del test
+				// public function testPasoCuatroController(){
+				// 	$test = $_POST['test'];
+				// 	$titulo = $_POST['titulo'];
+				// 	$descripcion = $_POST['descripcion'];
+				// 	$tema = $_POST['tema'];
+					
+				// 	$model = new testTeacherModel();
+				// 	$vista = $model -> testPasoCuatroModel($test, $titulo, $descripcion, $tema);
+				// 	$view = new testTeacherView();
+				// 	$select = $view -> testPasoCuatroView($vista);
+				// 	$cent['status'] = 'OK';
+				// 	$cent['html'] = $select;
+				// 	return $cent;
+				// }
+
+
 
 
 

@@ -54,23 +54,24 @@ class testTeacherModel{
 		public function testPasoCuatroModel($test, $titulo, $descripcion,  $tema){
 			if ($test = 'Entrenamiento'){
 						$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
-						$query = "INSERT INTO ENTRE (NOMBRE_ENTRE, DESCR_ENTRE, ID_TEMAS) VALUES ('{$titulo}', '{$descripcion}', '{$tema}')";
-						$result = $mysqli->modifyQuery($query);
+						$consult = "INSERT INTO ENTRE (NOMBRE_ENTRE, DESCR_ENTRE, ID_TEMAS) VALUES ('{$titulo}', '{$descripcion}', '{$tema}')";
+						$checkQuery = "SELECT MAX(ID_ENTRE) AS ID_TEST FROM ENTRE WHERE NOMBRE_ENTRE ='{$titulo}'";
+						$mysqli->modifyQuery($consult);
+			        	$result = $mysqli->executeQuery($checkQuery);
 			} else {
 						$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
 						$query = "INSERT INTO FINAL (NOMBRE_FINAL, DESCR_FINAL, ID_TEMAS) VALUES ('{$titulo}', '{$descripcion}', '{$tema}')";
-						$result = $mysqli->modifyQuery($query);
+						$checkQuery = "SELECT MAX(ID_FINAL) AS ID_TEST FROM FINAL WHERE NOMBRE_FINAL ='{$titulo}'";
+						$mysqli->modifyQuery($consult);
+			        	$result = $mysqli->executeQuery($checkQuery);
 			}
-
-			var_dump($query);
-			var_dump($result);
 			return $result;
 		}
 
 
 		// Primera pregunta
-		public function testPasoCincoModel($idUser){
-		}
+		// public function testPasoCincoModel($idUser){
+		// }
 
 
 
