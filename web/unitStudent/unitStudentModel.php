@@ -11,6 +11,18 @@
 
 		public function __destruct(){}
 
+		public function titleAsign($IdAsign){
+			$_SESSION['id'] = 1;
+			$consult = "SELECT ASIGN.NOMBRE_ASIGN AS NombreAsign FROM ASIGN
+						INNER JOIN TEMAS ON ASIGN.ID_ASIGN = TEMAS.ID_ASIGN
+						LEFT JOIN FINAL ON TEMAS.ID_TEMAS = FINAL.ID_TEMAS
+						LEFT JOIN REL_ALUMN_FINAL ON FINAL.ID_FINAL = REL_ALUMN_FINAL.ID_FINAL
+						LEFT JOIN ALUMN ON REL_ALUMN_FINAL.ID_ALUMN = ALUMN.ID_ALUMN
+						WHERE ASIGN.ID_ASIGN = {$IdAsign}";
+			$result = $this->mysqli -> executeQuery($consult);
+			return $result[0];
+		}
+
 
 		public function unitsStudent($IdAsign){
 			$_SESSION['id'] = 1;

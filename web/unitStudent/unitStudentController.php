@@ -2,6 +2,8 @@
 	require_once __DIR__ . "/unitStudentModel.php";
 	require_once __DIR__ . "/unitStudentView.php";
 
+
+
 	class UnitStudentController{
 
 		public function __construct(){}
@@ -10,6 +12,13 @@
 		public function viewInfo(){
 			$view = new UnitStudentView();
 			return $view->genUnitsStudent();
+		}
+
+		public function getTitle(){
+			$IdAsign = $_GET['AsignId'];
+
+			$model = new UnitStudentModel();
+			return $model->titleAsign($IdAsign);
 		}
 
 		public function getUnits(){

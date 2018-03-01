@@ -12,7 +12,7 @@
 					<html>
 					<head>
 						<meta charset='utf-8'>
-						<title>Temas de las asignaturas del alumno</title>
+						<title>L-EARN | Temas de las asignaturas del alumno</title>
 						<link rel='stylesheet' type='text/css' href='style/styleStudent.css'>
 						<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 						<script src='js/functionsUnitStudent.js'></script>
@@ -21,9 +21,8 @@
 						" . Commons::headerStudent() . "
 						<div class='content'>
 							<div class='l col9'>
-								<div id='reticule'>
-
-								</div>
+								<h2 id='title'></h2>
+								<div id='reticule'></div>
 							</div>
 						</div>
 						" . Commons::footer() . "
