@@ -1,7 +1,5 @@
 <?php
-	// Incluimos el archivo del Controlador
 	require_once __DIR__ . "/asignStudentController.php";
-
 
 	session_start();
 

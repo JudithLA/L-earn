@@ -19,7 +19,7 @@
 					<html>
 					<head>
 						<meta charset='utf-8'>
-						<title>Asignaturas del alumno</title>
+						<title>L-EARN | Asignaturas del alumno</title>
 						<link rel='stylesheet' type='text/css' href='style/styleStudent.css'>
 						<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 						<script src='js/functionsAsignStudent.js'></script>
