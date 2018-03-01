@@ -9,20 +9,29 @@
 
 		public function viewInfo(){
 			$view = new TestStudentView();
-			return $view->genTestUnit($resultQueryEntre, $resultQueryFinal);
+			return $view->genTestUnit();
 		}
 
-		public function getTestUnit(){
+		public function getTitles(){
 			$IdUnit = $_GET['UnitId'];
 
 			$model = new TestStudentModel();
-			$resultQueryEntre = $model->testUnitEntre($IdUnit);
-			$resultQueryFinal = $model->testUnitFinal($IdUnit);
-
-			$view = new TestStudentView();
-			return $view->genTestUnit($resultQueryEntre, $resultQueryFinal);
+			return $model->titles($IdUnit);
 		}
 
+		public function getTestEntre(){
+			$IdUnit = $_GET['UnitId'];
+
+			$model = new TestStudentModel();
+			return $model->testUnitEntre($IdUnit);
+		}
+
+		public function getTestFinal(){
+			$IdUnit = $_GET['UnitId'];
+
+			$model = new TestStudentModel();
+			return $model->testUnitFinal($IdUnit);
+		}
 	}
 
 ?>

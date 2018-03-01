@@ -1,5 +1,4 @@
 <?php
-	// Incluimos el archivo del Controlador
 	require_once __DIR__ . "/testStudentController.php";
 
 	if (!isset($_SESSION)){session_start();}
@@ -13,7 +12,7 @@
 		if(isset($_GET['action'])){
  			$action = $_GET ['action'];
  			$view = new TestStudentController();
- 			echo $view->$action();
+ 			echo json_encode($view->$action());
  		}else {
  			$view = new TestStudentController();
  			echo $view->viewInfo();
