@@ -96,15 +96,73 @@
 	//creación de método que te devuelve el HTML
 	public function testPasoCuatroView($vista) {
 		$resultHTML = "
-			<div id='paso5' data-id-test='{$vista['ID_TEST']}'>
+			<div id='paso5' data-id-test='{$vista[0]['ID_TEST']}'>
 					GENIAL! Estas a punto de crear un nuevo test.
-					<div class='btn-siguiente-comienzo'>Empezar</div> 
+					<div class='btn-start-test'>Empezar</div>
 			</div>
 		";
 		return $resultHTML;
 	}
 
-	
+	//creación de método que te devuelve el HTML
+	public function testPasoCincoView() {
+		$resultHTML = "
+			<div id='paso6'>
+					Enunciado de la pregunta:<br>
+					<input type='text' data-test='enunciado' name='enunciado'>
+
+					<br>
+					<br>
+					<div class='item-respuesta' data-respuesta='1'>
+						<input type='text' name='enunciado'>
+						<select class='pesoRespuesta'>
+							<option data-peso='1'>1</option>
+							<option data-peso='2'>2</option>
+							<option data-peso='3'>3</option>
+							<option data-peso='4'>4</option>
+						</select>
+					</div>
+
+					<div class='item-respuesta' data-respuesta='2'>
+						<input type='text' name='enunciado'>
+						<select class='pesoRespuesta'>
+							<option data-peso='1'>1</option>
+							<option data-peso='2'>2</option>
+							<option data-peso='3'>3</option>
+							<option data-peso='4'>4</option>
+						</select>
+					</div>
+
+					<div class='item-respuesta' data-respuesta='3'>
+						<input type='text' name='enunciado'>
+						<select class='pesoRespuesta'>
+							<option data-peso='1'>1</option>
+							<option data-peso='2'>2</option>
+							<option data-peso='3'>3</option>
+							<option data-peso='4'>4</option>
+						</select>
+					</div>
+
+
+					<div class='item-respuesta' data-respuesta='4'>
+						<input type='text' name='enunciado'>
+						<select class='pesoRespuesta'>
+							<option data-peso='1'>1</option>
+							<option data-peso='2'>2</option>
+							<option data-peso='3'>3</option>
+							<option data-peso='4'>4</option>
+						</select>
+					</div>
+
+
+					<div class='btn-next-pregunta'>Siguiente</div>
+
+			</div>
+		";
+		return $resultHTML;
+	}
+
+
 
 
 
