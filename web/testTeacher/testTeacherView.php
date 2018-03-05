@@ -68,7 +68,6 @@
 			}
 		$resultHTML .= "</select>";
 		$resultHTML .= "</div>";
-		$resultHTML .= "<div id='btn-paso2'>Siguiente</div>";
 		return $resultHTML;
 	}
 
@@ -86,8 +85,6 @@
 							Pon una descripcion a tu test:
 							<input type='text' name='descripcionTest'>
 							<input type='submit' value='Siguiente'>
-			<div id='paso4'>Siguiente</div>
-			</div>
 		";
 		return $resultHTML;
 
@@ -121,6 +118,7 @@
 							<option data-peso='3'>3</option>
 							<option data-peso='4'>4</option>
 						</select>
+						<input type='radio' name='true' value='1'>Respuesta correcta<br>
 					</div>
 
 					<div class='item-respuesta' data-respuesta='2'>
@@ -131,6 +129,7 @@
 							<option data-peso='3'>3</option>
 							<option data-peso='4'>4</option>
 						</select>
+						<input type='radio' name='true' value='1'>Respuesta correcta<br>
 					</div>
 
 					<div class='item-respuesta' data-respuesta='3'>
@@ -141,6 +140,7 @@
 							<option data-peso='3'>3</option>
 							<option data-peso='4'>4</option>
 						</select>
+						<input type='radio' name='true' value='1'>Respuesta correcta<br>
 					</div>
 
 
@@ -152,6 +152,7 @@
 							<option data-peso='3'>3</option>
 							<option data-peso='4'>4</option>
 						</select>
+						<input type='radio' name='true' value='1'>Respuesta correcta<br>
 					</div>
 
 
@@ -165,7 +166,7 @@
 
 
 
-
+	
 	}
 
 ?>

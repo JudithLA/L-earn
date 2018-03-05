@@ -70,19 +70,14 @@ class testTeacherModel{
 
 
 		// Primera pregunta
-		public function testPasoCincoModel($tipoTest, $titulo, $tema){
-			if ($tipoTest = 'Entrenamiento'){
-						$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
-						$consult = "INSERT INTO PREGU_ENTRE (NOMBRE_ENTRE, DESCR_ENTRE, ID_TEMAS) VALUES ('{$titulo}', '{$descripcion}', '{$tema}')";
-						$checkQuery = "SELECT MAX(ID_ENTRE) AS ID_TEST FROM ENTRE WHERE NOMBRE_ENTRE ='{$titulo}'";
-						$mysqli->modifyQuery($consult);
-			        	$result = $mysqli->executeQuery($checkQuery);
-			} else {
-						$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
-						$query = "INSERT INTO FINAL (NOMBRE_FINAL, DESCR_FINAL, ID_TEMAS) VALUES ('{$titulo}', '{$descripcion}', '{$tema}')";
-						$checkQuery = "SELECT MAX(ID_FINAL) AS ID_TEST FROM FINAL WHERE NOMBRE_FINAL ='{$titulo}'";
-						$mysqli->modifyQuery($consult);
-			        	$result = $mysqli->executeQuery($checkQuery);
+		public function testPasoSeisModel($enunciado, $s1){
+			$count = count($s1);
+			for ($i = 0; $i < $count; $i++) {
+			    echo "\nRevisando $i: \n";
+			    echo "Mal: " . $array['$i'] . "\n";
+			    echo "Bien: " . $array[$i] . "\n";
+			    echo "Mal: {$array['$i']}\n";
+			    echo "Bien: {$array[$i]}\n";
 			}
 			return $result;
 		}

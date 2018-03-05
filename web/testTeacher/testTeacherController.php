@@ -100,6 +100,19 @@ class testTeacherController {
 				// 	return $cent;
 				// }
 
+				// Pintar primera pregunta del test
+				public function testPasoSeisController(){
+					$enunciado = $_POST['enunciado'];
+					$s1 = $_POST['s1'];
+					$model = new testTeacherModel();
+					$vista = $model -> testPasoSeisModel($enunciado, $s1);
+					$view = new testTeacherView();
+					$select = $view -> testPasoSeisView($vista);
+					$cent['status'] = 'OK';
+					$cent['html'] = $select;
+					return $cent;
+
+				}
 
 
 
