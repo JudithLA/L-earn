@@ -6,13 +6,9 @@ class TeacherStudentsView{
 	public function __construct(){}
 	public function __destruct(){}	
 
-// studentsList() es el método al que llamamos con $resultadoQuery como parámetro en el getStudentsGroups del controlador. En él, recorremos el resultado de la query que nos han pasado como parámetro (por eso aquí podríamos llamarlo $resultadoQuery o $Pepe, como en JAVA). Así estructuraremos el listado y lo concatenaremos al html de la función de vista.
-//el bucle puedes hacerlo con un for o con un foreach o lo que quieras
-	/*
-			for ($i=0; $i < 10; $i++) { 
-		}
+// studentsList() es el método encargado de recorrer el resultado de la query que nos han pasado como parámetro (por eso aquí podríamos llamarlo $resultadoQuery o $Pepe, como en JAVA). Así estructuraremos el listado y lo concatenaremos al html de la función de vista.
+//el bucle puedes hacerlo con un for [for ($i=0; $i < 10; $i++) { ] o con un foreach o lo que quieras
 
-	*/
 	// .= es una forma de asignación que asigna y concatena. primero inicializas una variable en $currentAlumn =''; y a esa variable le asignas/concatenas con .= el recorrido por el bucle entero, es decir, todos sus resultados en bloque.
 	public function studentsList($resultadoQuery = null){
 		$currentAlumn ='';

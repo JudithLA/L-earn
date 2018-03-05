@@ -20,7 +20,7 @@ if(!empty($_POST)) {
 		
 	}else {
 		$view = new TeacherSubjectsUnitsController();
-		echo $view->showViewStudents();	
+		echo $view->showViewUnits();	
 	}
 	
 }

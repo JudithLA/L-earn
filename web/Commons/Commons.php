@@ -24,7 +24,7 @@ class  Commons{
 			<nav>
 				<ul>
 					<li><a href='../homeTeacher/homeTeacher.php'>Alumnos</a></li>
-					<li><a href='../teacherAsign/teacherAsign.php'>Asignaturas</a></li>
+					<li><a href='../teacherSubjects/teacherSubjects.php'>Asignaturas</a></li>
 					<li><a href='../teacherTests/teacherTests.php'>Tests</a></li>
 
 				</ul>

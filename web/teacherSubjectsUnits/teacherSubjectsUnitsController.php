@@ -7,28 +7,42 @@ class TeacherSubjectsUnitsController{
 	public function __construct(){}
 	public function __destruct(){}
 
-	public function getUnitsSubjects(){
-		//$varIdSubject recoge el SubjectId a través del método GET para que abra los temas de esa asignatura (recordamos que lo enviamos por querystring en la pantalla anterior teacherSubjects); posteriormente, se la pasaremos al método de modelo a través del parámetro
-		$varIdSubject = $_GET['SubjectId'];
+	public function getSubjectsUnits(){
+		//$varIdSubject SubjectId a través del método GET (se lo pasamos por queryString en teacherSubjectsFunctions.js)
+		$varSubjectId = $_GET['SubjectId'];
+		$varSubjectLevel = $_GET['SubjectLevel'];
 
-		//variable para instanciar objeto de clase TeacherSubjectsUnitsModel
 		//almacenamos en $resultadoQuery la llamada al método (getSubjectsUnitsQuery($varSubjectId)) de clase TeacherSubjectsUnitsModel y le pasamos la variable que almacena el SubjectId por parámetro
 		$model = new TeacherSubjectsUnitsModel();
-		$resultadoQuery = $model->getSubjectsUnitsQuery($varSubjectId);
-		// creamos una variable ($vista) donde instanciamos objeto de clase TeacherSubjectsUnitsView.
-		//ejecutamos el método viewStudents pasándole como parámetro el resultado de la query ($resultadoQuery) que hemos obtenido en la ejecución del modelo
+		$resultadoQueryBreadcrumb = $model-> getSubjectsUnitsBreadcrumb($varSubjectId, $varSubjectLevel);
+		//var_dump($resultadoQueryBreadcrumb);
+		$resultadoQuery = $model->getSubjectsUnitsQuery($varSubjectId, $varSubjectLevel);
+		$resultadoQuery2 = $model->getSubjectsGroupsQuery($varSubjectId, $varSubjectLevel);
+
+		//ejecutamos el método viewUnits pasándole como parámetro el resultado de la query ($resultadoQuery) que hemos obtenido en la ejecución del modelo. Esta llamada al métoda será la encargada de printarlo con parámetros y en función del groupId que hemos obtenido en este mismo método.
 		$vista = new TeacherSubjectsUnitsView();
-		return $vista->viewStudents($resultadoQuery);		
+		return $vista->viewUnits($resultadoQueryBreadcrumb, $resultadoQuery, $resultadoQuery2);		
 
 	}
 
-//método para imprimir el view; este se encarga de imprimirlo por pantalla, no tiene nada que ver que hayas llamado a otro método de su clase (studentsList) anteriormente
-	public function showViewStudents(){
-		//variable objeto de la clase TeacherSubjectsUnitsView
+//volvemos a llamar al método para imprimir por pantalla esta vez sin parámetros; así y con la formulación "= null" en los parámetros de los métodos de vista , nos aseguramos de que siempre habrá algo pintado en pantalla aunque no le pasemos parámetros por querystring (por ejemplo: si te metes directamente a la pantalla de teacherStudents.php). = null asegura que si no le pasamos parámetro, le asigna el valor nulo
+	public function showViewUnits(){
 		$view = new TeacherSubjectsUnitsView();
-		//devolvemos f de clase TeacherSubjectsUnitsView
-		return $view->viewStudents();
+		return $view->viewUnits();
 	}
+
+//estos son los métodos para mostrar todos los grupos disponibles cuando haces click en modificar
+	public function getAllGroupsSubjects(){
+		$varSubjectId = $_GET['SubjectId'];
+		$varSubjectLevel = $_GET['SubjectLevel'];
+
+		$model = new TeacherSubjectsUnitsModel();
+		return $model->getSubjectsAllGroupsQuery($varSubjectId, $varSubjectLevel);
+	}
+	// 	public function showAllGroupsSubjects(){
+	// 	$view = new TeacherSubjectsUnitsView();
+	// 	return $view->viewTeacherSubjects();
+	// }
 }
 
 ?>

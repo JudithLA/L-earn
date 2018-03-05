@@ -23,13 +23,13 @@ class TeacherStudentsController{
 		$model = new TeacherStudentsModel();
 		$resultadoQuery = $model->getTeacherStudents($varIdGroup);
 		// creamos una variable donde instanciamos objeto de clase TeacherStudentsView.
-		//ejecutamos el método viewStudents pasándole como parámetro el resultado de la query ($resultadoQuery) que hemos obtenido en la ejecución del modelo. Esta llamada al métoda será la encargada de printarlo con parámetros.
+		//ejecutamos el método viewStudents pasándole como parámetro el resultado de la query ($resultadoQuery) que hemos obtenido en la ejecución del modelo. Esta llamada al métoda será la encargada de printarlo con parámetros y en función del groupId que hemos obtenido en este mismo método.
 		$vista = new TeacherStudentsView();
 		return $vista->viewStudents($resultadoQuery);
 		
 	}
 
-//volvemos a llamar al método para imprimir por pantalla esta vez sin parámetros; así y con la formulación "= null" en los parámetros de los métodos de vista , nos aseguramos de que siempre habrá algo pintado en pantalla aunque no le pasemos parámetros por querystring (por ejemplo: si te metes directamente a la pantalla de teacherStudents.php)
+//volvemos a llamar al método para imprimir por pantalla esta vez sin parámetros; así y con la formulación "= null" en los parámetros de los métodos de vista , nos aseguramos de que siempre habrá algo pintado en pantalla aunque no le pasemos parámetros por querystring (por ejemplo: si te metes directamente a la pantalla de teacherStudents.php). = null asegura que si no le pasamos parámetro, le asigna el valor nulo
 	public function showViewStudents(){
 		//variable objeto de la clase teacherStudentsView
 		$view = new TeacherStudentsView();

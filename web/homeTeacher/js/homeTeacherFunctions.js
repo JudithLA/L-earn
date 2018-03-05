@@ -40,11 +40,13 @@ $(document).ready(function(){
 
                     var linkGroup = document.createElement('a');
                     linkGroup.setAttribute('href',linkNameGroup);
+                    linkGroup.setAttribute('class', 'card-container');
+
                     //linkGroup.setAttribute('class', '');
 
                     var divGroup = document.createElement('div')
+                    divGroup.setAttribute('class', 'card-content');
                     divGroup.innerHTML = currentGroup;
-                    linkGroup.setAttribute('class', '');
 
                     //var linkAddGroup = document.createElement('a');
                     //linkGroup.setAttribute('href',currentGroup);
