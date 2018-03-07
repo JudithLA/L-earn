@@ -1,14 +1,12 @@
 <?php
 require_once __DIR__ . "/../Commons/Commons.php";
 
-class TeacherSubjectsView{
+class TeacherTestsView{
 
 	public function __construct(){}
 	public function __destruct(){}	
 
-// ---------------------------- FALTA ENLAZAR EL CREAR a las partes de Juju
-	//creamos método que devuelva HTML
-	public function viewTeacherSubjects(){
+	public function viewTeacherTests(){
 		$resultHTML = "
 			<!DOCTYPE html>
 			<html>
@@ -22,9 +20,9 @@ class TeacherSubjectsView{
 			<body>
 			".Commons::teacherHeader()."
 
-			<div class='main teacherSubjects'>
-				<div id='teacherSubjects-list'>
-					<div class='teacherSubjects-list-crear'><a href=''>AÑADIR NUEVA ASIGNATURA</a></div>	
+			<div class='main teacherTests'>
+				<div id='teacherTests-list'>
+					<div class='teacherTests-list-crear'><a href=''>AÑADIR NUEVA ASIGNATURA</a></div>	
 				</div>
 			</div>
 			".Commons::footer()."

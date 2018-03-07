@@ -36,13 +36,18 @@ class TeacherSubjectsUnitsController{
 		$varSubjectId = $_GET['SubjectId'];
 		$varSubjectLevel = $_GET['SubjectLevel'];
 
+		//tienes dos métodos que van por el mismo camino: uno que devuelve html (getSubjectsUnits) y otro que tiene que devolver un conjunto de datosen formato JSON (getAllGroupsSubjects). 
 		$model = new TeacherSubjectsUnitsModel();
-		return $model->getSubjectsAllGroupsQuery($varSubjectId, $varSubjectLevel);
+		return json_encode($model->getSubjectsAllGroupsQuery($varSubjectId, $varSubjectLevel));
 	}
-	// 	public function showAllGroupsSubjects(){
-	// 	$view = new TeacherSubjectsUnitsView();
-	// 	return $view->viewTeacherSubjects();
-	// }
+
+	public function modifyGroupsSubjects(){
+		// $varSubjectId = $_GET['SubjectId'];
+
+		// $model = new TeacherSubjectsUnitsModel();
+		// return $model->modifyGroupsSubjectsQuery($varSubjectId);
+
+	}
 }
 
 ?>

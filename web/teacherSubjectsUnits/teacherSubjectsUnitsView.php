@@ -42,7 +42,7 @@ class TeacherSubjectsUnitsView{
 			<html>
 			<head>
 			<meta charset='utf-8'>
-				<title></title>
+				<title>".$resultadoQueryBreadcrumb['SubjectName']."</title>
 				<link rel='stylesheet' type='text/css' href='style/styleStudent.css'>
 				<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 				<script src='js/teacherSubjectsUnitsFunctions.js'></script>
@@ -52,16 +52,20 @@ class TeacherSubjectsUnitsView{
 
 			<div class='main teacherSubjectsUnits'>
 			<h2 class='breadcrumb-subject' id='".$resultadoQueryBreadcrumb['SubjectId']."'>".$resultadoQueryBreadcrumb['SubjectName']." ".$resultadoQueryBreadcrumb['SubjectLevel']."º</h2>
-
-				<div class='units'>
-					<ul class='units-list'>
-				".$this->unitsList($resultadoQuery)."
-					</ul>
-				</div>
-
-				<div class='groups-list'>
-				".$this->groupsList($resultadoQuery2)."
-				<button id='groups-edit' type='button'>MODIFICAR</button>
+				<div class='wrapper'>	
+					<div class='units display-iblock'>
+						<ul class='units-list'>
+					".$this->unitsList($resultadoQuery)."
+						</ul>
+					</div>
+					<div class='groups'>
+						<div class='groups-list' id='groups-prev-list'>
+						".$this->groupsList($resultadoQuery2)."
+						<button id='groups-edit' type='button'>MODIFICAR</button>
+						</div>
+						<form id='groups-edit-list'>
+						</form>
+					</div>
 				</div>
 			</div>
 			".Commons::footer()."

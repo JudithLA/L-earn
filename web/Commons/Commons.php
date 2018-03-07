@@ -33,9 +33,16 @@ class  Commons{
 			<div class='header-profile'>"
 				. $_SESSION['teacherName']
 				. $_SESSION['teacherSurname'] .
-				"<img src='"
+				"
+
+
+				<!--		----------- DESCOMENTAR ----------
+				<img src='"
 				. $_SESSION['imgStu'] .
-				"' alt='Imagen del usuario'>
+				"' alt='Imagen del usuario'> 
+				-->
+
+
 
 			</div>
 		</header>
