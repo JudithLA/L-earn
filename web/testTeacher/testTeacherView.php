@@ -91,9 +91,9 @@
 	}
 
 	//creación de método que te devuelve el HTML
-	public function testPasoCuatroView($vista) {
+	public function testPasoCuatroView($vista, $tipoTest) {
 		$resultHTML = "
-			<div id='paso5' data-id-test='{$vista[0]['ID_TEST']}'>
+			<div id='paso5' data-idtest='{$vista[0]['ID_TEST']}' data-tipo='{$tipoTest}'>
 					GENIAL! Estas a punto de crear un nuevo test.
 					<div class='btn-start-test'>Empezar</div>
 			</div>
@@ -102,11 +102,13 @@
 	}
 
 	//creación de método que te devuelve el HTML
-	public function testPasoCincoView() {
+	public function testPasoCincoView($idTest, $tipoTest) {
 		$resultHTML = "
 			<div id='paso6'>
+
+				<div class='preguntaTest on' data-test='1'>
 					Enunciado de la pregunta:<br>
-					<input type='text' data-test='enunciado' name='enunciado'>
+					<input type='text' data-test='enunciado' data-id='{$idTest}' data-tipo='{$tipoTest}' name='enunciado'>
 
 					<br>
 					<br>
@@ -156,7 +158,9 @@
 					</div>
 
 
-					<div class='btn-next-pregunta'>Siguiente</div>
+					<div class='btn-next-pregunta' data-test='1'>Siguiente</div>
+
+				</div>
 
 			</div>
 		";
@@ -166,7 +170,7 @@
 
 
 
-	
+
 	}
 
 ?>

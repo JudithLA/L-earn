@@ -51,16 +51,18 @@ class testTeacherModel{
 
 
 		// Elige test final o test de entrenamiento e introduce el nombre del test
-		public function testPasoCuatroModel($test, $titulo, $descripcion,  $tema){
-			if ($test = 'Entrenamiento'){
+		public function testPasoCuatroModel($tipoTest, $test, $titulo, $descripcion,  $tema){
+			if (strcmp($tipoTest, 'Entrenamiento') == 0){
 						$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
 						$consult = "INSERT INTO ENTRE (NOMBRE_ENTRE, DESCR_ENTRE, ID_TEMAS) VALUES ('{$titulo}', '{$descripcion}', '{$tema}')";
+
 						$checkQuery = "SELECT MAX(ID_ENTRE) AS ID_TEST FROM ENTRE WHERE NOMBRE_ENTRE ='{$titulo}'";
 						$mysqli->modifyQuery($consult);
 			        $result = $mysqli->executeQuery($checkQuery);
 			} else {
 						$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
-						$query = "INSERT INTO FINAL (NOMBRE_FINAL, DESCR_FINAL, ID_TEMAS) VALUES ('{$titulo}', '{$descripcion}', '{$tema}')";
+						$consult = "INSERT INTO FINAL (NOMBRE_FINAL, DESCR_FINAL, ID_TEMAS) VALUES ('{$titulo}', '{$descripcion}', '{$tema}')";
+
 						$checkQuery = "SELECT MAX(ID_FINAL) AS ID_TEST FROM FINAL WHERE NOMBRE_FINAL ='{$titulo}'";
 						$mysqli->modifyQuery($consult);
 			        	$result = $mysqli->executeQuery($checkQuery);
@@ -70,24 +72,49 @@ class testTeacherModel{
 
 
 		// Primera pregunta
-		public function testPasoSeisModel($enunciado, $s1){
-			$count = count($s1);
-			for ($i = 0; $i < $count; $i++) {
-			    echo "\nRevisando $i: \n";
-			    echo "Mal: " . $array['$i'] . "\n";
-			    echo "Bien: " . $array[$i] . "\n";
-			    echo "Mal: {$array['$i']}\n";
-			    echo "Bien: {$array[$i]}\n";
-			}
-			return $result;
-		}
+		public function testPasoSeisModel($enunciado, $s1, $idTest, $tipoTest){
+			if ($tipoTest === 'Entrenamiento'){
+						$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
+						$consult = "INSERT INTO PREGU_ENTRE (ENUNCIADO_PREGU_ENTRE, ID_ENTRE) VALUES ('{$enunciado}', '{$idTest}')";
+						$checkQuery = "SELECT MAX(ID_PREGU_ENTRE) AS ID_TEST FROM PREGU_ENTRE WHERE ENUNCIADO_PREGU_ENTRE ='{$enunciado}'";
+						$mysqli->modifyQuery($consult);
+						$result = $mysqli->executeQuery($checkQuery);
+
+
+						foreach ($s1 as $key => $row) {
+						    $texto = $row[0];
+								$peso = $row[1];
+								$correcta = $row[2];
+								$consult = "INSERT INTO RESPU_ENTRE (TEXTO_RESPU_ENTRE, PESO_RESPU_ENTRE, CORRECTA_RESPUE_ENTRE, ID_PREGU_ENTRE) VALUES ('{$texto}', '{$peso}', {$correcta} , '{$result[0]['ID_TEST']}')";
+								var_dump($consult);
+								$mysqli->modifyQuery($consult);
+						}
+			} else{
+						$mysqli = new MysqlDBImplementation(/*"localhost", "8889", "DBLEARN", "root", "learn"*/);
+						$consult = "INSERT INTO PREGU_FINAL (ENUNCIADO_PREGU_FINAL, ID_FINAL) VALUES ('{$enunciado}', '{$idTest}')";
+						$checkQuery = "SELECT MAX(ID_PREGU_FINAL) AS ID_TEST FROM PREGU_FINAL WHERE ENUNCIADO_PREGU_FINAL ='{$enunciado}'";
+						$mysqli->modifyQuery($consult);
+						$result = $mysqli->executeQuery($checkQuery);
+
+
+						foreach ($s1 as $key => $row) {
+								$texto = $row[0];
+								$peso = $row[1];
+								$correcta = $row[2];
+								$consult = "INSERT INTO RESPU_FINAL (TEXTO_RESPU_FINAL, PESO_RESPU_FINAL, CORRECTA_RESPUE_FINAL, ID_PREGU_FINAL) VALUES ('{$texto}', '{$peso}', {$correcta} , '{$result[0]['ID_TEST']}')";
+var_dump($consult);
+								$mysqli->modifyQuery($consult);
+						}
+
+				}
+
+				return;
+
+}
 
 
 
-
-
-
-	}
+}
 
 
 

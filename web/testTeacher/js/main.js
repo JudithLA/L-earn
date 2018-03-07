@@ -1,6 +1,8 @@
 Login =  { fn: {},
           tema: "",
-          tipoTest:""
+          tipoTest:"",
+          idTest:"",
+          question:0
 
         };
 
@@ -130,7 +132,7 @@ Login.fn.funcionTres = function(id_tema){
                       var tipoTest = $('input[name=type-test]:checked').val();
                       var tituloTest = $('input[name=nameTest]').val();
                       var descripcionTest = $('input[name=descripcionTest]').val();
-                      alert (descripcionTest);
+                      alert (tipoTest);
                       event.preventDefault();
                       Login.fn.funcionCuatro(tipoTest, tituloTest, descripcionTest);
                   });
@@ -182,10 +184,10 @@ Login.fn.funcionCuatro = function(tipoTest, tituloTest, descripcionTest){
                   $('#paso4').removeClass('on');
                   $('#paso5').addClass('on');
                   $( ".btn-start-test" ).click(function () {
-                      var tipoTest = $('input[name=type-test]:checked').val();
-                      var tituloTest = $('input[name=nameTest]').val();
+                      var idTest = $('#paso5').data('idtest');
+                      var tipoTest = $('#paso5').data('tipo');
                       event.preventDefault();
-                      Login.fn.funcionCinco();
+                      Login.fn.funcionCinco(idTest, tipoTest);
                   });
             } else {
                   $('.msgError').html(resultArray['html']);
@@ -202,11 +204,14 @@ Login.fn.funcionCuatro = function(tipoTest, tituloTest, descripcionTest){
   };
 
 
-  Login.fn.funcionCinco = function(){
+  Login.fn.funcionCinco = function(idTest, tipoTest){
     console.log(Login);
+    Login.idTest = idTest;
     var url = "http://localhost:8888/L-earn/web/testTeacher/testTeacher.php";
     var data = {
-        action: 'testPasoCincoController'
+        action: 'testPasoCincoController',
+        idTest : idTest,
+        tipoTest : tipoTest
     };
 
     $.ajax({
@@ -227,35 +232,26 @@ Login.fn.funcionCuatro = function(tipoTest, tituloTest, descripcionTest){
                     $('#paso5').removeClass('on');
                     $('#paso6').addClass('on');
                     $( ".btn-next-pregunta" ).click(function() {
-                        var enunciadoPregunta = $('input[name=enunciado]').val();
-
-                        // var respuestaUno = $('.item-respuesta').data('respuesta','1');
-                        // var respuestaDos = $('.item-respuesta').data('respuesta','2');
-                        // var respuestaTres = $('.item-respuesta').data('respuesta','3');
-                        // var respuestaCuatro = $('.item-respuesta').data('respuesta','4');
-                        //
-                        // var enunciadoUno = $(respuestaUno).find('input[name=enunciado]').val();
-                        // var enunciadoDos = $(respuestaDos).find('input[name=enunciado]').val();
-                        // var enunciadoTres = $(respuestaTres).find('input[name=enunciado]').val();
-                        // var enunciadoCuatro = $(respuestaCuatro).find('input[name=enunciado]').val();
-                        //
-                        // var pesoUno = $(respuestaUno).find(':selected').data('peso');
-                        // var pesoDos = $(respuestaDos).find(':selected').data('peso');
-                        // var pesoTres = $(respuestaTres).find(':selected').data('peso');
-                        // var pesoCuatro = $(respuestaCuatro).find(':selected').data('peso');
-                        //
-                        // var correctaUno = $(respuestaUno).find('input[name=true]:checked').val();
-                        // var correctaDos = $(respuestaDos).find('input[name=true]:checked').val();
-                        // var correctaTres = $(respuestaTres).find('input[name=true]:checked').val();
-                        // var correctaCuatro = $(respuestaCuatro).find('input[name=true]:checked').val();
-
-
+                        var enunciado = $('input[name=enunciado]').val();
                         var s1 = [];
+                        var idTest = $('input[name=enunciado]').data('id');
+
+                        var tipoTest = $('input[name=enunciado]').data('tipo');
                         $(".item-respuesta").each(function(){
                             var row = [];
                             row.push($(this).find('input[name=enunciado]').val());
                             row.push($(this).find(':selected').data('peso'));
-                            row.push($(this).find('input[name=true]:checked').val());
+                            var correctAnswer = $(this).find('input[name=true]:checked').val();
+                            console.log(correctAnswer);
+
+                            if(typeof(correctAnswer) == "undefined"){
+                            //if(!correctAnswer){
+                              correctAnswer = '0';
+                            }else {
+                              correctAnswer = '1';
+                            }
+                            row.push(correctAnswer);
+
                             // add the temp array to the main array
                             s1.push(row);
                         });
@@ -263,7 +259,7 @@ Login.fn.funcionCuatro = function(tipoTest, tituloTest, descripcionTest){
                         event.preventDefault();
                         console.log(s1);
 
-                        Login.fn.funcionSeis(enunciado, s1);
+                        Login.fn.funcionSeis(enunciado, s1, idTest, tipoTest);
                     });
               } else {
                     $('.msgError').html(resultArray['html']);
@@ -280,17 +276,32 @@ Login.fn.funcionCuatro = function(tipoTest, tituloTest, descripcionTest){
     };
 
 
+    function save(){
+      $('#paso6').find('input').val('');
+      $('.pesoRespuesta').selectedIndex = '1';
+      var pregunta = $('.btn-next-pregunta').data('test');
+      console.log(pregunta);
+      Login.question++;
+      console.log(Login.question);
+      if(Login.question == 10){
+        alert('FIN');
+      }
+    }
 
 
-    Login.fn.funcionSeis = function(enunciado, s1){
+    Login.fn.funcionSeis = function(enunciado, s1, idTest, tipoTest){
       console.log(Login);
       var url = "http://localhost:8888/L-earn/web/testTeacher/testTeacher.php";
       Login.tipoTest = tipoTest;
       var data = {
           action: 'testPasoSeisController',
           enunciado : enunciado,
-          s1: s1
+          s1: s1,
+          idTest: idTest,
+          tipoTest: tipoTest
       };
+
+      save();
 
       $.ajax({
           url: url,
@@ -301,29 +312,29 @@ Login.fn.funcionCuatro = function(tipoTest, tituloTest, descripcionTest){
           },
 
           success: function (result) {
-            resultArray = JSON.parse(result);
-                if(resultArray['status'] == 'OK'){
-                      var paso5 = document.createElement("div").innerHtml = resultArray.html;
-                      var paso4 = document.getElementById('paso4');
-                      console.log(paso5);
-                      $('#paso4').after(paso5);
-                      $('#paso4').removeClass('on');
-                      $('#paso5').addClass('on');
-                      $( ".btn-start-test" ).click(function () {
-                          var tipoTest = $('input[name=type-test]:checked').val();
-                          var tituloTest = $('input[name=nameTest]').val();
-                          event.preventDefault();
-                          Login.fn.funcionCinco();
-                      });
-                } else {
-                      $('.msgError').html(resultArray['html']);
-                  }
+            // resultArray = JSON.parse(result);
+            //     if(resultArray['status'] == 'OK'){
+            //           var paso5 = document.createElement("div").innerHtml = resultArray.html;
+            //           var paso4 = document.getElementById('paso4');
+            //           console.log(paso5);
+            //           $('#paso4').after(paso5);
+            //           $('#paso4').removeClass('on');
+            //           $('#paso5').addClass('on');
+            //           $( ".btn-start-test" ).click(function () {
+            //               var tipoTest = $('input[name=type-test]:checked').val();
+            //               var tituloTest = $('input[name=nameTest]').val();
+            //               event.preventDefault();
+            //               // Login.fn.funcionCinco();
+            //           });
+            //     } else {
+            //           $('.msgError').html(resultArray['html']);
+            //       }
             },
 
             error: function (jqXHR, textStatus, errorThrown) {
-                alert(jqXHR.status);
-                alert(textStatus);
-                alert(errorThrown);
+                // alert(jqXHR.status);
+                // alert(textStatus);
+                // alert(errorThrown);
             }
 
             });

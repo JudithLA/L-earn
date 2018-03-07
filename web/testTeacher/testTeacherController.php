@@ -65,11 +65,12 @@ class testTeacherController {
 					$titulo = $_POST['titulo'];
 					$descripcion = $_POST['descripcion'];
 					$tema = $_POST['tema'];
+					$tipoTest = $_POST['tipoTest'];
 
 					$model = new testTeacherModel();
-					$vista = $model -> testPasoCuatroModel($test, $titulo, $descripcion, $tema);
+					$vista = $model -> testPasoCuatroModel($tipoTest, $test, $titulo, $descripcion, $tema);
 					$view = new testTeacherView();
-					$select = $view -> testPasoCuatroView($vista);
+					$select = $view -> testPasoCuatroView($vista, $tipoTest);
 					$cent['status'] = 'OK';
 					$cent['html'] = $select;
 					return $cent;
@@ -78,8 +79,10 @@ class testTeacherController {
 
 				// Pintar primera pregunta del test
 				public function testPasoCincoController(){
+					$idTest = $_POST['idTest'];
+					$tipoTest = $_POST['tipoTest'];
 					$view = new testTeacherView();
-					$select = $view -> testPasoCincoView($vista);
+					$select = $view -> testPasoCincoView($idTest, $tipoTest);
 					$cent['status'] = 'OK';
 					$cent['html'] = $select;
 					return $cent;
@@ -102,12 +105,15 @@ class testTeacherController {
 
 				// Pintar primera pregunta del test
 				public function testPasoSeisController(){
+
 					$enunciado = $_POST['enunciado'];
 					$s1 = $_POST['s1'];
+					$idTest = $_POST['idTest'];
+					$tipoTest = $_POST['tipoTest'];
 					$model = new testTeacherModel();
-					$vista = $model -> testPasoSeisModel($enunciado, $s1);
-					$view = new testTeacherView();
-					$select = $view -> testPasoSeisView($vista);
+					$vista = $model -> testPasoSeisModel($enunciado, $s1, $idTest, $tipoTest);
+					//$view = new testTeacherView();
+					//$select = $view -> testPasoSeisView($vista);
 					$cent['status'] = 'OK';
 					$cent['html'] = $select;
 					return $cent;
