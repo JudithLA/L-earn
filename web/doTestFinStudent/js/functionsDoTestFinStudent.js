@@ -21,9 +21,20 @@ function getDate() {
 	return [year, month, day].join("-");
 }
 
+function incrementCounter(idElement, previousValue, newValue) {
+	$("#"+idElement).prop('Counter', previousValue).animate({
+		Counter: newValue
+	},{
+		duration: 2500,
+		easing: 'swing',
+		step: function (now) {
+			$(this).text(Math.ceil(now));
+		}
+	});
+}
+
 $(document).ready(function () {
     var globals = {};
-    globals.finPoints = 0;
     globals.questions = [];
     globals.responses = [];
 	globals.currentQuestionIndex = 0;
@@ -200,10 +211,10 @@ $(document).ready(function () {
 				var indexReponse = $(this).children().val();
 
 				if (globals.responses[indexReponse][3] == 1){
-					console.log("correcta");
+					// console.log("correcta");
 					$(this).closest("label").addClass("correct-answer");
 				} else {
-					console.log("incorrecta");
+					// console.log("incorrecta");
 					$(this).closest("label").addClass("incorrect-answer");
 
 					$("input[name=responses]").each(function(){
@@ -237,16 +248,7 @@ $(document).ready(function () {
 	            success: function (result) {
 	                pointsUpdate = JSON.parse(result);
 					var previousValue = $("#headPoints").text();
-
-					$("#headPoints").prop('Counter', previousValue).animate({
-						Counter: pointsUpdate
-					},{
-						duration: 2500,
-						easing: 'swing',
-						step: function (now) {
-							$(this).text(Math.ceil(now));
-						}
-					});
+					incrementCounter("headPoints", previousValue, pointsUpdate);
 	            },
 	            error: function (jqXHR, textStatus, errorThrown) {
 	                alert(jqXHR.status);
