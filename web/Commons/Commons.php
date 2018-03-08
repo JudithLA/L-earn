@@ -39,7 +39,7 @@ class  Commons{
 				<!--		----------- DESCOMENTAR ----------
 				<img src='"
 				. $_SESSION['imgStu'] .
-				"' alt='Imagen del usuario'> 
+				"' alt='Imagen del usuario'>
 				-->
 
 
@@ -63,8 +63,8 @@ class  Commons{
 						<li><a href='http://localhost:8888/L-earn/web/rewardsStudent/rewardsStudent.php'>Recompensas</a></li>
 					</ul>
 				</nav>
-				<span id='headPoints'>" . $_SESSION['finPoints'] . " PTOS.</span>
-				<span id='headPercent'>" . $_SESSION['percentage'] . " % EXP.</span>
+				<span id='headPoints'>" . $_SESSION['finPoints'] . "</span><span id='headPoints-type'> PTOS.</span>
+				<span id='headPercent'>" . $_SESSION['percentage'] . "</span><span id='headPercent-type'> % EXP.</span>
 				<span>" . $_SESSION['nameStu'] . $_SESSION['surnameStu'] . "</span>
 				<img src='" . $_SESSION['imgStu'] . "' alt='Imagen del usuario'>
 			</div>
