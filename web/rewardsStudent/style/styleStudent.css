@@ -24,23 +24,30 @@ h2 {padding: 20px 0;}
 #rewards{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
 }
 .reward {
   width: 250px;
   height: 200px;
   background-color: whiteSmoke;
-  margin-right: 5px;
+  margin: 1%;
   padding: 16px;
   cursor: pointer;
 }
 
 .disabled-reward {
-  width: 250px;
-  height: 200px;
-  margin-right: 5px;
-  background-color: lightblue;
+  background-color: lightblue !important;
   pointer-events: none;
-  padding: 16px;
+}
+
+.reward button {
+    background-color: #CCCCCC;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 32px;
+    cursor: pointer;
 }
 
 .popupReward {
@@ -71,7 +78,7 @@ h2 {padding: 20px 0;}
   cursor: pointer;
 }
 
-footer {background-color: #d9d9d9; position: absolute; bottom: 0;}
+footer {background-color: #d9d9d9;}
 footer div.content {padding: 2% 0;}
 #copy {text-align: center;}
 footer span {font-size: 12px;}

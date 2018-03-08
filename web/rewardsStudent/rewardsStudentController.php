@@ -9,27 +9,26 @@
 		public function __destruct(){}
 
 		public function viewInfo(){
-
 			$view = new RewardsStudentView();
-
 			return $view->genRewardsHTML();
 		}
 
 		public function getRewards(){
-
 			$model = new RewardsStudentModel();
-
 			return $model->rewards();
+		}
 
+		public function getRewardsGotten(){
+			$model = new RewardsStudentModel();
+			return $model->rewardsGotten();
 		}
 
 		public function updatePoints(){
-				$costReward = $_POST['costReward'];
-				$rewardId = $_POST['rewardId'];
+			$costReward = $_POST['costReward'];
+			$rewardId = $_POST['rewardId'];
 
-				$model = new RewardsStudentModel();
-
-				return $model->updateFinPoints($costReward, $rewardId);
+			$model = new RewardsStudentModel();
+			return $model->updateFinPoints($costReward, $rewardId);
 		}
 
 	}
