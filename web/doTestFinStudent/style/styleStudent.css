@@ -79,7 +79,7 @@ h2 {padding: 20px 0;}
 	justify-content: center;
 }
 
-#responsesForm label {
+#responsesForm .answer {
 	width: 320px;
 	height: 220px;
 	background-color: #F4F4F4;
@@ -97,6 +97,14 @@ h2 {padding: 20px 0;}
 #btnContinueTest {
     float: right;
     margin-right: 16.5%;
+}
+
+.correct-answer {
+	background-color: #76D8B7 !important;
+}
+
+.incorrect-answer {
+	background-color: #D87697 !important;
 }
 
 footer {background-color: #D9D9D9;}

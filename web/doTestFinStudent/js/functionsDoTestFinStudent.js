@@ -1,5 +1,6 @@
 function createRadioButton(textLabel, valResponse, idAppend) {
 	var label = document.createElement("label");
+	label.setAttribute("class", "answer");
 	label.innerHTML = textLabel;
 
 	var radio = document.createElement("input");
@@ -8,8 +9,16 @@ function createRadioButton(textLabel, valResponse, idAppend) {
 	radio.setAttribute('value', valResponse);
 
 	label.prepend(radio);
-
 	$("#"+idAppend).append(label);
+}
+
+function getDate() {
+	var date = new Date();
+	var year = date.getFullYear();
+	var month = date.getMonth()+1;
+	var day = date.getDate();
+
+	return [year, month, day].join("-");
 }
 
 $(document).ready(function () {
@@ -17,6 +26,10 @@ $(document).ready(function () {
     globals.finPoints = 0;
     globals.questions = [];
     globals.responses = [];
+	globals.currentQuestionIndex = 0;
+	globals.currentResponseMinIndex = 0;
+	globals.currentResponseMaxIndex = 0;
+	globals.points = 0;
 
     var urlParams = new URLSearchParams(window.location.search);
 	var testFinId = urlParams.get("TestFinId");
@@ -33,7 +46,6 @@ $(document).ready(function () {
             method: "GET",
             success: function (result) {
                 resultTitles = JSON.parse(result);
-                // console.log(resultTitles);
 
                 var breadcrumbFirstItem = document.createElement("a");
                 breadcrumbFirstItem.setAttribute("href", "../unitStudent/unitStudent.php?AsignId=" + resultTitles.IdAsign);
@@ -102,15 +114,11 @@ $(document).ready(function () {
 			method: "GET",
 			success: function (result) {
 				resultArray = JSON.parse(result);
-				// console.log(resultArray);
 				resultArray.forEach(function(elem){
 					globals.questions.push(
 						[parseInt(elem.PreguIdFin), elem.PreguntaFin]
 					);
 				});
-
-				// console.log(globals.questions[0]);
-
 			},
 			error: function (jqXHR, textStatus, errorThrown) {
 				alert(jqXHR.status);
@@ -136,7 +144,6 @@ $(document).ready(function () {
             method: "GET",
             success: function (result) {
                 resultArray = JSON.parse(result);
-                // console.log(resultArray);
                 resultArray.forEach(function(elem){
                     globals.responses.push(
                         [parseInt(elem.RespuIdFin), elem.RespuestaFin, parseInt(elem.PesoFin), parseInt(elem.CorrectaFin)]
@@ -154,53 +161,115 @@ $(document).ready(function () {
 	}
 	testFinalResponses();
 
-
     var doTestFinal = function () {
         $("#test-do").empty();
-		// console.log(globals.questions[0]);
-		console.log(globals.responses[0]);
-		console.log(globals.responses[1]);
-		console.log(globals.responses[2]);
-		console.log(globals.responses[3]);
+		$("#step-0").removeClass("stepsSelected");
+		$("#step-1").addClass("stepsSelected");
 
-		var questionItem = document.createElement("div");
-		questionItem.setAttribute("class", "questionItem");
-		questionItem.innerHTML = globals.questions[0][1];
+		function loadQuestion(currentQuestion) {
+			var questionItem = document.createElement("div");
+			questionItem.setAttribute("class", "questionItem");
+			questionItem.innerHTML = globals.questions[currentQuestion][1];
+			$("#test-do").append(questionItem);
 
-		$("#test-do").append(questionItem);
+			var form = document.createElement("form");
+			form.setAttribute("id", "responsesForm");
+			$("#test-do").append(form);
+		}
+		loadQuestion(globals.currentQuestionIndex);
 
-		var form = document.createElement("form");
-		form.setAttribute("id", "responsesForm");
-		$("#test-do").append(form);
+		function loadResponses() {
+			globals.currentResponseMinIndex = globals.currentQuestionIndex * 4;
+			globals.currentResponseMaxIndex = (globals.currentQuestionIndex * 4)+3;
 
-		createRadioButton(globals.responses[0][1], globals.responses[0][0], "responsesForm");
-		createRadioButton(globals.responses[1][1], globals.responses[1][0], "responsesForm");
-		createRadioButton(globals.responses[2][1], globals.responses[2][0], "responsesForm");
-		createRadioButton(globals.responses[3][1], globals.responses[3][0], "responsesForm");
+			for (var i = globals.currentResponseMinIndex; i <= globals.currentResponseMaxIndex; i++) {
+				createRadioButton(globals.responses[i][1], i, "responsesForm");
+			}
+		}
+		loadResponses();
 
 		var continueTest = document.createElement("button");
 		continueTest.setAttribute("id", "btnContinueTest");
 		continueTest.innerHTML = "Continuar";
-		$("#test-do").append(continueTest);
+		$("#test").append(continueTest);
 
-		$("label").on("click", function (event) {
-			event.preventDefault();
+		function checkAnswer() {
+			$("label").on("click", function (event) {
+				event.preventDefault();
 
-			var idReponse = parseInt($(this).children().val());
-			console.log(idReponse);
-			console.log(globals.responses[idReponse][3]);
+				var indexReponse = $(this).children().val();
 
-			if (globals.responses[idReponse][3] == 1){
-				// $('label',this).css("background-color", "#66CDAA");
-				console.log("correcta");
-			} else {
-				console.log("incorrecta");
-			}
-		});
+				if (globals.responses[indexReponse][3] == 1){
+					console.log("correcta");
+					$(this).closest("label").addClass("correct-answer");
+				} else {
+					console.log("incorrecta");
+					$(this).closest("label").addClass("incorrect-answer");
+
+					$("input[name=responses]").each(function(){
+					    var indexAnswers = $(this).val();
+						if (globals.responses[indexAnswers][3] == 1){
+							console.log("correcta");
+							$(this).closest("label").addClass("correct-answer");
+						}
+					})
+				}
+
+				globals.points += globals.responses[indexReponse][2];
+			});
+		}
+		checkAnswer();
+
+		function sendResultTest() {
+			var date = getDate();
+
+			var url = "http://localhost:8888/L-earn/web/doTestFinStudent/doTestFinStudent.php";
+			var data = {
+	            action: "getResultTest",
+				date: date,
+	            points: globals.points,
+				TestFinId: testFinId
+	        };
+	        $.ajax({
+	            url: url,
+	            data: data,
+	            method: "GET",
+	            success: function (result) {
+	                pointsUpdate = JSON.parse(result);
+					var previousValue = $("#headPoints").text();
+
+					$("#headPoints").prop('Counter', previousValue).animate({
+						Counter: pointsUpdate
+					},{
+						duration: 2500,
+						easing: 'swing',
+						step: function (now) {
+							$(this).text(Math.ceil(now));
+						}
+					});
+	            },
+	            error: function (jqXHR, textStatus, errorThrown) {
+	                alert(jqXHR.status);
+	                alert(textStatus);
+	                alert(errorThrown);
+	            }
+
+	        });
+		}
 
         $("#btnContinueTest").on("click", function() {
-            
-        })
+			globals.currentQuestionIndex ++;
+			$("#test-do").empty();
+
+			if (globals.currentQuestionIndex >= 10) {
+				$("#test-do").html(globals.points);
+				sendResultTest();
+			}else {
+				loadQuestion(globals.currentQuestionIndex);
+				loadResponses();
+				checkAnswer();
+			}
+        });
     }
 
 });
