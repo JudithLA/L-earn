@@ -3,8 +3,9 @@ $(document).ready(function () {
 	var urlParams = new URLSearchParams(window.location.search);
 	var asignId = urlParams.get("AsignId");
 
+	var url = "http://localhost:8888/L-earn/web/unitStudent/unitStudent.php";
+
 	var title = function () {
-		var url = "http://localhost:8888/L-earn/web/unitStudent/unitStudent.php";
 		var data = {
 			action : "getTitle",
 			AsignId: asignId
@@ -30,7 +31,6 @@ $(document).ready(function () {
 	title();
 
 	var units = function () {
-		var url = "http://localhost:8888/L-earn/web/unitStudent/unitStudent.php";
 		var data = {
 			action : "getUnits",
 			AsignId: asignId
@@ -45,6 +45,7 @@ $(document).ready(function () {
 				resultArray.forEach(function(elem){
 					var linkUnit = document.createElement("a");
 					linkUnit.setAttribute("href", "../testStudent/testStudent.php?UnitId=" + elem.IdTema);
+					linkUnit.setAttribute("id", "unit" + elem.IdTema);
 					linkUnit.setAttribute("class", "unit trim" + elem.TrimTema);
 
 					var imgUnit = document.createElement("img");
@@ -57,6 +58,7 @@ $(document).ready(function () {
 					linkUnit.append(imgUnit);
 					linkUnit.append(nameUnit);
 					$("#reticule").append(linkUnit);
+
 				});
       		},
 			error: function (jqXHR, textStatus, errorThrown) {
@@ -69,8 +71,44 @@ $(document).ready(function () {
 	}
 	units();
 
+	var passedUnit = function () {
+		var data = {
+			action : "getPassedUnit",
+			AsignId: asignId
+		};
+		$.ajax({
+			url: url,
+			data: data,
+			method: "GET",
+			success: function (result) {
+				resultArray = JSON.parse(result);
+
+				resultArray.forEach(function(elem){
+					console.log("Passed unit: "+elem);
+
+					// if (elem.AprobadoFin = 1) {
+					// 	$("#unit"+elem.IdFin).addClass("unit-passed");
+					// }
+					// else if (elem.AprobadoFin = 0) {
+					// 	$("#unit"+elem.IdFin).addClass("unit-failed");
+					// }
+
+				});
+
+			},
+			error: function (jqXHR, textStatus, errorThrown) {
+				alert(jqXHR.status);
+				alert(textStatus);
+				alert(errorThrown);
+			}
+
+		});
+	}
+	passedUnit();
+
+
+
 	var passedQuarter = function () {
-		var url = "http://localhost:8888/L-earn/web/unitStudent/unitStudent.php";
 		var data = {
 			action : "getPassedQuarter",
 			AsignId: asignId
@@ -97,6 +135,5 @@ $(document).ready(function () {
 		});
 	}
 	passedQuarter();
-
 
 });

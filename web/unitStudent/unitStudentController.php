@@ -28,6 +28,13 @@
 			return $model->unitsStudent($IdAsign);
 		}
 
+		public function getPassedUnit(){
+			$IdAsign = $_GET['AsignId'];
+
+			$model = new UnitStudentModel();
+			return $model->passedUnit($IdAsign);
+		}
+
 		public function getPassedQuarter(){
 			$IdAsign = $_GET['AsignId'];
 
