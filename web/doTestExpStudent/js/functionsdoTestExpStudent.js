@@ -25,7 +25,7 @@ function incrementCounter(idElement, previousValue, newValue) {
 	$("#"+idElement).prop('Counter', previousValue).animate({
 		Counter: newValue
 	},{
-		duration: 2500,
+		duration: 2000,
 		easing: 'swing',
 		step: function (now) {
 			$(this).text(now.toFixed(2));
