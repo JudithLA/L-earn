@@ -262,13 +262,13 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ORDEN_TEMAS, ID_ASIGN) VALUES
 ('La narración, el lenguaje oral/ escrito, primitivas, derivadas y géneros literarios', 1, 2, 1),
 ('Género nominal, sustantivos. Escribir carta y épica castellana', 1, 3, 1),
 ('Descripción. Adjetivos, forma y uso', 1, 4, 1),
-('El lenguaje literario', 1, 5, 1),
-('La narración, lenguaje oral/escrito, primitivas, derivadas y géneros literarios', 1, 6, 1),
-('Género nominal, sustantivos. Escribir carta y épica castellana', 1, 7, 1),
+('El predicado. Clases y complementos', 1, 5, 1),
+('Oración simple y compuesta', 1, 6, 1),
+('Clases de textos', 1, 7, 1),
 
 ('Descripción. Adjetivos forma y uso', 2, 8, 1),
-('Verbo. Textos expositivos', 2, 9, 1),
-('Verbo. Cuento, novela y resumen', 2, 10, 1),
+('Textos expositivos', 2, 9, 1),
+('Cuento, novela y resumen', 2, 10, 1),
 ('El determinante. Rima, verso, esquema', 2, 11, 1),
 ('Pronombres. clasificación. Palabras compuestas. Lírica', 2, 12, 1),
 ('Adverbio', 2, 13, 1),
@@ -283,7 +283,7 @@ INSERT INTO TEMAS (NOMBRE_TEMAS, TRIMESTRE_TEMAS, ORDEN_TEMAS, ID_ASIGN) VALUES
 
 /* LENGUA */
 ('El sintagma verbal. Formas. Morfemas flexivos. Los impresos. La épica', 1, 1, 10),
-('El predicado. Clases y complementos. El debate', 1, 2, 10),
+('El predicado. Clases y complementos', 1, 2, 10),
 ('El debate', 1, 3, 10),
 ('La oración compuesta. Sinónima y antonimia. La coma y el guión y paréntesis. Teatro y las figuras literarias', 1, 4, 10),
 ('Lengua y sociedad', 1, 5, 10),
@@ -958,7 +958,7 @@ INSERT INTO FINAL (NOMBRE_FINAL, DESCR_FINAL, ID_TEMAS) VALUES
 ('Los adjetivos', 'El adjetivo es una clase de palabra que complementa un sustantivo para calificarlo. Expresa características o propiedades atribuidas a un sustantivo, ya sean concretas o abstractas.', 8),
 ('Los verbos', 'El verbo es la parte de la oración o categoría léxica que expresa acción, movimiento, existencia, consecución, condición o estado del sujeto. Sintácticamente representa una predicación.', 9),
 ('Cuento, novela y resumen', 'Los géneros literarios son los distintos grupos o categorías en que podemos clasificar las obras literarias atendiendo a su contenido.', 10),
-('Título de test de final Lengua11', 'Descripción de test de Lengua11', 11),
+('El determinante', 'Un determinante es una palabra que acompaña al sustantivo y limita o concreta su referencia.', 11),
 ('Título de test de final Lengua12', 'Descripción de test de Lengua12', 12),
 ('Título de test de final Lengua13', 'Descripción de test de Lengua13', 13),
 ('Título de test de final Lengua14', 'Descripción de test de Lengua14', 14),
@@ -1120,7 +1120,18 @@ INSERT INTO PREGU_FINAL (ENUNCIADO_PREGU_FINAL, ID_FINAL) VALUES
 ('Los romances que fueron recogidos por escrito en recopilaciones se denominan:', 12),
 ('Para acercar la acción del relato al lector se utilizará:', 12),
 ('¿Qué parte de la siguiente oración funciona como complemento circunstancial de lugar: «María estudia toda la tarde en su casa»?', 12),
-('El valenciano es lengua oficial de...', 12)
+('El valenciano es lengua oficial de...', 12),
+
+('Los adjetivos determinantes pueden ir:', 13),
+('', 13),
+('', 13),
+('', 13),
+('', 13),
+('', 13),
+('', 13),
+('', 13),
+('', 13),
+('', 13)
 ;
 
 INSERT INTO RESPU_FINAL (TEXTO_RESPU_FINAL, PESO_RESPU_FINAL, CORRECTA_RESPUE_FINAL, ID_PREGU_FINAL) VALUES
@@ -1159,7 +1170,7 @@ INSERT INTO RESPU_FINAL (TEXTO_RESPU_FINAL, PESO_RESPU_FINAL, CORRECTA_RESPUE_FI
 ('Esplanada', 4, 1, 9),
 ('Especial', 1, 0, 9),
 ('Espectáculo', 3, 0, 9),
-('Estómago', 2, 1, 9),
+('Estómago', 2, 0, 9),
 ('Pronombres demostrativos', 2, 0, 10),
 ('Pronombres personales', 4, 1, 10),
 ('Pronombres relativos', 1, 0, 10),
@@ -1333,7 +1344,7 @@ INSERT INTO RESPU_FINAL (TEXTO_RESPU_FINAL, PESO_RESPU_FINAL, CORRECTA_RESPUE_FI
 ('Grado positivo y negativo', 1, 0, 51),
 ('Grado negativo, comparativo y diminutivo', 3, 0, 51),
 ('Grado positivo, comparativo y superlativo', 4, 1, 51),
-('Lope de Vega', 2, 1, 52),
+('Lope de Vega', 2, 0, 52),
 ('Federico García Lorca', 4, 1, 52),
 ('Luis de Góngora', 1, 0, 52),
 ('José Zorrilla', 3, 0, 52),
