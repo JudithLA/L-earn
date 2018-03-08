@@ -3,8 +3,9 @@ $(document).ready(function () {
     var urlParams = new URLSearchParams(window.location.search);
 	var unitId = urlParams.get("UnitId");
 
+	var url = "http://localhost:8888/L-earn/web/testStudent/testStudent.php";
+
     var titles = function () {
-		var url = "http://localhost:8888/L-earn/web/testStudent/testStudent.php";
 		var data = {
 			action : "getTitles",
 			UnitId: unitId
@@ -51,7 +52,6 @@ $(document).ready(function () {
 
 
     var testEntre = function () {
-		var url = "http://localhost:8888/L-earn/web/testStudent/testStudent.php";
 		var data = {
 			action : "getTestEntre",
 			UnitId: unitId
@@ -66,7 +66,7 @@ $(document).ready(function () {
 
 				resultArray.forEach(function(elem){
 					var linkTest = document.createElement("a");
-					linkTest.setAttribute("href", "#");
+					linkTest.setAttribute("href", "../doTestExpStudent/doTestExpStudent.php?TestExpId=" + elem.IdEntre);
 					linkTest.setAttribute("class", "test testEntre");
 
 					var nameTest = document.createElement("div");
@@ -92,7 +92,6 @@ $(document).ready(function () {
 	testEntre();
 
     var testFinal = function () {
-        var url = "http://localhost:8888/L-earn/web/testStudent/testStudent.php";
         var data = {
             action : "getTestFinal",
             UnitId: unitId
