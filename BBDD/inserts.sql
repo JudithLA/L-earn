@@ -1697,10 +1697,15 @@ INSERT INTO REL_ALUMN_FINAL (FECHA_REL_ALUMN_FINAL, PUNTOS_REL_ALUMN_FINAL, ID_A
 
 INSERT INTO RECOM (NOMBRE_RECOM, COSTE_RECOM) VALUES
 ("Entrada de cine", 40),
+("5% en La Casa del Libro", 50),
 ("Descuento en restaurante", 60),
 ("Descuento en material de papelería", 30),
-("Entrada VIP en la Sala Sol", 160),
-("Descuento en Asos", 120);
+("Sorteo entrada Real Madrid Baloncesto", 100),
+("Descuento en Asos", 120),
+("Descuento en PULL&BEAR", 110),
+("Entrada VIP en la Sala Sol", 190),
+("Sorteo entrada de día Mad Cool Festival", 230),
+("Sorteo viaje a Ámsterdam", 380);
 
 INSERT INTO REL_ALUMN_RECOM (ID_ALUMN, ID_RECOM) VALUES
 (1,1),
