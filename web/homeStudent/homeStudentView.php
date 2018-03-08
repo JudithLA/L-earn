@@ -40,17 +40,8 @@
 									<h2>Mi progreso</h2>
 									<div>
 										<div id='pFin'>Puntuación: " . $_SESSION['finPoints'] . " PTOS.</div>
-										<div id='pExp'>Experiencia: " . $_SESSION['percentage'] . " EXP.</div>
+										<div id='pExp'>Experiencia: " . $_SESSION['percentage'] . " % EXP.</div>
 									</div>
-								</div>
-							</div>
-						</div>
-						<div id='ramdomTest' class= ''>
-							<div  class='content'>
-								<div>
-										<h2>Test aleatorio</h2>
-										<p>Un test aleatorio consiste en esto.</p>
-										<input type='button' value='HACER TEST'>
 								</div>
 							</div>
 						</div>

@@ -42,57 +42,32 @@
 		}
 
 		public function getInfoStudent(){
-
 			$model = new HomeStudentModel();
-
 			$infoStu = $model->infoStudent();
-
-
 		}
 
 		// Método para obtener el porcentaje de los puntos de experiencia total del alumno entre todas sus asignaturas
 		public function getPercentageStudentExpPoints(){
-
 			// Instanciamos un objeto de la clase HomeStudentModel
 			$model = new HomeStudentModel();
-
 			// Devolvemos la info extraída de la BBDD
 			$percentage = $model->percentageStudentExpPoints();
 
 			return $_SESSION['percentage'] = $percentage;
-
 		}
 
 		// Método para obtener los puntos finales totales del alumno
 		public function getStudentFinPoints(){
-
 			$model = new HomeStudentModel();
-
 			$finPoints = $model->studentFinPoints();
 
 			return $_SESSION['finPoints'] = $finPoints;
-
-		}
-
-		// Método para obtener el último test final realizado por el alumno
-		public function getLastTest(){
-
-			// Instanciamos un objeto de la clase HomeStudentModel
-			$model = new HomeStudentModel();
-
-			// Devolvemos la info extraída de la BBDD
-
-			return $model->lastTest();
-
 		}
 
 		// Método para obtener el siguiente test final a realizar por el alumno
 		public function getNextTest(){
-
 			$model = new HomeStudentModel();
-
 			return $model->nextTest();
-
 		}
 
 	}
