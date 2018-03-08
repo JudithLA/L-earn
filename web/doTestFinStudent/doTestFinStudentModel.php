@@ -45,7 +45,6 @@
 
 			$consult = "INSERT INTO REL_ALUMN_FINAL (FECHA_REL_ALUMN_FINAL, PUNTOS_REL_ALUMN_FINAL, ID_ALUMN, ID_FINAL) VALUES
 						(DATE('{$date}'), {$points}, '{$_SESSION["id"]}', {$IdTestFin})";
-
 			$result = $this->mysqli -> modifyQuery($consult);
 
 			$consult  = "UPDATE ALUMN SET PUNTOS_ALUMN = PUNTOS_ALUMN + {$points} WHERE ID_ALUMN = '{$_SESSION["id"]}'";

@@ -25,7 +25,7 @@ function incrementCounter(idElement, previousValue, newValue) {
 	$("#"+idElement).prop('Counter', previousValue).animate({
 		Counter: newValue
 	},{
-		duration: 2500,
+		duration: 2000,
 		easing: 'swing',
 		step: function (now) {
 			$(this).text(Math.ceil(now));
@@ -45,8 +45,9 @@ $(document).ready(function () {
     var urlParams = new URLSearchParams(window.location.search);
 	var testFinId = urlParams.get("TestFinId");
 
+	var url = "http://localhost:8888/L-earn/web/doTestFinStudent/doTestFinStudent.php";
+
     var testFinalName = function () {
-        var url = "http://localhost:8888/L-earn/web/doTestFinStudent/doTestFinStudent.php";
         var data = {
             action : "getTestFinalName",
             TestFinId: testFinId
@@ -113,8 +114,6 @@ $(document).ready(function () {
     testFinalName();
 
 	var testFinalQuestions = function () {
-
-		var url = "http://localhost:8888/L-earn/web/doTestFinStudent/doTestFinStudent.php";
 		var data = {
 			action : "getFinalQuestions",
 			TestFinId: testFinId
@@ -143,8 +142,6 @@ $(document).ready(function () {
     testFinalQuestions();
 
 	var testFinalResponses = function () {
-
-		var url = "http://localhost:8888/L-earn/web/doTestFinStudent/doTestFinStudent.php";
 		var data = {
             action : "getFinalResponses",
             TestFinId: testFinId
@@ -233,8 +230,6 @@ $(document).ready(function () {
 
 		function sendResultTest() {
 			var date = getDate();
-
-			var url = "http://localhost:8888/L-earn/web/doTestFinStudent/doTestFinStudent.php";
 			var data = {
 	            action: "getResultTest",
 				date: date,
