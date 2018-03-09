@@ -23,7 +23,7 @@ Login.fn.LogUser = function (email, pass) {
 
         success: function (result) {
             console.log(result);
-            
+
             resultArray = JSON.parse(result);
             if(resultArray['status'] == 'OK'){
               window.location.href = resultArray['url'];
@@ -44,11 +44,17 @@ Login.fn.LogUser = function (email, pass) {
 }
 
 
-$("#btn_login").click(function(){
-  email = $("#email").val();
-  password = $("#password").val();
-  console.log(email, password );
-  Login.fn.LogUser(email, password);
+$('#btn_login').click(function(){
+   email = $('#email').val();
+   password = $('#password').val();
+
+   if(email == 'lolaperez@gmail.com'){
+       window.location.href = 'http://localhost:8888/L-Earn/web/homeStudent/homeStudent.php';
+   }
+   else if (email = 'alfonsomuñoz@gmail.com') {
+       window.location.href = 'http://localhost:8888/L-Earn/web/homeTeacher/homeTeacher.php';
+   }
+
 });
 
 };
