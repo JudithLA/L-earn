@@ -57,16 +57,22 @@ class  Commons{
 				<a href='http://localhost:8888/L-earn/web/homeStudent/homeStudent.php' id='logo'>
 					<h1>L-EARN</h1>
 				</a>
-				<nav>
-					<ul>
-						<li><a href='http://localhost:8888/L-earn/web/asignStudent/asignStudent.php'>Tests</a></li>
-						<li><a href='http://localhost:8888/L-earn/web/rewardsStudent/rewardsStudent.php'>Recompensas</a></li>
-					</ul>
-				</nav>
-				<span id='headPoints'>" . $_SESSION['finPoints'] . "</span><span id='headPoints-type'> PTOS.</span>
-				<span id='headPercent'>" . $_SESSION['percentage'] . "</span><span id='headPercent-type'> % EXP.</span>
-				<span>" . $_SESSION['nameStu'] . $_SESSION['surnameStu'] . "</span>
-				<img src='" . $_SESSION['imgStu'] . "' alt='Imagen del usuario'>
+				<div id='menu-wrapper'>
+					<div id='menu'>
+						<nav>
+							<ul>
+								<li><a href='http://localhost:8888/L-earn/web/asignStudent/asignStudent.php'>Tests</a></li>
+								<li><a href='http://localhost:8888/L-earn/web/rewardsStudent/rewardsStudent.php'>Recompensas</a></li>
+							</ul>
+						</nav>
+					</div>
+					<div id='user'>
+						<span id='headPoints'>" . $_SESSION['finPoints'] . "</span><span id='headPoints-type'> PTOS.</span>
+						<span id='headPercent'>" . $_SESSION['percentage'] . "</span><span id='headPercent-type'> % EXP.</span>
+						<span>" . $_SESSION['nameStu'] . $_SESSION['surnameStu'] . "</span>
+						<img src='" . $_SESSION['imgStu'] . "' alt='Imagen del usuario'>
+					</div>
+				</div>
 			</div>
 		</header>";
 		return $headerHTML;

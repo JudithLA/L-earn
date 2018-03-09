@@ -3,23 +3,73 @@
 .content {width: 100%; margin: 0 auto; max-width: 80%;}
 .center {margin: 0 auto;}
 
+a {text-decoration: none;}
+
 /* NAV */
 
-header{display: flex; flex-direction: row;}
-a#logo, nav {display: inline-block;}
-nav ul {display: flex; flex-direction: row; margin-left: 50px; list-style-type: none;}
-nav ul li {margin-right: 30px;}
-header img {width: 44px;}
+header {
+	margin-top: 2.5%;
+}
+
+header div.content {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+a#logo, nav {
+	display: inline-block;
+}
+
+a#logo h1{
+    font-family: Arial Black;
+    color: #000000;
+}
+
+header div.content #menu-wrapper {
+	width: 70%;
+	padding-left: 10%;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+nav ul {
+	display: flex;
+	flex-direction: row;
+	list-style-type: none;
+}
+
+nav ul li {
+	margin-right: 30px;
+}
+
+nav ul li a {
+	color: #000000;
+	font-weight: 700;
+	font-size: 21px;
+}
+
+nav ul li a:hover {
+    background-color: rgba(250 , 196 , 97, 0.6);
+	background-size: 5% 100%;
+}
+
+#user {
+	font-weight: 700;
+}
+
+#headPercent-type {
+	padding-right: 20px;
+}
+
+#user img {
+	width: 44px;
+	margin-left: 10px;
+}
 
 /* BODY */
-
-body{
-	margin-top: 50px;
-}
-
-h2 {
-	padding: 20px 0;
-}
 
 .formLogin input {
     width: 260px;
@@ -59,7 +109,6 @@ button:hover {
 }
 #reticule a {
 	margin-right: 5px;
-	text-decoration: none;
 	color: #000000;
 }
 .reticule-item {
