@@ -20,7 +20,8 @@
 					<head>
 						<meta charset='utf-8'>
 						<title>Home del Alumno</title>
-						<link rel='stylesheet' type='text/css' href='style/styleStudent.css'>
+						<link rel='stylesheet' type='text/css' href='http://localhost:8888/L-earn/web/Commons/styles/commonStyleStudent.css'>
+						<link rel='stylesheet' type='text/css' href='http://localhost:8888/L-earn/web/homeStudent/style/styleStudent.css'>
 						<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 						<script src='js/functionsHomeStudent.js'></script>
 					</head>
@@ -31,7 +32,7 @@
 								<div>
 									<h2>Sigue donde lo dejaste</h2>
 									<div id='nextTestAsign'>
-
+										<div id='reticule'></div>
 									</div>
 								</div>
 							</div>

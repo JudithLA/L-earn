@@ -17,6 +17,7 @@ $(document).ready(function () {
 
 					var linkLastTextAsign = document.createElement("a");
 					linkLastTextAsign.setAttribute("href", "../doTestFinStudent/doTestFinStudent.php?TestFinId=" + elem.IdNextFinal);
+					linkLastTextAsign.setAttribute("class", "reticule-item");
 
 					var imgLastTextAsign = document.createElement("img");
 					imgLastTextAsign.setAttribute("alt", "Imagen del tema");
@@ -32,7 +33,7 @@ $(document).ready(function () {
 					linkLastTextAsign.append(nameLastTextAsign);
 					linkLastTextAsign.append(btnLastTextAsign);
 
-					$("#nextTestAsign").append(linkLastTextAsign);
+					$("#reticule").append(linkLastTextAsign);
 				});
       		},
 			error: function (jqXHR, textStatus, errorThrown) {
