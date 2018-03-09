@@ -63,6 +63,7 @@ $(document).ready(function () {
 					linkReward.setAttribute("id", elem.RecomId);
 
 					var nameReward = document.createElement("div");
+					nameReward.setAttribute("id", "nameReward");
 					nameReward.innerHTML = elem.RecomName;
 
 					var costReward = document.createElement("div");
