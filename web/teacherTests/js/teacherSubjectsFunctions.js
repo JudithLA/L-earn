@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     var showTests = function () {
-        var url = "http://localhost:8888/teacherTests/teacherTests.php";
+        var url = "http://localhost:8888/L-earn/web/teacherTests/teacherTests.php";
         var data = {
             action : "getTeacherTests",
         };
@@ -16,7 +16,7 @@ $(document).ready(function(){
                 console.log(resultArray);
 
                 resultArray.forEach(function(element){
-                    var cardTest= "<span>" + element.DesTestFinal + "</span>"  + element.AsignNameTest + ' ' + element.LevelTest + ' ESO ';
+                    var cardTest= "<span class='display-block destacado'>" + element.DesTestFinal + "</span>"  + element.AsignNameTest + ' ' + element.LevelTest + ' ESO ';
                     var hrefSubject = '../teacherTests/teacherTests.php?action=getTestsUnits&SIdTestFinal='+ element.IdTestFinal;
 
                     var linkTest = document.createElement('a');
@@ -27,7 +27,9 @@ $(document).ready(function(){
 
 
                 var divSubject = document.createElement('div')
-                divSubject.setAttribute('class', 'card-content');
+                divSubject.setAttribute('class', 'card-content display-block');
+
+
 
                 divSubject.innerHTML = cardTest;
 

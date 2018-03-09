@@ -26,6 +26,15 @@ class TeacherStudentsModel{
 
 		}
 
+		public function getTeacherStudentsBreadcrumb($varIdGroup){
+		$consult = "SELECT CURSO.NIVEL_CURSO AS AlumnLevel, CURSO.LETRA_CURSO AS AlumnLetter FROM CURSO
+			WHERE CURSO.ID_CURSO={$varIdGroup}";
+		$result = $this->mysqli -> executeQuery($consult);
+
+		//indicamos que del array que va a devolvernos, solo nos interesa la posición 0 —la primera—; aunque también podríamos hacerlo en la concatenación en function viewUnits
+		return $result[0];
+	}
+
 
 	}
 	

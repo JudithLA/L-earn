@@ -43,22 +43,26 @@ class TeacherSubjectsUnitsView{
 			<head>
 			<meta charset='utf-8'>
 				<title>".$resultadoQueryBreadcrumb['SubjectName']."</title>
-				<link rel='stylesheet' type='text/css' href='style/styleStudent.css'>
+				<link rel='stylesheet' type='text/css' href='http://localhost:8888/L-earn/web/Commons/styles/commonStyleTeacher.css'>
+				<link rel='stylesheet' type='text/css' href='style/style.css'>
 				<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 				<script src='js/teacherSubjectsUnitsFunctions.js'></script>
 			</head>
 			<body>
 			".Commons::teacherHeader()."
 
+			<div class='wrapper'>
+
 			<div class='main teacherSubjectsUnits'>
-			<h2 class='breadcrumb-subject' id='".$resultadoQueryBreadcrumb['SubjectId']."'>".$resultadoQueryBreadcrumb['SubjectName']." ".$resultadoQueryBreadcrumb['SubjectLevel']."º</h2>
+			<h2 class='breadcrumb-subject breadcrumb' id='".$resultadoQueryBreadcrumb['SubjectId']."'>".$resultadoQueryBreadcrumb['SubjectName']." ".$resultadoQueryBreadcrumb['SubjectLevel']."º</h2>
 				<div class='wrapper'>	
 					<div class='units display-iblock'>
 						<ul class='units-list'>
 					".$this->unitsList($resultadoQuery)."
 						</ul>
 					</div>
-					<div class='groups'>
+					<div class='groups display-iblock'>
+						<h2> Grupos Asignados: </h2>
 						<div class='groups-list' id='groups-prev-list'>
 						".$this->groupsList($resultadoQuery2)."
 						<button id='groups-edit' type='button'>MODIFICAR</button>
@@ -68,6 +72,7 @@ class TeacherSubjectsUnitsView{
 						<div id='groups-adv'> </div>
 					</div>
 				</div>
+			</div>
 			</div>
 			".Commons::footer()."
 

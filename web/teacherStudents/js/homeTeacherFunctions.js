@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     var showStudents = function (groupId) {
-        var url = "http://localhost:8888/teacherStudents/teacherStudents.php";
+        var url = "http://localhost:8888/L-earn/web/teacherStudents/teacherStudents.php";
         // data almacena el método get del controller.php
         var data = {
             action : "getStudentsGroups",

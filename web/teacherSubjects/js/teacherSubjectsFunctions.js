@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     var showSubjects = function () {
-        var url = "http://localhost:8888/teacherSubjects/teacherSubjects.php";
+        var url = "http://localhost:8888/L-earn/web/teacherSubjects/teacherSubjects.php";
         var data = {
             //¿en action se le asigna la función/método del model de la clase de controller?
             action : "getTeacherSubjects",

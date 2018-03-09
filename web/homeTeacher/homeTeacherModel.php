@@ -21,6 +21,19 @@
 		//Destructor (Destruye la clase)
 		public function __destruct(){}		
 
+		public function infoTeacher(){
+			$_SESSION['id'] = 1;
+
+			$consult = "SELECT CONCAT(NOMBRE_PROFE, ' ') AS Name, CONCAT(SUBSTRING(APELLIDO_PROFE, 1, 1), '.') AS FirstSurname, IMG_PROFE FROM PROFE WHERE ID_PROFE = '{$_SESSION["id"]}'";
+			$result = $this->mysqli -> executeQuery($consult);
+
+			$_SESSION['teacherName'] = $result[0]['Name'];
+			$_SESSION['teacherSurname'] = $result[0]['FirstSurname'];
+			$_SESSION['teacherImg'] = $result[0]['IMG_PROFE'];
+
+
+		}
+
 		// Método para conectar con base de datos y ejecutar una query que muestre los grupos a los que imparte clases el profesor
 		public function TeacherGroups(){
 

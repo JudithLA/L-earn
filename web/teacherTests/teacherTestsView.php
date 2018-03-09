@@ -13,7 +13,8 @@ class TeacherTestsView{
 			<head>
 			<meta charset='utf-8'>
 				<title></title>
-				<link rel='stylesheet' type='text/css' href='style/styleStudent.css'>
+				<link rel='stylesheet' type='text/css' href='http://localhost:8888/L-earn/web/Commons/styles/commonStyleTeacher.css'>
+				<link rel='stylesheet' type='text/css' href='style/style.css'>
 				<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 				<script src='js/teacherSubjectsFunctions.js'></script>
 			</head>
@@ -22,7 +23,6 @@ class TeacherTestsView{
 
 			<div class='main teacherTests'>
 				<div id='teacherTests-list'>
-					<div class='teacherTests-list-crear'><a href=''>AÑADIR NUEVA ASIGNATURA</a></div>	
 				</div>
 			</div>
 			".Commons::footer()."

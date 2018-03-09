@@ -1,0 +1,45 @@
+
+.card-container{
+    height: 20vh;
+    width: 30%;
+    position: relative;
+    display: inline-block;
+    margin: 1%;
+    background-color: #F8F8F9;
+    border-radius: 10px;
+    margin: 1%;
+    padding: 16px;
+    cursor: pointer;
+    text-align: center;
+    justify-content: space-between;
+}
+.card-container:hover{
+    background-color: #E6E6E6;
+}
+.card-content{
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+
+.teacherStudents .list li{
+    font-size: 1.2em;
+    padding: 1% 0;
+    border-bottom: 2px solid #E6E6E6;
+    list-style: none;
+}
+
+.teacherStudents .list li .name{
+    font-weight: bold;
+}
+
+.teacherStudents .list li .exp{
+    margin-left:10%;
+}
+
+.teacherStudents .list li .points{
+    margin-left:10%;
+}

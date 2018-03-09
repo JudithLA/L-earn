@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 //el one lo puse para que tras haber modificado una vez, tengas que recargar la página para volver a hacerlo, porque si no llegaba un momento en el que desaparecía
     $('#groups-edit').one('click', function(){
-        var url = "http://localhost:8888/teacherSubjectsUnits/teacherSubjectsUnits.php";
+        var url = "http://localhost:8888/L-earn/web/teacherSubjectsUnits/teacherSubjectsUnits.php";
         var data = {
             //action conduciría a la función del controller que contenga la query para mostrar todos los grupos posibles para esa asignatura
             action : "getAllGroupsSubjects",
@@ -105,7 +105,7 @@ $(document).ready(function(){
         $('#groups-adv').html('<span> Refresque la página para comprobar los cambios. </span>');
 
 
-        var url = "http://localhost:8888/teacherSubjectsUnits/teacherSubjectsUnits.php";
+        var url = "http://localhost:8888/L-earn/web/teacherSubjectsUnits/teacherSubjectsUnits.php";
         var data = {
             //action conduciría a la función del controller que contenga la query para mostrar todos los grupos posibles para esa asignatura
             action : "modifyGroupsSubjects",

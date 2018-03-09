@@ -22,10 +22,11 @@ class TeacherStudentsController{
 		//almacenamos en una variable ($resultadoQuery) la llamada al método (getTeacherStudents($varIdGroup)) de clase TeacherStudentsModel y le pasamos la variable que almacena el GroupId por parámetro
 		$model = new TeacherStudentsModel();
 		$resultadoQuery = $model->getTeacherStudents($varIdGroup);
+		$resultadoQueryBreadcrumb = $model-> getTeacherStudentsBreadcrumb($varIdGroup);		
 		// creamos una variable donde instanciamos objeto de clase TeacherStudentsView.
 		//ejecutamos el método viewStudents pasándole como parámetro el resultado de la query ($resultadoQuery) que hemos obtenido en la ejecución del modelo. Esta llamada al métoda será la encargada de printarlo con parámetros y en función del groupId que hemos obtenido en este mismo método.
 		$vista = new TeacherStudentsView();
-		return $vista->viewStudents($resultadoQuery);
+		return $vista->viewStudents($resultadoQueryBreadcrumb, $resultadoQuery);
 		
 	}
 
