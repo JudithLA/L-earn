@@ -73,6 +73,7 @@ class  Commons{
 						<img src='" . $_SESSION['imgStu'] . "' alt='Imagen del usuario'>
 					</div>
 				</div>
+				<div id='closeSession'><a href='http://localhost:8888/L-earn/web/loginTeacher/loginLearn.html'>Cerrar sesión</a></div>
 			</div>
 		</header>";
 		return $headerHTML;

@@ -74,6 +74,20 @@ nav ul li a:hover {
 	clip-path: circle(25px at center);
 }
 
+#closeSession a {
+	color: #FFFFFF;
+}
+
+#closeSession a:hover::after {
+	content: "";
+    display: block;
+    height: 1px;
+    border-radius: 4px;
+    background: #FFFFFF;
+    position: relative;
+    top: 1px;
+}
+
 /* BODY */
 
 #breadcrumb {
