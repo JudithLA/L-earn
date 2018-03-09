@@ -21,18 +21,6 @@ function getDate() {
 	return [year, month, day].join("-");
 }
 
-function incrementCounter(idElement, previousValue, newValue) {
-	$("#"+idElement).prop('Counter', previousValue).animate({
-		Counter: newValue
-	},{
-		duration: 2000,
-		easing: 'swing',
-		step: function (now) {
-			$(this).text(now.toFixed(2));
-		}
-	});
-}
-
 $(document).ready(function () {
     var globals = {};
     globals.questions = [];
@@ -97,7 +85,7 @@ $(document).ready(function () {
                 $("#test-do").append(testDesc);
                 $("#test-do").append(makeTest);
 
-                $("#step-0").addClass("stepsSelected");
+                $("#step-inicio").addClass("stepsSelected");
 
                 $("#btnDoTest").on("click", function() {
                     doTestEntre();
@@ -171,14 +159,16 @@ $(document).ready(function () {
 
     var doTestEntre = function () {
         $("#test-do").empty();
-		$("#step-0").removeClass("stepsSelected");
-		$("#step-1").addClass("stepsSelected");
+		$("#step-inicio").removeClass("stepsSelected");
 
 		function loadQuestion(currentQuestion) {
 			var questionItem = document.createElement("div");
 			questionItem.setAttribute("class", "questionItem");
 			questionItem.innerHTML = globals.questions[currentQuestion][1];
 			$("#test-do").append(questionItem);
+
+			$("#step-"+(globals.currentQuestionIndex-1)).removeClass("stepsSelected");
+			$("#step-"+globals.currentQuestionIndex).addClass("stepsSelected");
 
 			var form = document.createElement("form");
 			form.setAttribute("id", "responsesForm");
@@ -245,7 +235,16 @@ $(document).ready(function () {
 	            success: function (result) {
 	                percentageUpdate = JSON.parse(result);
 					var previousValue = $("#headPercent").text();
-					incrementCounter("headPercent", previousValue, percentageUpdate);
+
+					$("#headPercent").prop('Counter', previousValue).animate({
+						Counter: percentageUpdate
+					},{
+						duration: 1000,
+						easing: 'swing',
+						step: function (now) {
+							$(this).text(now.toFixed(2));
+						}
+					});
 	            },
 	            error: function (jqXHR, textStatus, errorThrown) {
 	                alert(jqXHR.status);
@@ -261,7 +260,29 @@ $(document).ready(function () {
 			$("#test-do").empty();
 
 			if (globals.currentQuestionIndex >= 10) {
-				$("#test-do").html(Math.floor(globals.points/10));
+				$("#step-"+(globals.currentQuestionIndex-1)).removeClass("stepsSelected");
+				$("#step-final").addClass("stepsSelected");
+
+				$("#test-do").empty();
+
+				var infoResultTitle = document.createElement("h4");
+				infoResultTitle.setAttribute("id", "infoResultTitle");
+				infoResultTitle.innerHTML = "Has obtenido";
+
+				var infoResult = document.createElement("div");
+				infoResult.setAttribute("id", "infoResult");
+				infoResult.innerHTML = " puntos de experiencia";
+
+				var resultPoints = document.createElement("sapn");
+				resultPoints.setAttribute("id", "resultPoints");
+				infoResult.prepend(resultPoints);
+
+				$("#test-do").append(infoResultTitle);
+				$("#test-do").append(infoResult);
+
+				var pointsExp = Math.floor(globals.points/10);
+				$("#resultPoints").text(pointsExp);
+
 				sendResultTest();
 			}else {
 				loadQuestion(globals.currentQuestionIndex);

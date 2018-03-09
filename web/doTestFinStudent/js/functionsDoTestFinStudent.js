@@ -25,7 +25,7 @@ function incrementCounter(idElement, previousValue, newValue) {
 	$("#"+idElement).prop('Counter', previousValue).animate({
 		Counter: newValue
 	},{
-		duration: 2000,
+		duration: 1000,
 		easing: 'swing',
 		step: function (now) {
 			$(this).text(Math.ceil(now));
@@ -97,7 +97,7 @@ $(document).ready(function () {
                 $("#test-do").append(testDesc);
                 $("#test-do").append(makeTest);
 
-                $("#step-0").addClass("stepsSelected");
+                $("#step-inicio").addClass("stepsSelected");
 
                 $("#btnDoTest").on("click", function() {
                     doTestFinal();
@@ -171,14 +171,16 @@ $(document).ready(function () {
 
     var doTestFinal = function () {
         $("#test-do").empty();
-		$("#step-0").removeClass("stepsSelected");
-		$("#step-1").addClass("stepsSelected");
+		$("#step-inicio").removeClass("stepsSelected");
 
 		function loadQuestion(currentQuestion) {
 			var questionItem = document.createElement("div");
 			questionItem.setAttribute("class", "questionItem");
 			questionItem.innerHTML = globals.questions[currentQuestion][1];
 			$("#test-do").append(questionItem);
+
+			$("#step-"+(globals.currentQuestionIndex-1)).removeClass("stepsSelected");
+			$("#step-"+globals.currentQuestionIndex).addClass("stepsSelected");
 
 			var form = document.createElement("form");
 			form.setAttribute("id", "responsesForm");
@@ -259,7 +261,28 @@ $(document).ready(function () {
 			$("#test-do").empty();
 
 			if (globals.currentQuestionIndex >= 10) {
-				$("#test-do").html(globals.points);
+				$("#step-"+(globals.currentQuestionIndex-1)).removeClass("stepsSelected");
+				$("#step-final").addClass("stepsSelected");
+
+				$("#test-do").empty();
+
+				var infoResultTitle = document.createElement("h4");
+				infoResultTitle.setAttribute("id", "infoResultTitle");
+				infoResultTitle.innerHTML = "Has obtenido";
+
+				var infoResult = document.createElement("div");
+				infoResult.setAttribute("id", "infoResult");
+				infoResult.innerHTML = " puntos";
+
+				var resultPoints = document.createElement("sapn");
+				resultPoints.setAttribute("id", "resultPoints");
+				infoResult.prepend(resultPoints);
+
+				$("#test-do").append(infoResultTitle);
+				$("#test-do").append(infoResult);
+
+				incrementCounter("resultPoints", 0, globals.points);
+
 				sendResultTest();
 			}else {
 				loadQuestion(globals.currentQuestionIndex);

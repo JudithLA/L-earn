@@ -23,17 +23,18 @@
 							<div id='breadcrumb'></div>
 							<div id='test'>
 								<div id='steps' class='steps'>
-									<span id='step-0'>Inicio</span>
-									<span id='step-1'>1</span>
-									<span id='step-2'>2</span>
-									<span id='step-3'>3</span>
-									<span id='step-4'>4</span>
-									<span id='step-5'>5</span>
-									<span id='step-6'>6</span>
-									<span id='step-7'>7</span>
-									<span id='step-8'>8</span>
-									<span id='step-9'>9</span>
-									<span id='step-10'>10</span>
+									<span id='step-inicio'>Inicio</span>
+									<span id='step-0'>1</span>
+									<span id='step-1'>2</span>
+									<span id='step-2'>3</span>
+									<span id='step-3'>4</span>
+									<span id='step-4'>5</span>
+									<span id='step-5'>6</span>
+									<span id='step-6'>7</span>
+									<span id='step-7'>8</span>
+									<span id='step-8'>9</span>
+									<span id='step-9'>10</span>
+									<span id='step-final'>Final</span>
 								</div>
 								<div id='test-do' class='test-do'></div>
 							</div>
