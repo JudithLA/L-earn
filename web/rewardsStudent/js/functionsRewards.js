@@ -17,6 +17,7 @@ $(document).ready(function () {
 			data: data,
 			method: "POST",
 			success: function (result) {
+				$("#popup-wrapper").remove();
 				$(".popupReward").remove();
 				$("#"+rewardId+"").removeClass("reward");
 				$("#"+rewardId+"").addClass("reward disabled-reward");
@@ -28,7 +29,7 @@ $(document).ready(function () {
 				$("#headPoints").prop("Counter", previousValue).animate({
 					Counter: pointsUpdate
 				},{
-					duration: 2000,
+					duration: 1000,
 					easing: "swing",
 					step: function (now) {
 						$(this).text(Math.ceil(now));
@@ -58,7 +59,7 @@ $(document).ready(function () {
 				resultArray.forEach(function(elem){
 
 					var linkReward = document.createElement("div");
-					linkReward.setAttribute("class", "reward");
+					linkReward.setAttribute("class", "reward reticule-item");
 					linkReward.setAttribute("id", elem.RecomId);
 
 					var nameReward = document.createElement("div");
@@ -84,7 +85,7 @@ $(document).ready(function () {
 					linkReward.append(costReward);
 					linkReward.append(btnReward);
 
-					$("#rewards").append(linkReward);
+					$("#reticule").append(linkReward);
 
 					showRewardsGotten();
 				});
@@ -93,21 +94,32 @@ $(document).ready(function () {
 					globals.rewardId = $(this).attr("id");
 					globals.costReward = $(this).find("#costRewardPoints").text();
 
+					var popupWrapper = document.createElement("div");
+					popupWrapper.setAttribute("id", "popup-wrapper");
+
 					var popupReward = document.createElement("div");
 					popupReward.setAttribute("class", "popupReward");
+					popupWrapper.append(popupReward);
 
 					var popupClose = document.createElement("div");
 					popupClose.setAttribute("class", "rewCancel popupRewardClose");
-					popupClose.innerHTML = "CERRAR";
+
+					var popupCloseImg = document.createElement("img");
+					popupCloseImg.setAttribute("alt", "Cerrar");
+					popupCloseImg.setAttribute("src", "http://localhost:8888/L-earn/web/img/icons/cross.svg");
+					popupClose.append(popupCloseImg);
 
 					var codeReward = document.createElement("div");
 					codeReward.innerHTML = "Tu código es ";
 
-					var codeNumber = document.createElement("span");
+					var codeNumber = document.createElement("div");
 					codeNumber.setAttribute("id", "codeNumber");
 					codeNumber.innerHTML = Math.floor((Math.random() * 10000) + 1);
 
 					codeReward.append(codeNumber);
+
+					var popupButtons = document.createElement("div");
+					popupButtons.setAttribute("id", "popupButtons");
 
 					var btnCodeYes = document.createElement("button");
 					btnCodeYes.setAttribute("id", "rewYes");
@@ -117,12 +129,14 @@ $(document).ready(function () {
 					btnCodeNo.setAttribute("class", "rewCancel");
 					btnCodeNo.innerHTML = "Cancelar";
 
+					popupButtons.append(btnCodeYes);
+					popupButtons.append(btnCodeNo);
+
 					popupReward.append(popupClose);
 					popupReward.append(codeReward);
-					popupReward.append(btnCodeYes);
-					popupReward.append(btnCodeNo);
+					popupReward.append(popupButtons);
 
-					$("body").append(popupReward);
+					$("body").append(popupWrapper);
 
 					$(".reward").css("pointer-events", "none");
 
