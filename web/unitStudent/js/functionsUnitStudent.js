@@ -55,8 +55,13 @@ $(document).ready(function () {
 					var nameUnit = document.createElement("div");
 					nameUnit.innerHTML = elem.NombreTema;
 
+					var btnDoTest = document.createElement('button');
+					btnDoTest.setAttribute('id', 'btnDoTest');
+					btnDoTest.innerHTML = "Hacer test";
+
 					linkUnit.append(imgUnit);
 					linkUnit.append(nameUnit);
+					linkUnit.append(btnDoTest);
 					$("#reticule").append(linkUnit);
 
 				});

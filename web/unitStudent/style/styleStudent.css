@@ -1,6 +1,10 @@
-.reticule-item div {
-    margin-bottom: 12%;
+.reticule-item {
+    height: 60vh;
 }
+
+/* .reticule-item div {
+    margin-bottom: 12%;
+} */
 
 .unit-passed {
 	background-color: #76D8B7 !important;
