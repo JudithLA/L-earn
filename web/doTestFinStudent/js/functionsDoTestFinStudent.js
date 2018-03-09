@@ -265,8 +265,9 @@ $(document).ready(function () {
 				$("#step-final").addClass("stepsSelected");
 
 				$("#test-do").empty();
+				$("#btnContinueTest").remove();
 
-				var infoResultTitle = document.createElement("h4");
+				var infoResultTitle = document.createElement("h3");
 				infoResultTitle.setAttribute("id", "infoResultTitle");
 				infoResultTitle.innerHTML = "Has obtenido";
 
@@ -282,6 +283,20 @@ $(document).ready(function () {
 				$("#test-do").append(infoResult);
 
 				incrementCounter("resultPoints", 0, globals.points);
+
+				var backHomeWrapper = document.createElement("div");
+				backHomeWrapper.setAttribute("id", "btnBackHome-Wrapper");
+
+				var backHome = document.createElement("button");
+				backHome.setAttribute("id", "btnBackHome");
+				backHome.innerHTML = "Volver a inicio";
+
+				backHomeWrapper.append(backHome);
+				$("#test").append(backHomeWrapper);
+
+				$("#btnBackHome").on("click", function() {
+					window.location.href = "http://localhost:8888/L-earn/web/homeStudent/homeStudent.php";
+				});
 
 				sendResultTest();
 			}else {
