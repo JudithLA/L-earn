@@ -8,9 +8,10 @@ a {text-decoration: none;}
 /* NAV */
 
 header {
-	padding: 2.5% 0 1% 0;
+	padding: 2.5% 0 2% 0;
 	background-color: #433576;
 	color: #FFFFFF;
+	margin-bottom: 3%;
 }
 
 header div.content {
@@ -73,6 +74,10 @@ nav ul li a:hover {
 }
 
 /* BODY */
+
+h2 {
+	margin-bottom: 30px;
+}
 
 .formLogin input {
     width: 260px;
