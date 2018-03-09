@@ -142,6 +142,7 @@ $(document).ready(function () {
 					$(".reward").css("pointer-events", "none");
 
 					$(".rewCancel").on("click", function() {
+						$("#popup-wrapper").remove();
 						$(".popupReward").remove();
 						$(".reward").css("pointer-events", "auto");
 					})
