@@ -24,13 +24,14 @@ class HomeTeacherView{
 			</head>
 			<body>
 			".Commons::teacherHeader()."
-
+			<div class='wrapper'>
 			<div class='console'>
 					<div id='console_group'></div>
 				<div class='console_group_crear'><a href=''>CREAR NUEVO GRUPO</a></div>	
 			</div>
-			".Commons::footer()."
+			</div>
 
+			".Commons::footer()."
 			</body>
 			</html>
 		";

@@ -15,33 +15,28 @@ $(document).ready(function(){
                 resultArray = JSON.parse(result);
                 console.log(resultArray);
 
-                // resultArray.forEach(function(element){
-                //     // Podemos acceder a la propiedad como si fuese un objeto de JavaScript o  como si fuese un vector
-                //     //console.log("la asignatura " + element.SubjectName + " del curso " + element.SubjectLevel);
-                //     //console.log("la asignatura  " + element['SubjectName'] + " del curso "  + element['SubjectLevel']);
-                //     var nameSubject = element.SubjectName + " " + element.SubjectLevel + ' ESO ';
+                resultArray.forEach(function(element){
+                    var cardTest= "<span>" + element.DesTestFinal + "</span>"  + element.AsignNameTest + ' ' + element.LevelTest + ' ESO ';
+                    var hrefSubject = '../teacherTests/teacherTests.php?action=getTestsUnits&SIdTestFinal='+ element.IdTestFinal;
 
-                //     //comentamos esto porque vamos a intentarlo hacer x ajax y no pasando parámetros por get
-                //     var hrefSubject = '../teacherTestsUnits/teacherTestsUnits.php?action=getTestsUnits&SubjectLevel='+ element.SubjectLevel +'&SubjectId=' + element.SubjectId;
-
-                //     var linkSubject = document.createElement('a');
-                //     linkSubject.setAttribute('href',hrefSubject);
-                //     linkSubject.setAttribute('class', 'teacherTests-list-subject');
-                //     linkSubject.setAttribute('class', 'card-container');
-                //     linkSubject.setAttribute('id', 'teacherTests' + element.SubjectId);
+                    var linkTest = document.createElement('a');
+                    linkTest.setAttribute('href',hrefSubject);
+                    linkTest.setAttribute('class', 'teacherTests-list');
+                    linkTest.setAttribute('class', 'card-container');
+                    linkTest.setAttribute('id', 'teacherTests' + element.SubjectId);
 
 
-                //     var divSubject = document.createElement('div')
-                //     divSubject.setAttribute('class', 'card-content');
+                var divSubject = document.createElement('div')
+                divSubject.setAttribute('class', 'card-content');
 
-                //     divSubject.innerHTML = nameSubject;
+                divSubject.innerHTML = cardTest;
 
-                //     linkSubject.append(divSubject);
+                linkTest.append(divSubject);
 
-                //     $('#teacherTests-list').append(linkSubject);
+                $('#teacherTests-list').append(linkTest);
 
 
-                //    });
+                });
 
 
 

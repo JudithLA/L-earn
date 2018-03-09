@@ -65,6 +65,7 @@ class TeacherSubjectsUnitsView{
 						</div>
 						<form id='groups-edit-list'>
 						</form>
+						<div id='groups-adv'> </div>
 					</div>
 				</div>
 			</div>

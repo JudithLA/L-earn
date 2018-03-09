@@ -73,15 +73,25 @@ class TeacherSubjectsUnitsModel{
 		return $result;
 	}
 
-	public function modifyGroupsSubjectsQuery ($varSubjectId,$varGroupId){
-			//var_dump($varSubjectId); var_dump($varGroupId); 
+	public function modifyGroupsSubjectsQuery ($checkGroups,$noCheckGroups,$SubjectId, $SubjectLevel){
 			
-			//$insertQuery = "UPDATE REL_CURSO_ASIGN SET ID_GRUPO = {$varGroupId} WHERE ID_ASIGN = {$varSubjectId} AND ";
+			$queryDelete = "DELETE FROM REL_CURSO_ASIGN WHERE ID_ASIGN = {$SubjectId} AND ID_CURSO IN ("
+			. implode(',', $noCheckGroups) .")";
+			
+			foreach ($checkGroups as $group) {
+				var_dump($group);
+				$queryInsert  = 'INSERT INTO REL_CURSO_ASIGN (ID_CURSO, ID_ASIGN) VALUES ('.$group.', '.
+				$SubjectId.')';
+				$resultInsert = $this->mysqli -> modifyQuery($queryInsert);
+			}
+			$resultDelete = $this->mysqli -> modifyQuery($queryDelete);
+			//$resultInsert = $this->mysqli -> modifyQuery($queryInsert);
 
-			// en la siguiente línea, ¿llamamos al método modifyQuery o executeQuery?
-			$result = $this->mysqli -> modifyQuery($insertQuery);
+			var_dump($resultDelete);
+			// var_dump($resultInsert);
 
-			return $result;
+
+			// return $result;
 	}
 
 }

@@ -42,10 +42,21 @@ class TeacherSubjectsUnitsController{
 	}
 
 	public function modifyGroupsSubjects(){
-		// $varSubjectId = $_GET['SubjectId'];
+		//esta fórmula de las siguientes variables se llama Operador Terciario. es una fórmula igual que una estructura de if else. Lo que hacemos es asegurarnos que, aunque reciba un array vacío, devolveremos un contenido vacío
+		$checkGroups = (isset($_POST['checkGroups']))? $_POST['checkGroups'] : [] ;
+		$noCheckGroups = (isset($_POST['noCheckGroups']))? $_POST['noCheckGroups'] : [] ;  
+		$SubjectId = $_POST['SubjectId'];  
+		$SubjectLevel = $_POST['SubjectLevel'];  
 
-		// $model = new TeacherSubjectsUnitsModel();
-		// return $model->modifyGroupsSubjectsQuery($varSubjectId);
+		//trazas de pruebas:
+		// var_dump($checkGroups);
+		// var_dump($noCheckGroups);
+		// var_dump($SubjectId);
+		// var_dump($SubjectLevel);
+
+
+		$model = new TeacherSubjectsUnitsModel();
+		return $model->modifyGroupsSubjectsQuery($checkGroups,$noCheckGroups,$SubjectId,$SubjectLevel);
 
 	}
 }
