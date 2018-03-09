@@ -20,6 +20,7 @@ $(document).ready(function () {
 
 					var linkAsign = document.createElement('a');
 					linkAsign.setAttribute('href', urlAsign);
+					linkAsign.setAttribute("class", "reticule-item");
 
 					var imgAsign = document.createElement('img');
 					imgAsign.setAttribute('alt', 'Imagen del tema');
@@ -36,7 +37,7 @@ $(document).ready(function () {
 					linkAsign.append(nameAsign);
 					linkAsign.append(btnDoTest);
 
-					$('#testAsign').append(linkAsign);
+					$('#reticule').append(linkAsign);
 				});
       		},
 
