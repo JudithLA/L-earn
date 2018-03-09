@@ -127,7 +127,6 @@ Login.fn.selectCurse = function () {
                 $('#paso4').addClass('on');
                 $('.item-curso').click(function(){
                   var curso = $(this).data("curso");
-                  alert(curso);
                   Login.fn.insertCourse(curso);
                 });
 
@@ -178,7 +177,6 @@ Login.fn.insertCourse = function (curso) {
                 $('#paso5').addClass('on');
                 $('.item-curso').click(function(){
                   var letra = $(this).data("letra");
-                  alert(letra);
                   Login.fn.selectAsign(letra);
                 });
 
@@ -227,7 +225,6 @@ Login.fn.selectAsign = function (letra) {
                 $('#paso6').addClass('on');
                 $('.item-asign').click(function(){
                   var asign = $(this).data("asign");
-                  alert(asign);
                   Login.fn.insertAsign(asign);
                 });
 
@@ -278,7 +275,6 @@ Login.fn.insertAsign = function (asign) {
                 $('#paso7').addClass('on');
                 $('.item-asign').click(function(){
                   var asign = $(this).data("asign");
-                  alert(asign);
                   Login.fn.insertAsign(asign);
                 });
 

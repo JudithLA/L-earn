@@ -15,50 +15,49 @@
 		$resultHTML = "
     <!DOCTYPE html>
       <html>
-        <head>
-          <meta charset='utf-8'>
+  <head>
+    <meta charset='utf-8'>
+    <link rel='stylesheet' type='text/css' href='style/styleRegisterTeacher.css'>
+    <script src='js/jquery-3.2.1.min.js'></script>
+    <script src='js/loginProfe.js'></script>
+    <title>Registro | L-Earn</title>
 
-          <title>NUEVO REGISTRO</title>
+    <style>
+      
+      
+    </style>
+  </head>
+  <body>
 
-          <style>
-            #paso1.on { display: block;}
-            #paso1, #paso2 { display: none; }
-            #paso2.on { display: block; height: 100vh; position: relative;}
-            #paso2 .title_section { position: absolute; z-index: 999; top: 10vh; left: 50%; transform: translateX(-50%); text-align: center; font-family: 'Helvetica', sans-serif; font-size: 100px; color: #FFF; }
-            .box_register_type { width: 50%; height: 100vh; display: flex; justify-content: center; align-items: center; cursor: pointer;}
-            .box_register_type p { font-family: 'Helvetica', sans-serif; font-size: 30px; font-weight: bold; color: #FFF;}
-            #box_profe { background-color: rgb(24, 37, 101); }
-            #box_alumno { background-color:rgb(111, 50, 129); }
-          </style>
-        </head>
-        <body>
+    <div id='paso1' class='boxRegister on'>
+      <img src='img/login.png'>
+      <form class='formLogin'>
+        <h1 class='titleBoxLogin'>Register</h1>
+        <input type='text' id='name' name='name' placeholder='name'>
+        <input type='text' id='email' name='email' placeholder='email'>
+        <input type='text' id='password' name='password' placeholder='password'>
 
-          <div id='paso1' class='on'>
-            <form>
-              <input type='text' id='name' name='name' placeholder='name'>
-              <input type='text' id='email' name='email' placeholder='email'>
-              <input type='text' id='password' name='password' placeholder='password'>
-
-              <button id='btn_register' type='button'>Registrarme</button>
-            </form>
-              <div class='msgError'></div>
-          </div>
+        <button class='buttonLogin' id='btn_register' type='button'>Registrarme</button>
+      </form>
+        <div class='msgError linkRegister'></div>
+    </div>
 
 
-          <div id='paso2'>
-            <p class='title_section'>¿Qué eres?</p>
-            <div id='box_profe' class='box_register_type'>
-              <p>Profesor</p>
-            </div>
-            <div id='box_alumno' class='box_register_type'>
-              <p>Alumno</p>
-            </div>
-          </div>
+    <div id='paso2'>
+      <div id='box_profe' class='box_register_type'>
+        <img src='img/teacher.png'>
+        <p class='titleBoxLogin'>Profesor</p>
+      </div>
+      <div id='box_alumno' class='box_register_type'>
+        <img src='img/alumno.png'>
+        <p class='titleBoxLogin'>Alumno</p>
+      </div>
+    </div>
 
-        </body>
-				<script src='js/jquery-3.2.1.min.js'></script>
-				<script src='js/loginProfe.js'></script>
-      </html>
+	</body>
+	<script src='js/jquery-3.2.1.min.js'></script>
+	<script src='js/loginProfe.js'></script>
+</html>
 
 		";
 		return $resultHTML;
@@ -69,12 +68,13 @@
 
 		$resultHTML = "
 			<div id='paso3'>
-			<p class='title_section'>Elige tu centro</p>
+			<img src='img/centro.png'>
+			<p class='title_section titleBoxLogin'>Centro</p>
 			<select id ='centros'>";
 			foreach ($centers as $row) {
 				 $resultHTML.= "<option value='{$row['ID_CENTR']}'>{$row['NOMBRE_CENTR']}</option>";
 			}
-			$resultHTML .=	"</select> <button class='boton'>Siguiente</button> </div>";
+			$resultHTML .=	"</select> <button class='boton buttonLogin'>Siguiente</button> </div>";
 			return $resultHTML;
 	}
 
@@ -83,10 +83,10 @@
 	public function genCurso($centers) {
 		$resultHTML = "
 			<div id='paso4'>
-			<p class='title_section'>Mis alumnos son de:</p>
-			<div class='flexRow flexWrap box-curso'>";
+			<p class='title_section titleBoxLogin'>Mis alumnos son de</p>
+			<div class='flexRow flexWrap box-curso boxWrap'>";
 			foreach ($centers as $row) {
-				 $resultHTML.= "<div class='item-curso' data-curso='{$row['NIVEL_CURSO']}'><p>{$row['NIVEL_CURSO']}º E.S.O.</p></div>";
+				 $resultHTML.= "<div class='item-curso subBoxCurso' data-curso='{$row['NIVEL_CURSO']}'><p>{$row['NIVEL_CURSO']}º E.S.O.</p></div>";
 			}
 			$resultHTML .=	"</div></div>";
 			return $resultHTML;
@@ -98,10 +98,10 @@
 
 		$resultHTML = "
 			<div id='paso5'>
-			<p class='title_section'>Crea tu grupo</p>
-			<div class='flexRow flexWrap box-curso'>";
+			<p class='title_section titleBoxLogin'>Crea tu grupo</p>
+			<div class='flexRow flexWrap box-curso boxWrap'>";
 			foreach ($letra as $row) {
-				 $resultHTML.= "<div class='item-curso' data-letra='{$row['LETRA_CURSO']}'><p>{$row['LETRA_CURSO']}</p></div>";
+				 $resultHTML.= "<div class='item-curso subBoxCurso' data-letra='{$row['LETRA_CURSO']}'><p>{$row['LETRA_CURSO']}</p></div>";
 			}
 			$resultHTML .=	"</div></div>";
 			return $resultHTML;
@@ -112,10 +112,10 @@
 
 		$resultHTML = "
 			<div id='paso6'>
-			<p class='title_section'>Elige tu asignatura</p>
-			<div class='flexRow flexWrap box-asign'>";
+			<p class='title_section titleBoxLogin'>Elige tu asignatura</p>
+			<div class='flexRow flexWrap box-asign boxWrap'>";
 			foreach ($new as $row) {
-				 $resultHTML.= "<div class='item-asign' data-asign='{$row['ID_ASIGN']}'><p>{$row['NOMBRE_ASIGN']}</p></div>";
+				 $resultHTML.= "<div class='item-asign subBoxCurso' data-asign='{$row['ID_ASIGN']}'><p>{$row['NOMBRE_ASIGN']}</p></div>";
 			}
 			$resultHTML .=	"</div></div>";
 			return $resultHTML;
@@ -128,16 +128,17 @@
 
 		$resultHTML = "
 			<div id='paso7'>
-			<p class='title_section'>ENHORABUENA</p>
-			<div class='flexRow flexWrap box-asign'>";
+			<img src='img/enhorabuena.png'>";
 			foreach ($data_profe as $row) {
-				 $resultHTML.= "<div class='item-asign'>{$row['NOMBRE_PROFE']}</div>";
-			}
+				 $resultHTML.= "<div class='item-asign titleBoxLogin'>¡Enhorabuena!<br>{$row['NOMBRE_PROFE']}</div>";
+			};
+			$resultHTML.= "<div class='flexRow flexWrap box-asign flexColumnEnhorabuena'> <div class='item-asign subTitleEnhorabuena'>Has creado</div>";
+			
 			foreach ($data_asign as $row) {
-				 $resultHTML.= "<div class='item-asign'>ACABAS DE CREAR {$row['NOMBRE_ASIGN']}</div>";
+				 $resultHTML.= "<div class='subBoxCurso'>{$row['NOMBRE_ASIGN']}<br>";
 			}
 			foreach ($data_curso as $row) {
-				 $resultHTML.= "<div><p>{$row['NIVEL_CURSO']}</p><br> <p>{$row['GRADO_CURSO']}</p><br> <p>{$row['LETRA_CURSO']}</p></div>";
+				 $resultHTML.= "{$row['NIVEL_CURSO']}º {$row['GRADO_CURSO']} {$row['LETRA_CURSO']}</div>";
 			}
 			$resultHTML .=	"</div></div>";
 			return $resultHTML;

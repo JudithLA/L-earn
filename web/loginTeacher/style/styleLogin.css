@@ -1,0 +1,82 @@
+* { margin: 0; padding: 0; border: 0; box-sizing: border-box; font-family: Avenir, Helvetica, Arial, sans-serif;}
+
+.content:after, .content:before, .content:after, .content:before {content: ''; display: block; clear: both;}
+.content {width: 100%; margin: 0 auto; max-width: 960px;}
+.center {margin: 0 auto;}
+.l {float: left;}
+.r {float: right;}
+
+.col1 {width: 8.333%;}
+.col2 {width: 16.666%;}
+.col3 {width: 25%;}
+.col4 {width: 33.333%;}
+.col5 {width: 41.666%;}
+.col6 {width: 50%;}
+.col7 {width: 58.333%;}
+.col8 {width: 66.666%;}
+.col9 {width: 75%;}
+.col10 {width: 83.333%;}
+.col11 {width: 91.666%;}
+.col12 {width: 100%;}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.boxLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 70vh;
+}
+.imgLogin {
+    width: 300px;
+}
+
+.titleBoxLogin {
+    font-size: 32px;
+    font-weight: bold;
+    color: #433576;
+    margin-bottom: 45px;
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formLogin input {
+    width: 260px;
+    padding: 12px 8px;
+    border: 0;
+    border-bottom: 1px solid #433576;
+    margin-bottom: 45px;
+    font-size: 16px;
+}
+
+.buttonLogin {
+    width: 166px;
+    text-align: center;
+    padding: 12px 0;
+    background-color: #433576;
+    color: #FFF;
+    margin-bottom: 38px;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 25px;
+    cursor: pointer;
+    min-height: 45px;
+}
+
+.linkRegister {
+    color: #433576;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+}

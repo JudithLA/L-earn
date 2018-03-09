@@ -17,20 +17,23 @@
 <html>
   <head>
     <meta charset='utf-8'>
+    <link rel='stylesheet' type='text/css' href='style/styleLogin.css'>
     <script src='js/jquery-3.2.1.min.js'></script>
     <script src='js/login.js'></script>
     <title>Bienvenido a L-Earn</title>
   </head>
   <body>
 
-    <div>
-      <form>
+    <div class='boxLogin'>
+      <img src='img/login.png'>
+      <form class='formLogin'>
+        <h1 class='titleBoxLogin'>Login</h1>
         <input type='text' id='email' name='email' placeholder='email'>
         <input type='text' id='password' name='password' placeholder='password'>
 
-        <button id='btn_login' type='button'>Iniciar Sesión</button>
+        <button id='btn_login' class='buttonLogin' type='button'>Iniciar Sesión</button>
       </form>
-        <div class='msgError'></div>
+        <div class='msgError linkRegister'></div>
     </div>
 
   </body>

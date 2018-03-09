@@ -17,7 +17,8 @@
     <html>
       <head>
         <meta charset='utf-8'>
-        <title></title>
+		<title>Crea tu test | L-Earn</title>
+		<link rel='stylesheet' type='text/css' href='style/styleTestTeacher.css'>
         <script type='text/javascript' src='js/jquery-3.2.1.min.js'></script>
         <script type='text/javascript' src='js/main.js'></script>
 
@@ -26,10 +27,10 @@
       <body>
 
         <div id='paso1' class='on'>
-          <p>BIENVENIDO AL TEST DE L-EARN</p>
+          <p class='titleBoxLogin'>BIENVENIDO AL TEST DE L-EARN</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <a href='#' id='btn-preview'>Volver atrás</a>
-          <a href='#' id='btn-next' class='welcome-test'>Siguiente</a>
+          <a href='#' class='buttonLogin' id='btn-preview'>Volver atrás</a>
+          <a href='#' class='buttonLogin' id='btn-next' class='welcome-test'>Siguiente</a>
         </div>
 
       </body>
@@ -46,10 +47,10 @@
 
 		$resultHTML = "
 			<div id='paso2'>
-			<p class='title_section'>Elige una asignatura</p>
-			<div class ='asignaturas'>";
+			<p class='title_section titleBoxLogin'>Elige una asignatura</p>
+			<div class ='asignaturas boxWrap'>";
 			foreach ($asign as $row) {
-				 $resultHTML.= "<div data-id='{$row['ID_ASIGN']}' data-nivel='{$row['NIVEL_CURSO']}' class='asign'>{$row['NOMBRE_ASIGN']} <br> {$row['NIVEL_CURSO']}</div>";
+				 $resultHTML.= "<div data-id='{$row['ID_ASIGN']}' data-nivel='{$row['NIVEL_CURSO']}' class='asign subBoxCurso'><p class='asignBig'> {$row['NIVEL_CURSO']}º</p>{$row['NOMBRE_ASIGN']}</div>";
 			}
 			$resultHTML .= "</div>";
 			$resultHTML .= "</div>";
@@ -61,7 +62,7 @@
 	public function testPasoDosView($temas) {
 		$resultHTML = "
 			<div id='paso3'>
-			<p class='title_section'>Elige un tema de tu asignatura</p>
+			<p class='title_section titleBoxLogin'>Elige un tema de tu asignatura</p>
 			<select class ='asignaturas'>";
 			foreach ($temas as $row) {
 				 $resultHTML.= "<option data-id='{$row['ID_TEMAS']}' class='asign' data-trimestre='{$row['TRIMESTRE_TEMAS']}'>{$row['NOMBRE_TEMAS']}</option>";
@@ -76,9 +77,16 @@
 	public function testPasoTresView() {
 		$resultHTML = "
 			<div id='paso4'>
-					<form class='type-text'>
-							<input type='radio' name='type-test' class='item-test' value='Entrenamiento'>
-							<input type='radio' name='type-test' class='item-test' value='Final'>
+					<form class='type-text formLogin'>
+							<div class='tipoTestTeacher'>
+								<span class='subBoxCurso'>
+									Entrenamiento<input type='radio' name='type-test' class='item-test' value='Entrenamiento'>
+								</span>
+								<span class='subBoxCurso'>
+									Final<input type='radio' name='type-test' class='item-test' value='Final'>
+								</span>
+							</div>					
+
 
 							Ponle un título a tu test:
 							<input type='text' name='nameTest'>

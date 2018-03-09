@@ -1,0 +1,254 @@
+* { margin: 0; padding: 0; border: 0; box-sizing: border-box; font-family: Avenir, Helvetica, Arial, sans-serif;}
+a { text-decoration: none;}
+
+.content:after, .content:before, .content:after, .content:before {content: ''; display: block; clear: both;}
+.content {width: 100%; margin: 0 auto; max-width: 960px;}
+.center {margin: 0 auto;}
+.l {float: left;}
+.r {float: right;}
+
+.col1 {width: 8.333%;}
+.col2 {width: 16.666%;}
+.col3 {width: 25%;}
+.col4 {width: 33.333%;}
+.col5 {width: 41.666%;}
+.col6 {width: 50%;}
+.col7 {width: 58.333%;}
+.col8 {width: 66.666%;}
+.col9 {width: 75%;}
+.col10 {width: 83.333%;}
+.col11 {width: 91.666%;}
+.col12 {width: 100%;}
+
+
+#paso1.on, #paso3.on, #paso7.on { display: flex;}
+#paso4.on, #paso5.on, #paso6.on { display: flex; }
+#paso1, #paso2, #paso3, #paso4, #paso5, #paso6, #paso7 { display: none; }
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.boxRegister {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 80vh;
+}
+.imgLogin {
+    width: 300px;
+}
+
+.titleBoxLogin {
+    font-size: 32px;
+    font-weight: 900;
+    color: #433576;
+    margin-bottom: 45px;
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formLogin input {
+    width: 260px;
+    padding: 12px 8px;
+    border: 0;
+    border-bottom: 1px solid #433576;
+    margin-bottom: 45px;
+    font-size: 16px;
+}
+
+.buttonLogin {
+    width: 166px;
+    text-align: center;
+    padding: 12px 0;
+    background-color: #433576;
+    color: #FFF;
+    margin-bottom: 38px;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 25px;
+    cursor: pointer;
+    min-height: 45px;
+}
+
+.buttonLogin:hover {
+    background-color: #837BC6;
+}
+
+.linkRegister {
+    color: #433576;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#paso1.on{
+    width: 70%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+#paso2.on{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#paso2.on img {
+    margin-bottom: 80px; 
+}
+
+#paso2 .subBoxCurso {
+    background-color: #433576;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    height: 200px;
+}
+
+#paso2 .asignBig {
+    background-color: #433576;
+    display: flex;
+    flex-direction: column;
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.box_register_type {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#box_profe {
+    background-color: #F8F8F9;
+    color: #433576;
+}
+#box_alumno {
+    background-color: #FCFCFD;
+    color: #433576;
+}
+
+#paso3.on {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#paso3 select {
+    width: 260px;
+    padding: 12px 8px;
+    border: 0;
+    height: 45px;
+    margin-bottom: 45px;
+    font-size: 16px;
+}
+
+#paso4.on, #paso5.on {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#paso6.on,
+#paso7.on {
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxWrap {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.subBoxCurso {
+    width: 260px;
+    height: 260px;
+    padding: 20px;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #433576;
+    color: #FFF;
+    font-size: 30px;
+    font-weight: 900;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.subBoxCurso:hover{
+    background-color: #837BC6;
+}
+#paso7 img {
+    margin-bottom: 30px;
+}
+#paso7.on .titleBoxLogin{
+    color: #FAC461;
+    text-align: center;
+}
+
+.flexColumnEnhorabuena {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subTitleEnhorabuena {
+    font-weight: 700;
+    font-size: 20px;
+    color: #4086FF;
+}
+#paso7 .subBoxCurso {
+    background-color: #355FD7;
+    display: flex;
+    flex-direction: column;
+    font-size: 26px;
+    height: 200px;
+}
+
+#paso4.on .subBoxCurso {
+        width: 360px;
+        height: 100px;
+        padding: 20px;
+        margin: 30px;
+        display: flex;
+        justify-content: space-between;
+}
+
+.tipoTestTeacher {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
