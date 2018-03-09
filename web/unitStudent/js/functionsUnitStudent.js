@@ -46,7 +46,7 @@ $(document).ready(function () {
 					var linkUnit = document.createElement("a");
 					linkUnit.setAttribute("href", "../testStudent/testStudent.php?UnitId=" + elem.IdTema);
 					linkUnit.setAttribute("id", "unit" + elem.IdTema);
-					linkUnit.setAttribute("class", "unit trim" + elem.TrimTema);
+					linkUnit.setAttribute("class", "reticule-item trim" + elem.TrimTema);
 
 					var imgUnit = document.createElement("img");
 					imgUnit.setAttribute("alt", "Imagen del tema");

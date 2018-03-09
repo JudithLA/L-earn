@@ -75,6 +75,25 @@ nav ul li a:hover {
 
 /* BODY */
 
+#breadcrumb {
+    margin-bottom: 30px;
+}
+
+#breadcrumb a {
+    color: #000000;
+	display: inline-block;
+}
+
+#breadcrumb a:hover::after {
+	content: "";
+    display: block;
+    height: 1px;
+    border-radius: 4px;
+    background: #000000;
+    position: relative;
+    top: 1px;
+}
+
 h2 {
 	margin-bottom: 30px;
 }
@@ -130,12 +149,12 @@ button:hover {
     justify-content: space-between;
 }
 
-.reticule-item img {
+.reticule-item img, .reticule-item div {
     width: 250px;
 }
 
 a.reticule-item:hover {
-    background-color: #e6e6e6;
+    background-color: #E6E6E6;
 }
 
 /* FOOTER */

@@ -67,7 +67,7 @@ $(document).ready(function () {
 				resultArray.forEach(function(elem){
 					var linkTest = document.createElement("a");
 					linkTest.setAttribute("href", "../doTestExpStudent/doTestExpStudent.php?TestExpId=" + elem.IdEntre);
-					linkTest.setAttribute("class", "test testEntre");
+					linkTest.setAttribute("class", "reticule-item testEntre");
 
 					var nameTest = document.createElement("div");
 					nameTest.innerHTML = elem.NombreEntre;
@@ -106,7 +106,7 @@ $(document).ready(function () {
 
                 var linkTest = document.createElement("a");
                 linkTest.setAttribute("href", "../doTestFinStudent/doTestFinStudent.php?TestFinId=" + resultArray.IdFinal);
-                linkTest.setAttribute("class", "test testFinal");
+                linkTest.setAttribute("class", "reticule-item testFinal");
 
                 var nameTest = document.createElement("div");
                 nameTest.innerHTML = resultArray.NombreFinal;
