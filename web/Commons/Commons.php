@@ -3,7 +3,7 @@ class  Commons{
 
 	public static function footer(){
 		$footerHTML = "
-		<footer class= 'l col12'>
+		<footer >
 			<div class='content'>
 				<div>
 					<h4>Contacto</h4>
