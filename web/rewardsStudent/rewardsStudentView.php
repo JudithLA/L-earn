@@ -23,12 +23,10 @@
 					</head>
 					<body>
 						" . Commons::headerStudent() . "
-						<div class='content'>
-							<div>
-								<h2>Consigue tu premio</h2>
-								<div id='reticule'>
+						<div id='content-wrapper' class='content'>
+							<h2>Consigue tu premio</h2>
+							<div id='reticule'>
 
-								</div>
 							</div>
 						</div>
 						" . Commons::footer() . "

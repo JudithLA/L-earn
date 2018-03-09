@@ -8,7 +8,7 @@ a {text-decoration: none;}
 /* NAV */
 
 header {
-	padding: 2.5% 0 2% 0;
+	padding: 1.5% 0 1% 0;
 	background-color: #433576;
 	color: #FFFFFF;
 	margin-bottom: 3%;
@@ -69,8 +69,12 @@ nav ul li a:hover {
 }
 
 #user img {
-	width: 44px;
+	width: 50px;
 	margin-left: 10px;
+}
+
+#user img.mask-circle {
+	clip-path: circle(25px at center);
 }
 
 /* BODY */
@@ -130,14 +134,14 @@ button:hover {
     flex-direction: row;
 	flex-wrap: wrap;
 	margin-bottom: 300px;
-	min-height: 400px;
+	height: 960px;
 }
 #reticule a {
 	margin-right: 5px;
 	color: #000000;
 }
 .reticule-item {
-	height: 45vh;
+	height: 420px;
     background-color: #F8F8F9;
     border-radius: 10px;
     margin: 1%;
