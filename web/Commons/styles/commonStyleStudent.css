@@ -71,9 +71,6 @@ nav ul li a:hover {
 #user img {
 	width: 50px;
 	margin-left: 10px;
-}
-
-#user img.mask-circle {
 	clip-path: circle(25px at center);
 }
 

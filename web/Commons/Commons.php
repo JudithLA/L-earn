@@ -70,7 +70,7 @@ class  Commons{
 						<span id='headPoints'>" . $_SESSION['finPoints'] . "</span><span id='headPoints-type'> PTOS.</span>
 						<span id='headPercent'>" . $_SESSION['percentage'] . "</span><span id='headPercent-type'> % EXP.</span>
 						<span>" . $_SESSION['nameStu'] . $_SESSION['surnameStu'] . "</span>
-						<img src='" . $_SESSION['imgStu'] . "' alt='Imagen del usuario' class='mask-circle'>
+						<img src='" . $_SESSION['imgStu'] . "' alt='Imagen del usuario'>
 					</div>
 				</div>
 			</div>
