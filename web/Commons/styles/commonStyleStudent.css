@@ -145,7 +145,6 @@ button:hover {
     flex-direction: row;
 	flex-wrap: wrap;
 	margin-bottom: 300px;
-	height: 960px;
 }
 #reticule a {
 	margin-right: 5px;
