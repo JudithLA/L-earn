@@ -21,6 +21,18 @@ function getDate() {
 	return [year, month, day].join("-");
 }
 
+function incrementCounterPoints(idElement, previousValue, newValue) {
+	$("#"+idElement).prop('Counter', previousValue).animate({
+		Counter: newValue
+	},{
+		duration: 1000,
+		easing: 'swing',
+		step: function (now) {
+			$(this).text(Math.ceil(now));
+		}
+	});
+}
+
 $(document).ready(function () {
     var globals = {};
     globals.questions = [];
@@ -257,7 +269,7 @@ $(document).ready(function () {
 
 		function updateFinalPoints() {
 			var expPoints = Math.floor(globals.points/10);
-			
+
 			var data = {
 	            action: "getUpdatedFinalPoints",
 				points: expPoints
@@ -269,16 +281,7 @@ $(document).ready(function () {
 	            success: function (result) {
 	                pointsUpdate = JSON.parse(result);
 					var previousValue = $("#headPoints").text();
-
-					$("#headPoints").prop('Counter', previousValue).animate({
-						Counter: pointsUpdate
-					},{
-						duration: 1000,
-						easing: 'swing',
-						step: function (now) {
-							$(this).text(Math.ceil(now));
-						}
-					});
+					incrementCounterPoints("headPoints", previousValue, pointsUpdate);
 	            },
 	            error: function (jqXHR, textStatus, errorThrown) {
 	                alert(jqXHR.status);
@@ -308,7 +311,7 @@ $(document).ready(function () {
 				infoResult.setAttribute("id", "infoResult");
 				infoResult.innerHTML = " puntos de experiencia";
 
-				var resultPoints = document.createElement("sapn");
+				var resultPoints = document.createElement("span");
 				resultPoints.setAttribute("id", "resultPoints");
 				infoResult.prepend(resultPoints);
 
@@ -316,7 +319,7 @@ $(document).ready(function () {
 				$("#test-do").append(infoResult);
 
 				var pointsExp = Math.floor(globals.points/10);
-				$("#resultPoints").text(pointsExp);
+				incrementCounterPoints("resultPoints", 0, pointsExp);
 
 				var backHomeWrapper = document.createElement("div");
 				backHomeWrapper.setAttribute("id", "btnBackHome-Wrapper");
