@@ -255,6 +255,40 @@ $(document).ready(function () {
 	        });
 		}
 
+		function updateFinalPoints() {
+			var expPoints = Math.floor(globals.points/10);
+			
+			var data = {
+	            action: "getUpdatedFinalPoints",
+				points: expPoints
+	        };
+	        $.ajax({
+	            url: url,
+	            data: data,
+	            method: "GET",
+	            success: function (result) {
+	                pointsUpdate = JSON.parse(result);
+					var previousValue = $("#headPoints").text();
+
+					$("#headPoints").prop('Counter', previousValue).animate({
+						Counter: pointsUpdate
+					},{
+						duration: 1000,
+						easing: 'swing',
+						step: function (now) {
+							$(this).text(Math.ceil(now));
+						}
+					});
+	            },
+	            error: function (jqXHR, textStatus, errorThrown) {
+	                alert(jqXHR.status);
+	                alert(textStatus);
+	                alert(errorThrown);
+	            }
+
+	        });
+		}
+
         $("#btnContinueTest").on("click", function() {
 			globals.currentQuestionIndex ++;
 			$("#test-do").empty();
@@ -299,6 +333,7 @@ $(document).ready(function () {
 				});
 
 				sendResultTest();
+				updateFinalPoints();
 			}else {
 				loadQuestion(globals.currentQuestionIndex);
 				loadResponses();

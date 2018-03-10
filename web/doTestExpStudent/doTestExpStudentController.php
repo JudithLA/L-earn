@@ -39,7 +39,14 @@
 			$expPoints = $_GET["points"];
 
 			$model = new DoTestExpStudentModel();
-			return $model->insertResultTest($date, $IdTestExp, $expPoints);
+			return $model->insertResultTestExp($date, $IdTestExp, $expPoints);
+		}
+
+		public function getUpdatedFinalPoints(){
+			$expPoints = $_GET["points"];
+
+			$model = new DoTestExpStudentModel();
+			return $model->updateFinalPoints($expPoints);
 		}
 
 	}

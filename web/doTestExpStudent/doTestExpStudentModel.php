@@ -38,7 +38,7 @@
 			return $result;
 		}
 
-		public function insertResultTest($date, $IdTestExp, $expPoints){
+		public function insertResultTestExp($date, $IdTestExp, $expPoints){
 			$_SESSION['id'] = 1;
 
 			$consult = "INSERT INTO REL_ALUMN_ENTRE (FECHA_REL_ALUMN_ENTRE, ID_ALUMN, ID_ENTRE) VALUES
@@ -58,6 +58,19 @@
 			return $_SESSION['percentage'];
 
 		}
+
+		public function updateFinalPoints($expPoints){
+			$_SESSION['id'] = 1;
+
+			$consult  = "UPDATE ALUMN SET PUNTOS_ALUMN = PUNTOS_ALUMN + {$expPoints} WHERE ID_ALUMN = '{$_SESSION["id"]}'";
+			$result = $this->mysqli -> modifyQuery($consult);
+			$_SESSION['finPoints'] += $expPoints;
+
+			return $_SESSION['finPoints'];
+
+		}
+
+
 	}
 
  ?>
